@@ -25,8 +25,6 @@ class ui {
         
         ui.keycodes["NumpadAdd"] = "MIC.ON";
       }
-
-      this.mic = new client_audio(this.cc);
     
       document.addEventListener('keydown',OnKeyDownHandler);
       document.addEventListener('keydown',OnKeyUpHandler);
@@ -35,17 +33,25 @@ class ui {
   OnKeyDownHandler(event){
     if("code" in event && event.code in ui.keycodes){
       if(event.code in ui.keycodes){ 
-        this.cc.Send(ui.keycodes[event.code]);
+        this.HandleKeyDown(ui.keycodes[event.code]);
       }
-      else if(event.code == "NumpadAdd"){
-        this.mic.start();
+    }
+  }
+
+  HandleKeyDown(code){
+
+  }
+  
+  OnKeyUpHandler(event){
+    if("code" in event && event.code in ui.keycodes){
+      if(event.code in ui.keycodes){ 
+        this.HandleKeyUp(ui.keycodes[event.code]);
       }
     }
   }
   
-  OnKeyUpHandler(event){
-    if(event.code == "NumpadAdd"){
-      this.mic.stop();
-    }
+  HandleKeyUp(code){
+
   }
+  
 }
