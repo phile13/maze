@@ -9,7 +9,7 @@ class server_controller{
     console.log("Listening");
   }
   
-  Send(obj){
+  SendText(obj){
     this.ws.send(JSON.stringify(obj));
   }
 
@@ -26,7 +26,7 @@ class server_controller{
         try{
           let msg = JSON.parse(event.data);
           if("id" in msg && "action" in msg){
-            
+            this.SendText(event.data);
           }
         }
         catch(e){
