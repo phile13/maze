@@ -1,4 +1,4 @@
-class client_controller{  
+class client_controller extends ui {  
   constructor(type){
     this.id = -1;
     this.type = type;
