@@ -11,14 +11,6 @@ class client_controller{
     this.Send("NEW" + this.ui.type);
   }
 
-  Send(action){
-    this.ws.send(`{"id":${this.id},"action":"${action}"}`);
-  }
-
-  SendBinary(blob){
-    this.ws.send(blob);
-  }
-
   SendText(obj){
     console.log("SendText");
     this.ws.send(JSON.stringify(obj));
@@ -33,18 +25,24 @@ class client_controller{
     console.log("Receive");
     if(event.data){
       if(event.data instanceof Blob){
-        this.SendBinary(event.data);
+        this.HandleBlobMessage(event.data);
       }
       else{
         try{
           let msg = JSON.parse(event.data);
-          if("id" in msg && "action" in msg){
-            this.SendText(event.data);
-          }
+          this.HandleTextMessage(msg);
         }
         catch(e){
         }
       }
     }
+  }
+
+  HandleTextMessage(text){
+    
+  }
+  
+  HandleBlobMessage(blob){
+    
   }
 }
