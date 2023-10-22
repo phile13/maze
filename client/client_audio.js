@@ -1,6 +1,6 @@
 class client_audio extends client_controller {
-  constructor(){
-    super(32123);
+  constructor(type){
+    super(type);
     this.mime_type = null;
     this.mediaRecorder = null;
     this.stream_being_captured = null;
