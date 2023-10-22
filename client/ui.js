@@ -1,8 +1,9 @@
 class ui {
   static keycodes = null;
   
-  constructor(type, board_element_id){
-      
+  constructor(type){
+      this.type = type;
+    
       if(ui.keycodes == null){
         ui.keycodes = {};
       
@@ -20,13 +21,11 @@ class ui {
         ui.keycodes["KeyW"] = "AIM.U";
         ui.keycodes["KeyX"] = "AIM.D";
 
-        
         ui.keycodes["Space"] = "AIM.FIRE";
+        
+        ui.keycodes["NumpadAdd"] = "MIC.ON";
       }
 
-      this.type = type;
-      this.board = new client_board(board_element_id);
-      this.cc = new client_controller(this); 
       this.mic = new client_audio(this.cc);
     
       document.addEventListener('keydown',OnKeyDownHandler);
