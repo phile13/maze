@@ -8,31 +8,30 @@ class server_controller{
   Open(){
     console.log("Listening");
   }
-
-  SendFirstContactMessage(id,board,pieces){
-    this.Send({type : "_FIRST_CONTACT_", new_id : id, board : board, pieces : pieces});
-  }
-
-  SendBoardUpdateMessage(id,board,pieces){
-    this.Send({type : "_BOARD_UPDATE_", board : board});
-  }
-
-  SendPiecesUpdateMessage(id,board,pieces){
-    this.Send({type : "_PIECES_UPDATE_", pieces : pieces});
-  }
-
+  
   Send(obj){
     this.ws.send(JSON.stringify(obj));
   }
 
+  SendBinary(obj){
+    this.ws.send(obj);
+  }
+
   Receive(event){
-    try{
-      let msg = JSON.parse(event.data);
-      if("id" in msg && "action" in msg){
-        this.board.Update(msg.id, msg.action);
+    if(event.data){
+      if(event.data instanceof Blob){
+        this.SendBinary(event.data);
       }
-    }
-    catch(e){
+      else{
+        try{
+          let msg = JSON.parse(event.data);
+          if("id" in msg && "action" in msg){
+            
+          }
+        }
+        catch(e){
+        }
+      }
     }
   }
 }
