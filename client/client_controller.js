@@ -19,14 +19,32 @@ class client_controller{
     this.ws.send(blob);
   }
 
+  SendText(obj){
+    console.log("SendText");
+    this.ws.send(JSON.stringify(obj));
+  }
+
+  SendBinary(obj){
+    console.log("SendBinary");
+    this.ws.send(obj);
+  }
+
   Receive(event){
-    try{
-      let msg = JSON.parse(event.data);
-      if("type" in msg and msg.type == "_GAME_UPDATE_"){
-        this.ui.board.Update(msg);
+    console.log("Receive");
+    if(event.data){
+      if(event.data instanceof Blob){
+        this.SendBinary(event.data);
       }
-    }
-    catch(e){
+      else{
+        try{
+          let msg = JSON.parse(event.data);
+          if("id" in msg && "action" in msg){
+            this.SendText(event.data);
+          }
+        }
+        catch(e){
+        }
+      }
     }
   }
 }
