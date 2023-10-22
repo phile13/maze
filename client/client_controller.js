@@ -1,6 +1,7 @@
 class client_controller{  
-  constructor(){
+  constructor(type){
     this.id = -1;
+    this.type = type;
     this.port = 32123;
     this.ws = new WebSocket(`ws://74.208.107.245:${port}`);
     ws.addEventListener("open", this.Open);
@@ -8,7 +9,7 @@ class client_controller{
   }
 
   Open(){
-    this.Send("NEW" + this.ui.type);
+    this.Send("NEW" + this.type);
   }
 
   SendText(obj){
