@@ -5,11 +5,26 @@ class client_controller{
     this.port = 32123;
     this.ws = new WebSocket(`ws://74.208.107.245:${port}`);
     ws.addEventListener("open", this.Open);
-    ws.addEventListener("message", this.Receive);
+    ws.addEventListener("message", this.FirstReceive, true);
   }
 
   Open(){
     this.Send("NEW:" + this.type);
+  }
+
+  FirstReceive(event){
+    console.log("FirstReceive");
+    if(event.data){
+      try{
+        let msg = JSON.parse(event.data);
+        if("id" in msg){
+          this.id = msg;
+          ws.addEventListener("message", this.Receive);
+        }
+      }
+      catch(e){
+      }
+    }
   }
 
   SendText(obj){
