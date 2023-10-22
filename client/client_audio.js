@@ -20,6 +20,18 @@ class client_audio extends client_controller {
   HandleBlobMessage(blob){
     
   }
+
+  HandleKeyDown(code){
+    if(code == "MIC"){
+      this.Start();
+    }
+  }
+  
+  HandleKeyUp(code){
+    if(code == "MIC"){
+      this.Stop();
+    }
+  }
   
   Start(){
     if(this.ready){
