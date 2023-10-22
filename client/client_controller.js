@@ -9,7 +9,7 @@ class client_controller{
   }
 
   Open(){
-    this.Send("NEW" + this.type);
+    this.Send("NEW:" + this.type);
   }
 
   SendText(obj){
