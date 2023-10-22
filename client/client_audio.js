@@ -13,22 +13,22 @@ class client_audio extends client_controller {
     }
   }
 
-  handle_new_text_message(text){
+  HandleTextMessage(text){
     
   }
   
-  handle_new_blob_message(blob){
+  HandleBlobMessage(blob){
     
   }
   
-  start(){
+  Start(){
     if(this.ready){
-      this.stop();
+      this.Stop();
       navigator.mediaDevices.getUserMedia({ audio: true })
           .then(stream => {
             this.stream_being_captured = stream;
             this.media_recorder = new MediaRecorder(this.stream_being_captured, { 'mimeType' : 'audio/webm' });
-            this.media_recorder.addEventListener("dataavailable", this.handle_recorded_data);
+            this.media_recorder.addEventListener("dataavailable", this.HandleRecordingData);
             this.mime_type = this.media_recorder.mimeType;
             
             this.media_recorder.start(50);
@@ -39,11 +39,11 @@ class client_audio extends client_controller {
       }
   }
 
-  handle_recorded_data(evt){
+  HandleRecordingData(evt){
     this.SendBinary(new Blob(evt.data, { 'type' : 'audio/webm' }));
   }
   
- stop(){
+ Stop(){
    if(this.ready){
       if(this.media_recorder){
         this.media_recorder.stop();
