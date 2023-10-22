@@ -10,14 +10,17 @@ class server_controller{
   }
   
   SendText(obj){
+    console.log("SendText");
     this.ws.send(JSON.stringify(obj));
   }
 
   SendBinary(obj){
+    console.log("SendBinary");
     this.ws.send(obj);
   }
 
   Receive(event){
+    console.log("Receive");
     if(event.data){
       if(event.data instanceof Blob){
         this.SendBinary(event.data);
