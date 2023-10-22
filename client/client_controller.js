@@ -1,7 +1,7 @@
 class client_controller extends ui {  
   constructor(type){
+    super(type);
     this.id = -1;
-    this.type = type;
     this.port = 32123;
     this.ws = new WebSocket(`ws://74.208.107.245:${port}`);
     ws.addEventListener("open", this.Open);
