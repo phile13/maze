@@ -1,6 +1,6 @@
-class client_audio {
-  constructor(socket){
-    this.socket = socket;
+class client_audio extends client_controller {
+  constructor(){
+    super(32323);
     this.mime_type = null;
     this.mediaRecorder = null;
     this.stream_being_captured = null;
@@ -12,6 +12,14 @@ class client_audio {
       this.ready = true;
     }
   }
+
+  handle_new_text_message(text){
+    
+  }
+  
+  handle_new_blob_message(blob){
+    
+  }
   
   start(){
     if(this.ready){
@@ -20,7 +28,7 @@ class client_audio {
           .then(stream => {
             this.stream_being_captured = stream;
             this.media_recorder = new MediaRecorder(this.stream_being_captured, { 'mimeType' : 'audio/webm' });
-            this.media_recorder.addEventListener("dataavailable", this.recording_handler);
+            this.media_recorder.addEventListener("dataavailable", this.handle_recorded_data);
             this.mime_type = this.media_recorder.mimeType;
             
             this.media_recorder.start(50);
@@ -31,8 +39,8 @@ class client_audio {
       }
   }
 
-  recording_handler(evt){
-    this.socket.SendBinary(new Blob(evt.data, { 'type' : 'audio/webm' }));
+  handle_recorded_data(evt){
+    this.SendBinary(new Blob(evt.data, { 'type' : 'audio/webm' }));
   }
   
  stop(){
