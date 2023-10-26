@@ -1,6 +1,7 @@
-class client_audio extends client_controller {
-  constructor(type){
+class walkie_talkie extends thing {
+  constructor(){
     super(type);
+    this.type = "walkie_talkie";
     this.mime_type = null;
     this.mediaRecorder = null;
     this.stream_being_captured = null;
