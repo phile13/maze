@@ -2,8 +2,8 @@ class server_controller{
   constructor(){
     const WebSocket = require('ws');
     this.ws = new WebSocket.Server({port: 32123});
-    this.ws.addEventListener("open", this.Open);
-    this.ws.addEventListener("message", this.Receive);
+    this.ws.on("open", this.Open);
+    this.ws.on("message", this.Receive);
   }
 
   Open(){
