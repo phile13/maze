@@ -1,6 +1,7 @@
 class thing {  
   constructor(){
     this.type = "thing";
+    this.keycodes = {};
     this.id = -1;
     this.port = 32123;
     this.ws = new WebSocket(`ws://74.208.107.245:${port}`);
@@ -62,5 +63,29 @@ class thing {
   
   HandleBlobMessage(blob){
     
+  }
+
+  HandleKeyDown(code){
+
+  }
+
+  HandleKeyUp(code){
+
+  }
+
+  OnKeyDownHandler(event){
+    if("code" in event && event.code in this.keycodes){
+      if(event.code in this.keycodes){ 
+        this.HandleKeyDown(this.keycodes[event.code]);
+      }
+    }
+  }
+  
+  OnKeyUpHandler(event){
+    if("code" in event && event.code in this.keycodes){
+      if(event.code in this.keycodes){ 
+        this.HandleKeyUp(this.keycodes[event.code]);
+      }
+    }
   }
 }
