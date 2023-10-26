@@ -5,9 +5,15 @@ class server_controller{
     this.ws.on("open", (evt) => {this.Open(evt)});
     this.ws.on("message", (evt) => {this.Receive(evt)});
     this.ws.on("connection", (evt) => {this.Connection(evt)});
+    this.clients = {};
+    this.next_client_id = 0;
     console.log("Leaving Constructor");
   }
 
+  NextId(){
+    return this.next_client_id++;
+  }
+  
   Open(){
     console.log("Listening");
   }
