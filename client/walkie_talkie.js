@@ -1,6 +1,6 @@
 class walkie_talkie extends thing {
   constructor(){
-    super(type);
+    super();
     this.type = "walkie_talkie";
     this.keycodes["NumpadAdd"] = "MIC.ON";
     this.mime_type = null;
