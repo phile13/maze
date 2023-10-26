@@ -12,7 +12,7 @@ class thing {
   }
 
   Open(){
-    this.Send("NEW:" + this.type);
+    this.SendText("NEW:" + this.type);
   }
 
   FirstReceive(event){
