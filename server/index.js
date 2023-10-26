@@ -4,6 +4,7 @@ class server_controller{
     this.ws = new WebSocket.Server({port: 32123});
     this.ws.on("open", this.Open);
     this.ws.on("message", this.Receive);
+    console.log("Leaving Constructor");
   }
 
   Open(){
