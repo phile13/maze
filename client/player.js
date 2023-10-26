@@ -1,6 +1,6 @@
 class player {  
-  constructor(type){
-      this.type = type;    
+  constructor(){
+      this.type = "player";    
       this.keycodes["Numpad7"] = "MOVE.NW";
       this.keycodes["Numpad8"] = this.keycodes["ArrowUp"] = "MOVE.N"; 
       this.keycodes["Numpad9"] = "MOVE.NE";
