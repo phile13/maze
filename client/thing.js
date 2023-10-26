@@ -4,7 +4,7 @@ class thing {
     this.keycodes = {};
     this.id = -1;
     this.port = 32123;
-    this.ws = new WebSocket(`ws://74.208.107.245:${port}`);
+    this.ws = new WebSocket(`ws://74.208.107.245:${this.port}`);
     ws.addEventListener("open", this.Open);
     ws.addEventListener("message", this.FirstReceive, true);
     document.addEventListener('keydown',OnKeyDownHandler);
