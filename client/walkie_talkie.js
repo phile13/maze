@@ -42,7 +42,7 @@ class walkie_talkie extends thing {
           .then(stream => {
             this.stream_being_captured = stream;
             this.media_recorder = new MediaRecorder(this.stream_being_captured, { 'mimeType' : 'audio/webm' });
-            this.media_recorder.addEventListener("dataavailable", this.HandleRecordingData);
+            this.media_recorder.addEventListener("dataavailable", (evt) => {this.HandleRecordingData(evt)});
             this.mime_type = this.media_recorder.mimeType;
             
             this.media_recorder.start(50);
