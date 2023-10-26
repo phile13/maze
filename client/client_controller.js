@@ -1,6 +1,6 @@
-class client_controller extends ui {  
-  constructor(type){
-    super(type);
+class thing {  
+  constructor(){
+    this.type = "thing";
     this.id = -1;
     this.port = 32123;
     this.ws = new WebSocket(`ws://74.208.107.245:${port}`);
