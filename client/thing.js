@@ -7,8 +7,8 @@ class thing {
     this.ws = new WebSocket(`ws://74.208.107.245:${this.port}`);
     this.ws.addEventListener("open", this.Open);
     this.ws.addEventListener("message", this.FirstReceive, true);
-    document.addEventListener('keydown',OnKeyDownHandler);
-    document.addEventListener('keydown',OnKeyUpHandler);
+    document.addEventListener('keydown',this.OnKeyDownHandler);
+    document.addEventListener('keydown',this.OnKeyUpHandler);
   }
 
   Open(){
