@@ -5,10 +5,10 @@ class thing {
     this.id = -1;
     this.port = 32123;
     this.ws = new WebSocket(`ws://74.208.107.245:${this.port}`);
-    this.ws.addEventListener("open", this.Open);
-    this.ws.addEventListener("message", this.FirstReceive, true);
-    document.addEventListener('keydown',this.OnKeyDownHandler);
-    document.addEventListener('keydown',this.OnKeyUpHandler);
+    this.ws.addEventListener("open", (evt) => {this.Open(evt)});
+    this.ws.addEventListener("message", (evt) => {this.FirstReceive(evt)}, true);
+    document.addEventListener('keydown',(evt) => {this.OnKeyDownHandler(evt)});
+    document.addEventListener('keydown',(evt) => {this.OnKeyUpHandler(evt)});
   }
 
   Open(){
@@ -22,7 +22,7 @@ class thing {
         let msg = JSON.parse(event.data);
         if("id" in msg){
           this.id = msg;
-          this.ws.addEventListener("message", this.Receive);
+          this.ws.addEventListener("message", (evt) => {this.Receive(evt)});
         }
       }
       catch(e){
