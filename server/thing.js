@@ -1,6 +1,8 @@
 class thing {  
-  constructor(socket){
+  constructor(id, socket){
     this.socket = socket;
+
+    
     client.on("message", (evt) => {
       console.log("Receive");
       let data;
@@ -22,4 +24,7 @@ class thing {
   NextId(){
     return this.next_client_id++;
   }
+
+  
+  
 }
