@@ -1,4 +1,4 @@
-const thing = require("./thing.js");
+const Thing = require("./thing.js");
 
 class server_controller{
   constructor(){
@@ -22,7 +22,7 @@ class server_controller{
   Connection(client){
     console.log("Connection");
     let id = this.NextId();
-    this.clients[id] = new thing(id, client);
+    this.clients[id] = new Thing(id, client);
   }
 }
 
