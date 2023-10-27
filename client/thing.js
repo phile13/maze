@@ -20,8 +20,8 @@ class thing {
     if(event.data){
       try{
         let msg = JSON.parse(event.data);
-        if("id" in msg){
-          this.id = msg;
+        if("ID" in msg){
+          this.id = msg['ID'];
           this.ws.addEventListener("message", (evt) => {this.Receive(evt)});
         }
       }
