@@ -16,7 +16,7 @@ class Thing {
   Receive(msg){
     console.log("Receive");
     try{
-      let json = msg;
+      let json = JSON.parse(msg);
       console.log(json);
       console.log("Text");
       if("NEW" in json){
