@@ -12,7 +12,7 @@ class thing {
   }
 
   Open(){
-    this.SendText(`JSON.stringify({NEW:this.type});
+    this.SendText(JSON.stringify({NEW:this.type});
   }
 
   FirstReceive(event){
