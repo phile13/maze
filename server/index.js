@@ -1,3 +1,5 @@
+const Thing = require("./thing.js");
+
 class server_controller{
   constructor(){
     const WebSocket = require('ws');
