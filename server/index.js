@@ -27,7 +27,7 @@ class server_controller{
       console.log("Receive");
       let data;
       try{
-        data = JSON.parse(evt);
+        data = JSON.parse(JSON.parse(evt));
         console.log(data);
         console.log("Text");
         if("NEW" in data){
