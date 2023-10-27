@@ -46,11 +46,7 @@ class server_controller{
       }
     }
     catch(ex){
-      if(event.data instanceof Blob){
-        console.log("Blob");
-        this.SendBinary(event.data);
-      }
-      return;
+      this.SendBinary(event.data);
     }
   }
 }
