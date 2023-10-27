@@ -22,32 +22,20 @@ class server_controller{
     let id = this.NextId();
     this.clients[client] = id;
     this.clients[id] = client;
-    client.on("message", (evt) => {this.Receive(evt)});
-  }
-  
-  SendText(obj){
-    console.log("SendText");
-    this.ws.send(JSON.stringify(obj));
-  }
-
-  SendBinary(obj){
-    console.log("SendBinary");
-    this.ws.send(obj);
-  }
-
-  Receive(event){
-    console.log("Receive");
-    let data;
-    try{
-      data = JSON.parse(event);
-      console.log("Text");
-      if("id" in msg && "action" in msg){
-        this.SendText(event.data);
+    client.on("message", (evt) => {
+      console.log("Receive");
+      let data;
+      try{
+        data = JSON.parse(event);
+        console.log("Text");
+        if("id" in msg && "action" in msg){
+          client.send(`{"ID":${id}}`);
+        }
       }
-    }
-    catch(ex){
-      this.SendBinary(event.data);
-    }
+      catch(ex){
+        client.send(obj);
+      }   
+    });
   }
 }
 
