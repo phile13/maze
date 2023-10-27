@@ -22,11 +22,13 @@ class server_controller{
     let id = this.NextId();
     this.clients[client] = id;
     this.clients[id] = client;
+    
     client.on("message", (evt) => {
       console.log("Receive");
       let data;
       try{
         data = JSON.parse(evt);
+        console.log(data);
         console.log("Text");
         if("NEW" in data){
           client.send(`{"ID":${id}}`);
