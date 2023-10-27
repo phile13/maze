@@ -1,4 +1,4 @@
-class thing {  
+class Thing {  
   constructor(id, socket){
     this.socket = socket;
     client.on("message", (evt) => {this.Receive(evt);});
