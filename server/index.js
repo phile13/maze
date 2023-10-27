@@ -1,4 +1,4 @@
-const Thing = require("./thing.js");
+const Thing = require("./server/thing.js");
 
 class server_controller{
   constructor(){
