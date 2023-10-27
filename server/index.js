@@ -37,6 +37,7 @@ class server_controller{
 
   Receive(event){
     console.log("Receive");
+    console.log(event);
     if(event.data){
       if(event.data instanceof Blob){
         console.log("Blob");
