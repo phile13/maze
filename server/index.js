@@ -3,7 +3,6 @@ class server_controller{
     const WebSocket = require('ws');
     this.ws = new WebSocket.Server({port: 32123});
     this.ws.on("open", (evt) => {this.Open(evt)});
-    this.ws.on("message", (evt) => {this.Receive(evt)});
     this.ws.on("connection", (evt) => {this.Connection(evt)});
     this.clients = {};
     this.next_client_id = 0;
@@ -18,8 +17,12 @@ class server_controller{
     console.log("Listening");
   }
 
-  Connection(){
+  Connection(client){
     console.log("Connection");
+    let id = this.NextId();
+    this.clients[client] = id;
+    this.clients[id] = client;
+    client.on("message", (evt) => {this.Receive(evt)});
   }
   
   SendText(obj){
