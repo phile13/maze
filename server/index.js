@@ -8,10 +8,6 @@ class server_controller{
     this.next_client_id = 0;
     console.log("Leaving Constructor");
   }
-
-  NextId(){
-    return this.next_client_id++;
-  }
   
   Open(){
     console.log("Listening");
