@@ -28,7 +28,7 @@ class server_controller{
       try{
         data = JSON.parse(evt);
         console.log("Text");
-        if("id" in msg && "action" in msg){
+        if("NEW" in data){
           client.send(`{"ID":${id}}`);
         }
       }
