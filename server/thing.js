@@ -1,13 +1,10 @@
 class Thing {  
   constructor(id, socket){
+    this.id = id;
     this.socket = socket;
     this.socket.on("message", (evt) => {this.Receive(evt);});
   }
   
-  NextId(){
-    return this.next_client_id++;
-  }
-
   SendText(msg){
     this.socket.send(msg);
   }
@@ -18,13 +15,12 @@ class Thing {
 
   Receive(msg){
     console.log("Receive");
-    let data;
     try{
-      data = JSON.parse(msg);
-      console.log(data);
+      let json = JSON.parse(msg);
+      console.log(json);
       console.log("Text");
-      if("NEW" in data){
-        this.SendText(`{"ID":${id}}`);
+      if("NEW" in json){
+        this.SendText(`{"ID":${this.id}}`);
       }
     }
     catch(ex){
