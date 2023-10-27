@@ -1,7 +1,7 @@
 class Thing {  
   constructor(id, socket){
     this.socket = socket;
-    client.on("message", (evt) => {this.Receive(evt);});
+    this.socket.on("message", (evt) => {this.Receive(evt);});
   }
   
   NextId(){
@@ -20,7 +20,7 @@ class Thing {
     console.log("Receive");
     let data;
     try{
-      data = JSON.parse(JSON.parse(evt));
+      data = JSON.parse(JSON.parse(msg));
       console.log(data);
       console.log("Text");
       if("NEW" in data){
