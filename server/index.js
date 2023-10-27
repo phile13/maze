@@ -4,7 +4,13 @@ class server_controller{
     this.ws = new WebSocket.Server({port: 32123});
     this.ws.on("open", (evt) => {this.Open(evt)});
     this.ws.on("connection", (evt) => {this.Connection(evt)});
+    this.next_client_id = 0;
+    this.clients = {};
     console.log("Leaving Constructor");
+  }
+
+   NextId(){
+    return this.next_client_id++;
   }
   
   Open(){
