@@ -19,4 +19,7 @@ class thing {
     });
   }
   
+  NextId(){
+    return this.next_client_id++;
+  }
 }
