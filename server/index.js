@@ -39,11 +39,13 @@ class server_controller{
     console.log("Receive");
     if(event.data){
       if(event.data instanceof Blob){
+        console.log("Blob");
         this.SendBinary(event.data);
       }
       else{
         try{
           let msg = JSON.parse(event.data);
+          console.log("Text");
           if("id" in msg && "action" in msg){
             this.SendText(event.data);
           }
