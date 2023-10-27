@@ -8,6 +8,14 @@ class thing {
     return this.next_client_id++;
   }
 
+  SendText(msg){
+    this.socket.send(msg);
+  }
+
+  SendBinary(msg){
+    this.socket.send(msg);
+  }
+
   Receive(msg){
     console.log("Receive");
     let data;
@@ -16,12 +24,12 @@ class thing {
       console.log(data);
       console.log("Text");
       if("NEW" in data){
-        client.send(`{"ID":${id}}`);
+        this.SendText(`{"ID":${id}}`);
       }
     }
     catch(ex){
       console.log(ex);
-      client.send(evt);
+      this.SendBinary(evt);
     }   
   }
   
