@@ -40,28 +40,17 @@ class server_controller{
     let data;
     try{
       data = JSON.parse(event);
+      console.log("Text");
+      if("id" in msg && "action" in msg){
+        this.SendText(event.data);
+      }
     }
     catch(ex){
-      console.log(ex);
-      return;
-    }
-    console.log(data);
-    if(event.data){
       if(event.data instanceof Blob){
         console.log("Blob");
         this.SendBinary(event.data);
       }
-      else{
-        try{
-          let msg = JSON.parse(event.data);
-          console.log("Text");
-          if("id" in msg && "action" in msg){
-            this.SendText(event.data);
-          }
-        }
-        catch(e){
-        }
-      }
+      return;
     }
   }
 }
