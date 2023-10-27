@@ -33,6 +33,7 @@ class server_controller{
         }
       }
       catch(ex){
+        console.log(ex);
         client.send(evt);
       }   
     });
