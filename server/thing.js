@@ -19,6 +19,8 @@ class Thing {
       let json = JSON.parse(msg);
       console.log(json);
       console.log("Text");
+      console.log(json instanceof String);
+      console.log(JSON.parse(json));
       if("NEW" in json){
         this.SendText(`{"ID":${this.id}}`);
       }
