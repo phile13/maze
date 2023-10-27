@@ -29,7 +29,7 @@ class Thing {
     }
     catch(ex){
       console.log(ex);
-      this.SendBinary(evt);
+      this.SendBinary(msg);
     }   
   }
   
