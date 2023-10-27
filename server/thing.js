@@ -20,7 +20,7 @@ class Thing {
     console.log("Receive");
     let data;
     try{
-      data = JSON.parse(JSON.parse(msg));
+      data = JSON.parse(msg);
       console.log(data);
       console.log("Text");
       if("NEW" in data){
