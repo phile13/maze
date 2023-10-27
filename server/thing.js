@@ -17,6 +17,7 @@ class Thing {
     console.log("Receive");
     try{
       let json = JSON.parse(msg);
+      json = JSON.parse(json);
       console.log(json);
       console.log("Text");
       console.log(json instanceof String);
