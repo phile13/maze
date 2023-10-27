@@ -26,14 +26,14 @@ class server_controller{
       console.log("Receive");
       let data;
       try{
-        data = JSON.parse(event);
+        data = JSON.parse(evt);
         console.log("Text");
         if("id" in msg && "action" in msg){
           client.send(`{"ID":${id}}`);
         }
       }
       catch(ex){
-        client.send(obj);
+        client.send(evt);
       }   
     });
   }
