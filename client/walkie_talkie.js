@@ -64,7 +64,7 @@ class walkie_talkie extends thing {
       //get stream
       navigator.mediaDevices.getUserMedia({ audio: true })
         .then((stream) => {
-          /start recording 
+          //start recording 
           this.stream_being_captured = stream;
           this.media_recorder = new MediaRecorder(this.stream_being_captured, { 'mimeType' : 'audio/webm' });
           this.media_recorder.addEventListener("dataavailable", (evt) => {
