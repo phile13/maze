@@ -2,8 +2,15 @@ const Thing = require("./thing.js");
 
 class server_controller{
   constructor(){
-    const WebSocket = require('ws');
-    this.ws = new WebSocket.Server({port: 32123});
+    const WebSocket = require("ws").Server;
+    const HttpsServer = require('https').createServer;
+    const fs = require("fs");
+    this.server = HttpsServer({
+      cert : fs.readFileSync("/etc/ssl/certs/fiorra.xyz_ssl_certificates.cer"),
+      key: fs.readFileSync("/etc/ssl/private/_.fiorra.xyz_private_key.key")
+    });
+    
+    this.ws = new WebSocket.Server({port: 32123, server : this.server});
     this.ws.on("open", (evt) => {this.Open(evt)});
     this.ws.on("connection", (evt) => {this.Connection(evt)});
     this.next_client_id = 0;
