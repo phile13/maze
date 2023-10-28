@@ -24,7 +24,6 @@ class walkie_talkie extends thing {
     try{
       this.talkie.src = URL.createObjectURL(new Blob([blob] ,{type:'audio/webm'}));
       this.talkie.load();
-      resolve();
     }
     catch(ex){
       console.log(ex);
