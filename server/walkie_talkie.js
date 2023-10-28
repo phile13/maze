@@ -1,4 +1,4 @@
-const ServerCtrl = require("./index.js");
+const ServerController = require("./index.js");
 const Thing = require("./thing.js");
 
 class WalkieTalkie extends Thing{
@@ -13,7 +13,7 @@ class WalkieTalkie extends Thing{
   HandleReceiveBinary(binary){
     let hash = {};
     hash[this.id] = true;
-    ServerCtrl.SendBinaryTo(binary, "not_in_hash" , hash);
+    ServerController.SendBinaryTo(binary, "not_in_hash" , hash);
   }
 }
 
