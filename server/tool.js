@@ -6,7 +6,7 @@ class Tool extends Thing {
     this.y = 0;
     this.heading = "S";
     this.health = 100;
-    
+
     this.socket = socket;
     this.socket.on("message", (evt) => {this.Receive(evt);});
   }
@@ -31,10 +31,13 @@ class Tool extends Thing {
     ServerController.SendTextTo(`{"ID":${this.tool.id},"X":${this.tool.x},"Y":${this.tool.y},"OWNED":"false"}`, "everyone");
   }
 
-  Putdown(){
+  PutDown(){
     ServerController.SendTextTo(`{"ID":${this.tool.id},"X":${this.tool.x},"Y":${this.tool.y},"OWNED":"false"}`, "everyone");
   }
-      
+
+  Use(action){
+    ServerController.SendTextTo(`{"ID":${this.tool.id},"X":${this.tool.x},"Y":${this.tool.y},"OWNED":"false"}`, "everyone");
+  }
           
 }
 
