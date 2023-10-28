@@ -27,7 +27,7 @@ class player {
   }
 
   HandleKeyDown(code){
-
+    this.SendText
   }
   
   HandleKeyUp(code){
