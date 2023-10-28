@@ -15,6 +15,7 @@ class WalkieTalkie extends Thing{
     hash[this.id] = true;
     console.log(typeof ServerController);
     console.log(typeof ServerController.SendBinaryTo);
+    console.log(typeof ServerController.clients);
     for (const [k, v] of Object.entries(ServerController)) {
       console.log(`${k} - ${v}`);
     }
