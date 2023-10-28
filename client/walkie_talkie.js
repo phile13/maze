@@ -34,14 +34,12 @@ class walkie_talkie extends thing {
   }
 
   HandleKeyDown(code){
-    if(code == "MIC"){
-      this.Start();
-    }
+
   }
   
   HandleKeyUp(code){
     if(code == "MIC"){
-      this.Stop();
+      this.Start();
     }
   }
   
