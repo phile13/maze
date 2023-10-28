@@ -15,6 +15,22 @@ class GameSpace{
       }
     }
   }
+
+  RegisterThing(thing){
+    this.things[thing.id] = thing;
+    thing.x = Math.floor(Math.random() * this.cols);
+    thing.y = Math.floor(Math.random() * this.rows);
+    
+    while(CheckIfSpaceIsOpen(thing.x, thing.y) == false){
+      thing.x = Math.floor(Math.random() * this.cols);
+      thing.y = Math.floor(Math.random() * this.rows);
+    }
+    this.board[thing.y][thing.x].thing = thing;
+  }
+
+  RegisterTool(tool){
+
+  }
   
   CheckIfSpaceIsOpen(x,y){
     if(y in this.board && x in this.board[y]){
@@ -24,6 +40,13 @@ class GameSpace{
       }
     }
     return false;
+  }
+
+  MoveTo(){
+    if(id in this.things){
+      let thing = this.things[id];
+      
+    }
   }
 
   PickupNearbyTool(id){
@@ -37,14 +60,16 @@ class GameSpace{
           for(let c = x-1; c < x+2; c++){
             let space = this.board[r][c];
             if(space.tool){
+              space.tool.owned = true;
               thing.tool = space.tool;
               this.board[r][c].tool = null;
+              return true;
             }
           }
         }
       }
     }
-    return null;
+    return false;
   }
 
   FindSpotToPutTool(id){
@@ -58,14 +83,16 @@ class GameSpace{
           for(let c = x-1; c < x+2; c++){
             let space = this.board[r][c];
             if(space.type in this.accessible_types && space.thing == null && space.tool == null){
+              space.tool.owned = false;
               thing.tool = null;
               this.board[r][c].tool = space.tool;
+              return true;
             }
           }
         }
       }
     }
-    return null;
+    return false;
   }
 
   ServerController.UseTool(x, y, tool){
