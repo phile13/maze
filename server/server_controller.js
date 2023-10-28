@@ -92,6 +92,10 @@ class ServerController{
   static CheckIfSpaceIsOpen(x,y){
   
   }
+
+  static PickupNearbyTool(x,y){
+
+  }
   
 }
 
