@@ -9,23 +9,13 @@ class server_controller{
     this.next_client_id = 0;
     this.clients = {};
 
-    this.express = express();
-    this.router = express.Router();
-    this.router.all("/",(req,res) => {
-      res.send("hi there");
-    });
-    this.express.use("/", this.router);
-    
 
-    
     this.ws = null;
     this.server = HttpsServer({
       cert : fs.readFileSync("/etc/ssl/certs/fiorra.xyz_ssl_certificate.cer"),
       key: fs.readFileSync("/etc/ssl/private/_.fiorra.xyz_private_key.key")
-    }, this.express);
+    });
   
-    
-
     this.ws = new WebSocket({server: this.server});
     this.ws.on("open", (evt) => {console.log("open");this.Open(evt)});
     this.ws.on("connection", (evt) => {console.log("connection");this.Connection(evt)});
