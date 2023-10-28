@@ -6,10 +6,10 @@ const express = require("express");
 const config = require('config');
 
 class server_controller{
+  static clients = {};
+  
   constructor(){
     this.next_client_id = 0;
-    this.clients = {};
-
 
     this.ws = null;
     this.server = HttpsServer({
@@ -42,20 +42,50 @@ class server_controller{
   Connection(client){
     console.log("Connection");
     let id = this.NextId();
-    this.clients[id] = new Thing(id, client);
+    server_controller.clients[id] = new Thing(id, client);
   }
 
   static SendTextTo(msg, who, hash){
     if(who == "everyone"){
-      for (const [key, value] of Object.entries(server_controller.clients)) {
-        value.SendText(msg);
+      for (const [id, client] of Object.entries(server_controller.clients)) {
+        client.SendText(msg);
       }
     }
     else if(who == "not_in_hash"){
-      server_controller.clients
+      for (const [id, client] of Object.entries(server_controller.clients)) {
+        if(!(hash[id])){
+          client.SendText(msg);
+        }
+      }
     }
     else if(who == "in_hash"{
-      
+      for (const [id, client] of Object.entries(server_controller.clients)) {
+        if(!(hash[id])){
+          client.SendText(msg);
+        }
+      }
+    }
+  }
+
+  static SendBinaryTo(msg, who, hash){
+    if(who == "everyone"){
+      for (const [id, client] of Object.entries(server_controller.clients)) {
+        client.SendBinary(msg);
+      }
+    }
+    else if(who == "not_in_hash"){
+      for (const [id, client] of Object.entries(server_controller.clients)) {
+        if(!(hash[id])){
+          client.SendBinary(msg);
+        }
+      }
+    }
+    else if(who == "in_hash"{
+      for (const [id, client] of Object.entries(server_controller.clients)) {
+        if(!(hash[id])){
+          client.SendBinary(msg);
+        }
+      }
     }
   }
   
