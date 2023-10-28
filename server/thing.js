@@ -15,26 +15,24 @@ class Thing {
 
   Receive(msg){
     console.log("Receive");
-    if(typeof msg == "object"){
-      for (const [key, value] of Object.entries(msg)) {
-        console.log(`${key}: ${value}`);
-      }
-    }
-    
     try{
-      console.log(typeof msg);
-      let json = JSON.parse(msg);
-      json = JSON.parse(json);
-      if("NEW" in json){
-        this.SendText(`{"ID":${this.id}}`);
+      if(typeof msg == "object"){
+        if(msg[0] == 34 && msg[1] == 123 && msg[2] == 92 && msg[3] == "34"){
+          let json = new Buffer.from(msg).toString();
+          let obj = JSON.parse(json);
+          if("NEW" in json){
+            this.SendText(`{"ID":${this.id}}`);
+          }
+        }
+        else{
+          this.SendBinary(msg);
+        }
       }
     }
     catch(ex){
       console.log(ex);
-      this.SendBinary(msg);
     }   
-  }
-  
+  } 
 }
 
 module.exports = Thing;
