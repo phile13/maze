@@ -10,7 +10,7 @@ class server_controller{
     this.clients = {};
 
     this.router = express.Router();
-    router.all("/",(req,res) => {
+    this.router.all("/",(req,res) => {
       res.send("hi there");
     });
     this.express.use("/", router);
