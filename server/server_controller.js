@@ -29,6 +29,7 @@ class ServerController{
     });
     console.log("Leaving Constructor");
 
+    const GameSpace = require('./game_space');
     this.gs = new GameSpace(1024,1024);
   }
 
