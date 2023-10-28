@@ -1,7 +1,7 @@
 class Tool extends Thing {  
   constructor(id, socket){
     this.id = id;
-    this.type = "THING";
+    this.type = "TOOL";
     this.x = 0;
     this.y = 0;
     this.heading = "S";
