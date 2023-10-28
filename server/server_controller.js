@@ -2,6 +2,7 @@ const WebSocket = require("ws").Server;
 const HttpsServer = require('https').createServer;
 const fs = require("fs");
 const config = require('config');
+const GameSpace = require('./game_space');
 
 class ServerController{
   static clients = {};
@@ -28,22 +29,9 @@ class ServerController{
     });
     console.log("Leaving Constructor");
 
-    this.CreateGameSpace(1024, 1024);
+    this.gs = new GameSpace(1024,1024);
   }
 
-  CreateGameSpace(width, height){
-    this.width = width;
-    this.height = height;
-    this.gs = [];
-    for(let r = 0; r < this.height; r++){
-      let row = [];
-      for(let c = 0; c < this.width; c++){
-        row.push({});
-      }
-      this.gs.push(row);
-    }
-  }
-  
   NextId(){
     return this.next_client_id++;
   }
@@ -105,19 +93,19 @@ class ServerController{
   }
 
   static CheckIfSpaceIsOpen(x,y){
-  
+    return this.gs.CheckIfSpaceIsOpen(x,y);
   }
 
   static PickupNearbyTool(x,y){
-
+    return this.gs.PickupNearbyTool(x,y);
   }
 
   static FindSpotToPutTool(x,y){
-
+    return this.gs.FindSpotToPutTool(x,y);
   }
 
   static ServerController.UseTool(x, y, tool){
-
+    return this.gs.UseTool(x,y,tool);
   }
 }
 
