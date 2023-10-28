@@ -59,7 +59,7 @@ class server_controller{
         }
       }
     }
-    else if(who == "in_hash"{
+    else if(who == "in_hash"){
       for (const [id, client] of Object.entries(server_controller.clients)) {
         if(!(hash[id])){
           client.SendText(msg);
@@ -81,7 +81,7 @@ class server_controller{
         }
       }
     }
-    else if(who == "in_hash"{
+    else if(who == "in_hash"){
       for (const [id, client] of Object.entries(server_controller.clients)) {
         if(!(hash[id])){
           client.SendBinary(msg);
