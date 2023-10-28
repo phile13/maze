@@ -1,6 +1,4 @@
-class walkie_talkie extends thing {
-
-  
+class walkie_talkie extends thing {  
   constructor(){
     super();
     this.type = "walkie_talkie";
@@ -52,19 +50,26 @@ class walkie_talkie extends thing {
     if(this.ready){
       this.Stop();
       navigator.mediaDevices.getUserMedia({ audio: true })
-          .then((stream) => {
-            this.stream_being_captured = stream;
-            this.media_recorder = new MediaRecorder(this.stream_being_captured, { 'mimeType' : 'audio/webm' });
-            this.media_recorder.addEventListener("dataavailable", (evt) => {this.HandleRecordingData(evt)});
-            this.mime_type = this.media_recorder.mimeType;
-            
-            this.media_recorder.start(250);
-          })
-          .catch(error => {
-            console.log(error.message);
-          });
+        .then((stream) => {
+          this.GotStream(stream);
+        })
+        .catch(error => {
+          console.log(error.message);
+        });
       }
   }
+
+  GotStream(stream){
+    this.stream_being_captured = stream;
+    this.media_recorder = new MediaRecorder(this.stream_being_captured, { 'mimeType' : 'audio/webm' });
+    this.media_recorder.addEventListener("dataavailable", (evt) => {
+      this.HandleRecordingData(evt)
+    });
+    this.mime_type = this.media_recorder.mimeType;
+    
+    this.media_recorder.start(250);
+  }
+  
 
   HandleRecordingData(evt){
     if(this.empty_message_count > 10){
