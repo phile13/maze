@@ -9,11 +9,12 @@ class server_controller{
     this.next_client_id = 0;
     this.clients = {};
 
+    this.express = express();
     this.router = express.Router();
     this.router.all("/",(req,res) => {
       res.send("hi there");
     });
-    express.use("/", this.router);
+    this.express.use("/", this.router);
     
 
     
