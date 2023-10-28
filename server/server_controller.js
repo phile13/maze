@@ -47,19 +47,19 @@ class ServerController{
 
   static SendTextTo(msg, who, hash){
     if(who == "everyone"){
-      for (const [id, client] of Object.entries(server_controller.clients)) {
+      for (const [id, client] of Object.entries(ServerController.clients)) {
         client.SendText(msg);
       }
     }
     else if(who == "not_in_hash"){
-      for (const [id, client] of Object.entries(server_controller.clients)) {
+      for (const [id, client] of Object.entries(ServerController.clients)) {
         if(!(hash[id])){
           client.SendText(msg);
         }
       }
     }
     else if(who == "in_hash"){
-      for (const [id, client] of Object.entries(server_controller.clients)) {
+      for (const [id, client] of Object.entries(ServerController.clients)) {
         if(!(hash[id])){
           client.SendText(msg);
         }
@@ -69,19 +69,19 @@ class ServerController{
 
   static SendBinaryTo(msg, who, hash){
     if(who == "everyone"){
-      for (const [id, client] of Object.entries(server_controller.clients)) {
+      for (const [id, client] of Object.entries(ServerController.clients)) {
         client.SendBinary(msg);
       }
     }
     else if(who == "not_in_hash"){
-      for (const [id, client] of Object.entries(server_controller.clients)) {
+      for (const [id, client] of Object.entries(ServerController.clients)) {
         if(!(hash[id])){
           client.SendBinary(msg);
         }
       }
     }
     else if(who == "in_hash"){
-      for (const [id, client] of Object.entries(server_controller.clients)) {
+      for (const [id, client] of Object.entries(ServerController.clients)) {
         if(!(hash[id])){
           client.SendBinary(msg);
         }
