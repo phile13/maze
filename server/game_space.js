@@ -33,7 +33,10 @@ class GameSpace{
     if(id in this.things){
       let thing = this.things[id];
       if(thing.tool != null){
-        this.FindSpotToPutTool(id);
+        thing.tool.owned = false;
+        thing.tool.x = thing.x;
+        thing.tool.y = thing.y;
+        this.board[thing.y][thing.x].tool = thing.tool;
       }
       this.board[thing.y][thing.x].thing = null;
       delete this.things[id];
