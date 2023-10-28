@@ -16,3 +16,5 @@ class WalkieTalkie extends Thing{
     ServerCtrl.SendBinaryTo(binary, "not_in_hash" , hash);
   }
 }
+
+module.exports = WalkieTalkie;
