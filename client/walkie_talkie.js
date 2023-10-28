@@ -2,7 +2,7 @@ class walkie_talkie extends thing {
   constructor(){
     super();
     this.type = "walkie_talkie";
-    this.keycodes["NumpadAdd"] = "MIC";
+    this.keycodes["KeyM"] = "MIC";
     this.media_recorder = null;
     this.stream_being_captured = null;
     this.empty_message_count = 0;
