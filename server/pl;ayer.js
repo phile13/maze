@@ -14,4 +14,4 @@ class Player extends Thing{
   }
 }
 
-module.exports = WalkieTalkie;
+module.exports = Player;
