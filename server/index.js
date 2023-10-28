@@ -17,7 +17,8 @@ class server_controller{
     this.ws = new WebSocket({server : this.server});
     this.ws.on("open", (evt) => {console.log("open");this.Open(evt)});
     this.ws.on("connection", (evt) => {console.log("connection");this.Connection(evt)});
-    
+
+    this.server.on('error', (err) => {console.error(err);});
     this.server.listen(32123);
     console.log("Leaving Constructor");
   }
