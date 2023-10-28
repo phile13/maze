@@ -96,6 +96,10 @@ class ServerController{
   static PickupNearbyTool(x,y){
 
   }
+
+  static FindSpotToPutTool(x,y){
+
+  }
   
 }
 
