@@ -1,3 +1,11 @@
+const Thing = require("./thing.js");
+const WalkieTalkie = require("./walkie_talkie.js");
+const WebSocket = require("ws").Server;
+const HttpsServer = require('https').createServer;
+const fs = require("fs");
+const express = require("express");
+const config = require('config');
+
 class ServerController{
   static clients = {};
   
