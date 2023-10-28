@@ -2,17 +2,28 @@ const Thing = require("./thing.js");
 const WebSocket = require("ws").Server;
 const HttpsServer = require('https').createServer;
 const fs = require("fs");
+const express = require("express");
 
 class server_controller{
   constructor(){
     this.next_client_id = 0;
     this.clients = {};
+
+    this.router = express.Router();
+    router.all("/",(req,res) => {
+      res.("hi there");
+    });
+    this.express.use("/", router);
+    
+
     
     this.ws = null;
     this.server = HttpsServer({
       cert : fs.readFileSync("/etc/ssl/certs/fiorra.xyz_ssl_certificate.cer"),
       key: fs.readFileSync("/etc/ssl/private/_.fiorra.xyz_private_key.key")
-    });
+    }, this.express);
+  
+    
 
     this.ws = new WebSocket({server: this.server});
     this.ws.on("open", (evt) => {console.log("open");this.Open(evt)});
