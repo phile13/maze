@@ -29,9 +29,31 @@ class GameSpace{
     this.board[thing.y][thing.x].thing = thing;
   }
 
-  RegisterTool(tool){
-
+  UnRegisterThing(id){
+    if(id in this.things){
+      let thing = this.things[id];
+      if(thing.tool != null){
+        this.FindSpotToPutTool(id);
+      }
+      this.board[thing.y][thing.x].thing = null;
+      delete this.things[id];
+    }
   }
+  
+
+  RegisterTool(tool){
+    this.things[thing.id] = thing;
+    thing.x = Math.floor(Math.random() * this.cols);
+    thing.y = Math.floor(Math.random() * this.rows);
+    
+    while(this.CheckIfSpaceIsOpen(thing.x, thing.y) == false){
+      thing.x = Math.floor(Math.random() * this.cols);
+      thing.y = Math.floor(Math.random() * this.rows);
+    }
+    this.board[thing.y][thing.x].thing = thing;
+  }
+
+  
   
   CheckIfSpaceIsOpen(x,y){
     if(y in this.board && x in this.board[y]){
@@ -104,8 +126,8 @@ class GameSpace{
     return false;
   }
 
-  ServerController.UseTool(x, y, tool){
-    return this.gs.UseTool(x,y,tool);
+  UseTool(x, y, tool){
+    return false;
   }
   
 }
