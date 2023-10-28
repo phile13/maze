@@ -8,7 +8,7 @@ class walkie_talkie extends thing {
     this.stream_being_captured = null;
     this.empty_message_count = 0;
     
-    if (!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)) {
+    if (!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia && typeof Audio !== "undefined")) {
       this.ready = false;
     }
     else{
@@ -26,8 +26,7 @@ class walkie_talkie extends thing {
         const buf = blob.arrayBuffer();
         const audioBlob = new Blob([blob] ,{type:'audio/webm;codecs=opus'});
         const audioUrl = URL.createObjectURL(audioBlob);
-        //const audio = new Audio(audioUrl);
-        const [audio] = typeof Audio !== "undefined" && new Audio(audioUrl);
+        const audio = new Audio(audioUrl);
         audio.play()
         resolve({ audioBlob, audioUrl, play });
       }
