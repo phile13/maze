@@ -48,10 +48,47 @@ class walkie_talkie extends thing {
   
   Start(){
     if(this.ready){
-      this.Stop();
+      //cleanup
+      if(this.media_recorder){
+        this.media_recorder.stop();
+      }
+      if(this.stream_being_captured){
+        this.stream_being_captured.getTracks().forEach(track => track.stop());
+      }
+      
+      this.mime_type = null;
+      this.media_recorder = null;
+      this.stream_being_captured = null;
+      this.empty_message_count = 0;
+
+      //get stream
       navigator.mediaDevices.getUserMedia({ audio: true })
         .then((stream) => {
-          this.GotStream(stream);
+          /start recording 
+          this.stream_being_captured = stream;
+          this.media_recorder = new MediaRecorder(this.stream_being_captured, { 'mimeType' : 'audio/webm' });
+          this.media_recorder.addEventListener("dataavailable", (evt) => {
+
+            //capture recorded data
+            if(this.empty_message_count > 10){ //stop capture
+              this.media_recorder.stop();
+              this.stream_being_captured.getTracks().forEach(track => track.stop());
+              this.mime_type = null;
+              this.media_recorder = null;
+              this.stream_being_captured = null;
+              this.empty_message_count = 0;
+            }
+            else if(evt.data && evt.data instanceof Blob && evt.data.type == 'audio/webm;codecs=opus' && evt.data.size > 1){
+              this.SendBinary(evt.data);
+              this.empty_message_count++;
+            }
+            else{
+              this.empty_message_count++;
+            }
+          });
+          this.mime_type = this.media_recorder.mimeType;
+          
+          this.media_recorder.start(250);
         })
         .catch(error => {
           console.log(error.message);
@@ -59,31 +96,6 @@ class walkie_talkie extends thing {
       }
   }
 
-  GotStream(stream){
-    this.stream_being_captured = stream;
-    this.media_recorder = new MediaRecorder(this.stream_being_captured, { 'mimeType' : 'audio/webm' });
-    this.media_recorder.addEventListener("dataavailable", (evt) => {
-      this.HandleRecordingData(evt)
-    });
-    this.mime_type = this.media_recorder.mimeType;
-    
-    this.media_recorder.start(250);
-  }
-  
-
-  HandleRecordingData(evt){
-    if(this.empty_message_count > 10){
-      this.Stop();
-    }
-    else if(evt.data && evt.data instanceof Blob && evt.data.type == 'audio/webm;codecs=opus' && evt.data.size > 1){
-      this.SendBinary(evt.data);
-      this.empty_message_count++;
-    }
-    else{
-      this.empty_message_count++;
-    }
-  }
-  
  Stop(){
    if(this.ready){
       if(this.media_recorder){
