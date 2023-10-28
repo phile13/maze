@@ -23,16 +23,30 @@ class Thing {
           if("NEW" in obj){
             this.SendText(`{"ID":${this.id}}`);
           }
+          else{
+            this.HandleReceiveJSONObj(obj);
+          }
         }
         else{
-          this.SendBinary(msg);
+          this.HandleReceiveBinary(msg);
         }
       }
     }
     catch(ex){
       console.log(ex);
     }   
-  } 
+  }
+
+  HandleReceiveJSONObj(json){
+
+  }
+
+  HandleReceiveBinary(binary){
+
+  }
 }
+
+
+
 
 module.exports = Thing;
