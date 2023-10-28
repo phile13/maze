@@ -32,7 +32,7 @@ class Thing {
     try{
       if(typeof msg == "object"){
         console.log("object");
-        if(msg[0] == 34 && msg[1] == 123 && msg[2] == 92 && msg[3] == "34"){
+        if((msg[0] == 123 && msg[1] == 34) || (msg[0] == 34 && msg[1] == 123 && msg[2] == 92 && msg[3] == "34")){
           let json = JSON.parse(msg);
           let obj = JSON.parse(json);
           console.log(json);
