@@ -10,6 +10,6 @@ class walkie_talkie extends thing{
   HandleReceiveBinary(binary){
     let hash = {};
     hash[this.id] = true;
-    SendBinaryTo(binary, "not_in_hash" , hash);
+    server_controller.SendBinaryTo(binary, "not_in_hash" , hash);
   }
 }
