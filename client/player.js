@@ -31,9 +31,7 @@ class player {
   }
   
   HandleKeyUp(code){
-    if(code == "MIC"){
-      this.Start();
-    }
+
   }
   
 }
