@@ -4,6 +4,7 @@ const Thing = require("./thing.js");
 class WalkieTalkie extends Thing{
   constructor(id, socket){
     super(id, socket);
+    this.type = "WALKIE_TALKIE";
   }
 
   HandleReceiveJSONObj(json){
