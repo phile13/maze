@@ -6,7 +6,7 @@ class thing {
     this.port = 32123;
     this.ws = new WebSocket(`wss://fiorra.xyz:${this.port}`);
     this.ws.addEventListener("open", (evt) => {this.Open(evt)});
-    this.ws.addEventListener("message", (evt) => {this.FirstReceive(evt)});
+    this.ws.addEventListener("message", (evt) => {this.Receive(evt)});
     document.addEventListener('keydown',(evt) => {this.OnKeyDownHandler(evt)});
     document.addEventListener('keydown',(evt) => {this.OnKeyUpHandler(evt)});
     console.log("walkie talkie created");
