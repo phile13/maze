@@ -12,16 +12,14 @@ class server_controller{
     this.server = HttpsServer({
       cert : fs.readFileSync("/etc/ssl/certs/fiorra.xyz_ssl_certificate.cer"),
       key: fs.readFileSync("/etc/ssl/private/_.fiorra.xyz_private_key.key")
-    },(req,res) => {
-      console.log("create socket");
-      this.ws = new WebSocket({server : this.server});
-      this.ws.on("open", (evt) => {this.Open(evt)});
-      this.ws.on("connection", (evt) => {this.Connection(evt)});                   
     });
-    
     
     this.server.listen(32123, (evt)=>{
       console.log("Leaving Constructor");
+      console.log(evt);
+      this.ws = new WebSocket({server : this.server});
+      this.ws.on("open", (evt) => {this.Open(evt)});
+      this.ws.on("connection", (evt) => {this.Connection(evt)});     
     });
   }
 
