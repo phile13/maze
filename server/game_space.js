@@ -131,7 +131,7 @@ class GameSpace{
     return false;
   }
 
-  UseTool(x, y, tool){
+  UseTool(id, tool){
     return false;
   }
   
