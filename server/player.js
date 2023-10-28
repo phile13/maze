@@ -35,7 +35,7 @@ class Player extends Thing{
         this.x += dir[0];
         this.y += dir[1];
         this.heading = action;
-        ServerController.SendTextTo(`{"ID":${this.id},"X":${this.x},"Y":${this.y},"HEADING":"${action}","TOOL":"${(this.tool)?this.tool.id:""}","HEALTH":${this.health}}`, "everyone");
+        ServerController.SendTextTo(`{"ID":${this.id},"TYPE":"${this.type}","X":${this.x},"Y":${this.y},"HEADING":"${action}","TOOL":"${(this.tool)?this.tool.id:""}","HEALTH":${this.health}}`, "everyone");
       }
     }
   }
