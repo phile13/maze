@@ -1,10 +1,12 @@
 class walkie_talkie extends thing {
+
+  
   constructor(){
     super();
     this.type = "walkie_talkie";
     this.keycodes["NumpadAdd"] = "MIC";
     this.mime_type = null;
-    this.mediaRecorder = null;
+    this.media_recorder = null;
     this.stream_being_captured = null;
     this.empty_message_count = 0;
     this.talkie = document.querySelector("#talkie");
@@ -87,7 +89,7 @@ class walkie_talkie extends thing {
       }
       
       this.mime_type = null;
-      this.mediaRecorder = null;
+      this.media_recorder = null;
       this.stream_being_captured = null;
       this.empty_message_count = 0;
    }
