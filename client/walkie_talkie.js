@@ -51,7 +51,7 @@ class walkie_talkie extends thing {
           let counter = 0;
           
           media_recorder.addEventListener("dataavailable", (evt) => {
-            if(counter > 1){ 
+            if(counter >= 1){ 
               media_recorder.stop();
               stream_being_captured.getTracks().forEach(track => track.stop());
             }
