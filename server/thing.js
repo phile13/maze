@@ -1,7 +1,7 @@
 class Thing {  
   constructor(id, socket){
     this.id = id;
-    
+    this.type = "THING";
     this.x = 0;
     this.y = 0;
     this.heading = "S";
