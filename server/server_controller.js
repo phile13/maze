@@ -1,4 +1,4 @@
-class server_controller{
+class ServerController{
   static clients = {};
   
   constructor(){
@@ -83,3 +83,5 @@ class server_controller{
   }
   
 }
+
+module.exports = ServerController;
