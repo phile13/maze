@@ -71,10 +71,13 @@ class GameSpace{
   }
 
   MoveTo(id, dir){
+    console.log(`MoveTo:${id},${dir}`);
     if(id in this.things && dir in this.dirs_map){
+      console.log("in");
       let thing = this.things[id];
       let xy = this.dirs_map[dir];
       if(this.CheckIfSpaceIsOpen(thing.x + xy[0], thing.y + xy[1])){
+        console.log("found");
         this.board[thing.y][thing.x].thing = null;
         thing.x = thing.x + xy[0];
         thing.y = thing.y + xy[1];
