@@ -20,7 +20,7 @@ class walkie_talkie extends thing {
     
   }
   
-  HandleBlobMessage(blob){
+  async HandleBlobMessage(blob){
     return new Promise(resolve => {
       try{
         const buf = await blob.arrayBuffer();
