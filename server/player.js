@@ -12,13 +12,20 @@ class Player extends Thing{
     if("TYPE" in json && "ACTION" in json){
       switch(json.TYPE){
         case "MOVE":
-          this.TryToMove(json.ACTION);
+          if(ServerController.MoveTo(this.id, action)){
+            this.heading = action;
+            ServerController.SendTextTo(`{"ID":${this.id},"TYPE":"${this.type}","X":${this.x},"Y":${this.y},"HEADING":"${action}","TOOL":"${(this.tool)?this.tool.id:""}","HEALTH":${this.health}}`, "everyone", {});
+          }
           break;
         case "PICKUP":
-          this.TryToPickup(json.ACTION);
+          if(ServerController.PickupNearbyTool(this.id)){
+            ServerController.SendTextTo(this.tool.Pickup(),"everyone", {});
+          }
           break;
         case "PUTDOWN":
-          this.TryToPutDown(json.ACTION);
+          if(ServerController.FindSpotToPutTool(this.id)){
+            ServerController.SendTextTo(this.tool.PutDown(),"everyone", {});
+          }
           break;
         case "USE":
           this.TryToUse(json.ACTION);
@@ -27,43 +34,13 @@ class Player extends Thing{
     }
   }
 
-  TryToMove(action){
-    if(action in this.dirs_map){
-      let dir = this.dirs_map[action];
-      if(ServerController.CheckIfSpaceIsOpen(this.x + dir[0], this.y + dir[1])){
-        this.x += dir[0];
-        this.y += dir[1];
-        this.heading = action;
-        ServerController.SendTextTo(`{"ID":${this.id},"TYPE":"${this.type}","X":${this.x},"Y":${this.y},"HEADING":"${action}","TOOL":"${(this.tool)?this.tool.id:""}","HEALTH":${this.health}}`, "everyone", {});
-      }
-    }
-  }
-
-  TryToPickup(action){
-    if(this.tool == null){
-      this.tool = ServerController.PickupNearbyTool(this.x, this.y);
-      if(this.tool != null){
-        ServerController.SendTextTo(this.tool.Pickup(),"everyone", {});
-      }
-    }
-  }
-
-  TryToPutDown(action){
-    if(this.tool != null){
-      let loc = ServerController.FindSpotToPutTool(this.x, this.y);
-      if(loc.length == 2){
-        ServerController.SendTextTo(this.tool.PutDown(loc[0], loc[1]),"everyone", {});
-        this.tool = null;
-      }
-    }
-  }
-
+  
   TryToUse(action){
     if(this.tool != null){
-      let affected_by = ServerController.UseTool(this.x, this.y, this.tool);
-      for(let ab = 0; ab < affected_by.length; ab++){
-         ServerController.SendTextTo(affected_by[ab],"everyone", {});
-      }
+      ///let affected_by = ServerController.UseTool(this.x, this.y, this.tool);
+      //for(let ab = 0; ab < affected_by.length; ab++){
+      //   ServerController.SendTextTo(affected_by[ab],"everyone", {});
+      //}
     }
   }
   
