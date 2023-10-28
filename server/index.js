@@ -11,7 +11,7 @@ class server_controller{
 
     this.router = express.Router();
     router.all("/",(req,res) => {
-      res.("hi there");
+      res.send("hi there");
     });
     this.express.use("/", router);
     
