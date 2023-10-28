@@ -3,6 +3,7 @@ const WebSocket = require("ws").Server;
 const HttpsServer = require('https').createServer;
 const fs = require("fs");
 const express = require("express");
+const config = require('config');
 
 class server_controller{
   constructor(){
@@ -12,8 +13,8 @@ class server_controller{
 
     this.ws = null;
     this.server = HttpsServer({
-      cert : fs.readFileSync("/etc/ssl/certs/fiorra.xyz_ssl_certificate.cer"),
-      key: fs.readFileSync("/etc/ssl/private/_.fiorra.xyz_private_key.key")
+      cert : fs.readFileSync(config.get('cert')),
+      key: fs.readFileSync(config.get('key'))
     });
   
     this.ws = new WebSocket({server: this.server});
