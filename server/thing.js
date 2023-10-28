@@ -16,6 +16,7 @@ class Thing {
   Receive(msg){
     console.log("Receive");
     try{
+      console.log(msg instanceof Blob);
       let json = JSON.parse(msg);
       json = JSON.parse(json);
       if("NEW" in json){
