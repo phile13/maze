@@ -12,14 +12,7 @@ class WalkieTalkie extends Thing{
 
   HandleReceiveBinary(binary){
     let hash = {};
-    hash[this.id] = true;
-    console.log(typeof ServerController);
-    console.log(typeof ServerController.SendBinaryTo);
-    console.log(typeof ServerController.clients);
-    for (const [k, v] of Object.entries(ServerController)) {
-      console.log(`${k} - ${v}`);
-    }
-    
+    hash[this.id] = true;    
     ServerController.SendBinaryTo(binary, "not_in_hash" , hash);
   }
 }
