@@ -35,7 +35,7 @@ class Player extends Thing{
         this.x += dir[0];
         this.y += dir[1];
         this.heading = action;
-        ServerController.SendTextTo(`{"ID":${this.id},"TYPE":"${this.type}","X":${this.x},"Y":${this.y},"HEADING":"${action}","TOOL":"${(this.tool)?this.tool.id:""}","HEALTH":${this.health}}`, "everyone");
+        ServerController.SendTextTo(`{"ID":${this.id},"TYPE":"${this.type}","X":${this.x},"Y":${this.y},"HEADING":"${action}","TOOL":"${(this.tool)?this.tool.id:""}","HEALTH":${this.health}}`, "everyone", {});
       }
     }
   }
@@ -44,7 +44,7 @@ class Player extends Thing{
     if(this.tool == null){
       this.tool = ServerController.PickupNearbyTool(this.x, this.y);
       if(this.tool != null){
-        this.tool.Pickup();
+        ServerController.SendTextTo(this.tool.Pickup(),"everyone", {});
       }
     }
   }
@@ -53,7 +53,7 @@ class Player extends Thing{
     if(this.tool != null){
       let loc = ServerController.FindSpotToPutTool(this.x, this.y);
       if(loc.length == 2){
-        this.tool.PutDown(loc[0], loc[1]);
+        ServerController.SendTextTo(this.tool.PutDown(loc[0], loc[1]),"everyone", {});
         this.tool = null;
       }
     }
@@ -61,7 +61,10 @@ class Player extends Thing{
 
   TryToUse(action){
     if(this.tool != null){
-      this.tool.Use(action);
+      let affected_by = ServerController.UseTool(this.x, this.y, this.tool.type);
+      for(let ab = 0; ab < affected_by.length; ab++){
+         ServerController.SendTextTo(affected_by[ab],"everyone", {});
+      }
     }
   }
   
