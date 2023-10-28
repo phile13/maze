@@ -42,7 +42,7 @@ class ServerController{
   Connection(client){
     console.log("Connection");
     let id = this.NextId();
-    server_controller.clients[id] = new WalkieTalkie(id, client);
+    ServerController.clients[id] = new WalkieTalkie(id, client);
   }
 
   static SendTextTo(msg, who, hash){
