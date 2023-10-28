@@ -9,6 +9,7 @@ class Player extends Thing{
   }
 
   HandleReceiveJSONObj(json){
+    console.log("HandleReceiveJSONObj");
     if("TYPE" in json && "ACTION" in json){
       switch(json.TYPE){
         case "MOVE":
