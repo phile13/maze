@@ -7,8 +7,7 @@ class server_controller{
     const fs = require("fs");
     this.server = HttpsServer({
       cert : fs.readFileSync("/etc/ssl/certs/fiorra.xyz_ssl_certificate.cer"),
-      key: fs.readFileSync("/etc/ssl/private/_.fiorra.xyz_private_key.key"),
-      port : 32123
+      key: fs.readFileSync("/etc/ssl/private/_.fiorra.xyz_private_key.key")
     });
     
     this.ws = new WebSocket({server : this.server});
@@ -16,6 +15,7 @@ class server_controller{
     this.ws.on("connection", (evt) => {this.Connection(evt)});
     this.next_client_id = 0;
     this.clients = {};
+    this.server.listen(32123);
     console.log("Leaving Constructor");
   }
 
