@@ -5,6 +5,7 @@ class GameSpace{
     this.board = {};
     this.accessible_types = {FLAT:true};
     this.inaccessible_types = {WALL:true};
+    this.dirs_map = {N:[0,-1], NE:[1,-1], E:[1,0], SE:[1,1], S:[0,1], SW:[-1,1], W:[-1,0], NW:[-1,-1] };
 
     let max_r = this.rows-1;
     let max_c = this.cols-1;
@@ -21,7 +22,7 @@ class GameSpace{
     thing.x = Math.floor(Math.random() * this.cols);
     thing.y = Math.floor(Math.random() * this.rows);
     
-    while(CheckIfSpaceIsOpen(thing.x, thing.y) == false){
+    while(this.CheckIfSpaceIsOpen(thing.x, thing.y) == false){
       thing.x = Math.floor(Math.random() * this.cols);
       thing.y = Math.floor(Math.random() * this.rows);
     }
@@ -42,11 +43,19 @@ class GameSpace{
     return false;
   }
 
-  MoveTo(){
-    if(id in this.things){
+  MoveTo(id, dir){
+    if(id in this.things && dir in this.dirs_map){
       let thing = this.things[id];
-      
+      let xy = this.dirs_map[dir];
+      if(this.CheckIfSpaceIsOpen(thing.x + xy[0], thing.y + xy[1])){
+        this.board[thing.y][thing.x].thing = null;
+        thing.x = thing.x + xy[0];
+        thing.y = thing.y + xy[1];
+        this.board[thing.y][thing.x].thing = thing;
+        return true;
+      }
     }
+    return false;
   }
 
   PickupNearbyTool(id){
