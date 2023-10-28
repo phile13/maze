@@ -1,5 +1,3 @@
-const Thing = require("./thing.js");
-const WalkieTalkie = require("./walkie_talkie.js");
 const WebSocket = require("ws").Server;
 const HttpsServer = require('https').createServer;
 const fs = require("fs");
@@ -42,6 +40,8 @@ class ServerController{
   Connection(client){
     console.log("Connection");
     let id = this.NextId();
+    const Thing = require("./thing.js");
+    const WalkieTalkie = require("./walkie_talkie.js");
     ServerController.clients[id] = new WalkieTalkie(id, client);
   }
 
