@@ -21,7 +21,7 @@ class walkie_talkie extends thing {
   }
   
   async HandleBlobMessage(blob){
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       try{
         const buf = await blob.arrayBuffer();
         const audioBlob = new Blob(buf ,{type:'audio/webm;codecs=opus'});
