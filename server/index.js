@@ -14,7 +14,7 @@ class server_controller{
       key: fs.readFileSync("/etc/ssl/private/_.fiorra.xyz_private_key.key")
     });
 
-    this.ws = new WebSocket({server : this.server});
+    this.ws = new WebSocket({this.server});
     this.ws.on("open", (evt) => {console.log("open");this.Open(evt)});
     this.ws.on("connection", (evt) => {console.log("connection");this.Connection(evt)});
 
