@@ -3,6 +3,8 @@ class GameSpace{
     this.rows = rows;
     this.cols = cols;
     this.board = {};
+    this.things = {};
+    this.tools = {};
     this.accessible_types = {FLAT:true};
     this.inaccessible_types = {WALL:true};
     this.dirs_map = {N:[0,-1], NE:[1,-1], E:[1,0], SE:[1,1], S:[0,1], SW:[-1,1], W:[-1,0], NW:[-1,-1] };
@@ -45,15 +47,15 @@ class GameSpace{
   
 
   RegisterTool(tool){
-    this.things[thing.id] = thing;
-    thing.x = Math.floor(Math.random() * this.cols);
-    thing.y = Math.floor(Math.random() * this.rows);
+    this.tools[tool.id] = tool;
+    tool.x = Math.floor(Math.random() * this.cols);
+    tool.y = Math.floor(Math.random() * this.rows);
     
-    while(this.CheckIfSpaceIsOpen(thing.x, thing.y) == false){
-      thing.x = Math.floor(Math.random() * this.cols);
-      thing.y = Math.floor(Math.random() * this.rows);
+    while(this.CheckIfSpaceIsOpen(tool.x, tool.y) == false){
+      tool.x = Math.floor(Math.random() * this.cols);
+      tool.y = Math.floor(Math.random() * this.rows);
     }
-    this.board[thing.y][thing.x].thing = thing;
+    this.board[tool.y][tool.x].tool = tool;
   }
 
   
