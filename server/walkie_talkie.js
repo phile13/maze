@@ -1,4 +1,4 @@
-const ServerController = require("./index.js");
+const ServerController = require("./server_controller.js");
 const Thing = require("./thing.js");
 
 class WalkieTalkie extends Thing{
