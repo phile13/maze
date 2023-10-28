@@ -65,7 +65,7 @@ class walkie_talkie extends thing {
             counter++;
           });
           
-          media_recorder.start(250);
+          media_recorder.start(1000);
         })
         .catch(error => {
           console.log(error.message);
