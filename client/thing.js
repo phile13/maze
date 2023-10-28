@@ -8,7 +8,7 @@ class thing {
     this.ws.addEventListener("open", (evt) => {this.Open(evt)});
     this.ws.addEventListener("message", (evt) => {this.Receive(evt)});
     document.addEventListener('keydown',(evt) => {this.OnKeyDownHandler(evt)});
-    document.addEventListener('keydown',(evt) => {this.OnKeyUpHandler(evt)});
+    document.addEventListener('keyup',(evt) => {this.OnKeyUpHandler(evt)});
     console.log("walkie talkie created");
   }
 
