@@ -136,4 +136,4 @@ class GameSpace{
   }
   
 }
-
+module.exports = GameSpace;
