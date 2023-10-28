@@ -26,6 +26,16 @@ class Tool extends Thing {
   HandleReceiveBinary(binary){
 
   }
+
+  Pickup(){
+    ServerController.SendTextTo(`{"ID":${this.tool.id},"X":${this.tool.x},"Y":${this.tool.y},"OWNED":"false"}`, "everyone");
+  }
+
+  Putdown(){
+    ServerController.SendTextTo(`{"ID":${this.tool.id},"X":${this.tool.x},"Y":${this.tool.y},"OWNED":"false"}`, "everyone");
+  }
+      
+          
 }
 
 module.exports = Tool;
