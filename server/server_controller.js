@@ -96,7 +96,7 @@ class ServerController{
   }
 
   static MoveTo(id, dir){
-    return this.gs. MoveTo(id, dir);
+    return this.gs.MoveTo(id, dir);
   }
 
   static PickupNearbyTool(id){
