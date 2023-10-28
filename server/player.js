@@ -44,10 +44,9 @@ class Player extends Thing{
     if(this.tool == null){
       this.tool = ServerController.PickupNearbyTool(this.x, this.y);
       if(this.tool != null){
-        this.tool.x = this.x;
-        this.tool.y = this.y;
-        this.tool.owned = true;
+        this.tool.Pickup();
         ServerController.SendTextTo(`{"ID":${this.tool.id},"OWNED":"true"}`, "everyone");
+          ServerController.SendTextTo(`{"ID":${this.tool.id},"X":${this.tool.x},"Y":${this.tool.y},"OWNED":"false"}`, "everyone");
       }
     }
   }
@@ -56,10 +55,8 @@ class Player extends Thing{
     if(this.tool != null){
       let loc = ServerController.FindSpotToPutTool(this.x, this.y);
       if(loc.length == 2){
-        this.tool.x = loc[0];
-        this.tool.y = loc[1];
-        this.tool.owned = false;
-        ServerController.SendTextTo(`{"ID":${this.tool.id},"X":${this.tool.x},"Y":${this.tool.y},"OWNED":"false"}`, "everyone");
+        this.tool.PutDown(loc[0], loc[1]);
+        this.tool = null;
       }
     }
   }
