@@ -28,15 +28,15 @@ class Tool extends Thing {
   }
 
   Pickup(){
-    ServerController.SendTextTo(`{"ID":${this.tool.id},"X":${this.tool.x},"Y":${this.tool.y},"OWNED":"false"}`, "everyone");
+    return `{"ID":${this.tool.id},"X":${this.tool.x},"Y":${this.tool.y},"OWNED":"true"}`;
   }
 
   PutDown(){
-    ServerController.SendTextTo(`{"ID":${this.tool.id},"X":${this.tool.x},"Y":${this.tool.y},"OWNED":"false"}`, "everyone");
+    return `{"ID":${this.tool.id},"X":${this.tool.x},"Y":${this.tool.y},"OWNED":"false"}`;
   }
 
   Use(action){
-    ServerController.SendTextTo(`{"ID":${this.tool.id},"X":${this.tool.x},"Y":${this.tool.y},"OWNED":"false"}`, "everyone");
+    return `{"ID":${this.tool.id},"X":${this.tool.x},"Y":${this.tool.y},"OWNED":"true"}`;
   }
           
 }
