@@ -45,8 +45,6 @@ class Player extends Thing{
       this.tool = ServerController.PickupNearbyTool(this.x, this.y);
       if(this.tool != null){
         this.tool.Pickup();
-        ServerController.SendTextTo(`{"ID":${this.tool.id},"OWNED":"true"}`, "everyone");
-          ServerController.SendTextTo(`{"ID":${this.tool.id},"X":${this.tool.x},"Y":${this.tool.y},"OWNED":"false"}`, "everyone");
       }
     }
   }
