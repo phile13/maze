@@ -27,8 +27,23 @@ class ServerController{
       console.log("Server is Listening");
     });
     console.log("Leaving Constructor");
+
+    this.CreateGameSpace(1024, 1024);
   }
 
+  CreateGameSpace(width, height){
+    this.width = width;
+    this.height = height;
+    this.gs = [];
+    for(let r = 0; r < this.height; r++){
+      let row = [];
+      for(let c = 0; c < this.width; c++){
+        row.push({});
+      }
+      this.gs.push(row);
+    }
+  }
+  
   NextId(){
     return this.next_client_id++;
   }
@@ -100,7 +115,10 @@ class ServerController{
   static FindSpotToPutTool(x,y){
 
   }
-  
+
+  static ServerController.UseTool(x, y, tool){
+
+  }
 }
 
 module.exports = ServerController;
