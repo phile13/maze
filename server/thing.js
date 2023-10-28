@@ -20,7 +20,7 @@ class Thing {
         if(msg[0] == 34 && msg[1] == 123 && msg[2] == 92 && msg[3] == "34"){
           let json = JSON.parse(msg);
           let obj = JSON.parse(json);
-          if("NEW" in json){
+          if("NEW" in obj){
             this.SendText(`{"ID":${this.id}}`);
           }
         }
