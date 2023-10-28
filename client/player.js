@@ -27,7 +27,9 @@ class player {
   }
 
   HandleKeyDown(code){
-    this.SendText
+    let obj = {};
+    obj[]
+    this.SendText(
   }
   
   HandleKeyUp(code){
