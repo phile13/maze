@@ -21,7 +21,7 @@ class walkie_talkie extends thing {
   }
   
   HandleBlobMessage(blob){
-    const audioUrl = URL.createObjectURL(audioBlob);
+    const audioUrl = URL.createObjectURL(blob);
     const audio = new Audio(audioUrl);
     audio.play();
   }
