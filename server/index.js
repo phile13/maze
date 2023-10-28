@@ -6,7 +6,7 @@ class server_controller{
     const HttpsServer = require('https').createServer;
     const fs = require("fs");
     this.server = HttpsServer({
-      cert : fs.readFileSync("/etc/ssl/certs/fiorra.xyz_ssl_certificates.cer"),
+      cert : fs.readFileSync("/etc/ssl/certs/fiorra.xyz_ssl_certificate.cer"),
       key: fs.readFileSync("/etc/ssl/private/_.fiorra.xyz_private_key.key")
     });
     
