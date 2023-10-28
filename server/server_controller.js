@@ -88,6 +88,10 @@ class ServerController{
       }
     }
   }
+
+  static CheckIfSpaceIsOpen(x,y){
+  
+  }
   
 }
 
