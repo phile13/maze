@@ -99,7 +99,6 @@ class ServerController{
   }
 
   static MoveTo(id, dir){
-    console.log(typeof this.gs);
     return ServerController.sc.gs.MoveTo(id, dir);
   }
 
