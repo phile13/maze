@@ -13,9 +13,9 @@ class Player extends Thing{
     if("TYPE" in json && "ACTION" in json){
       switch(json.TYPE){
         case "MOVE":
-          if(ServerController.MoveTo(this.id, action)){
-            this.heading = action;
-            ServerController.SendTextTo(`{"ID":${this.id},"TYPE":"${this.type}","X":${this.x},"Y":${this.y},"HEADING":"${action}","TOOL":"${(this.tool)?this.tool.id:""}","HEALTH":${this.health}}`, "everyone", {});
+          if(ServerController.MoveTo(this.id, json.ACTION)){
+            this.heading = json.ACTION;
+            ServerController.SendTextTo(`{"ID":${this.id},"TYPE":"${this.type}","X":${this.x},"Y":${this.y},"HEADING":"${json.ACTION}","TOOL":"${(this.tool)?this.tool.id:""}","HEALTH":${this.health}}`, "everyone", {});
           }
           break;
         case "PICKUP":
