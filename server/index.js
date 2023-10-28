@@ -30,8 +30,7 @@ class server_controller{
     this.ws.on("open", (evt) => {console.log("open");this.Open(evt)});
     this.ws.on("connection", (evt) => {console.log("connection");this.Connection(evt)});
 
-    this.server.on('error', (err) => {console.error(err);});
-    this.server.listen(32123, (err) =>{
+    this.server.listen(443, (err) =>{
       if(err){
         console.log(err);
         process.exit();
