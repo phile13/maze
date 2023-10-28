@@ -16,7 +16,7 @@ class Thing {
   Receive(msg){
     console.log("Receive");
     if(typeof msg == "object"){
-      for (const [key, value] of Object.entries(object1)) {
+      for (const [key, value] of Object.entries(msg)) {
         console.log(`${key}: ${value}`);
       }
     }
