@@ -58,7 +58,7 @@ class walkie_talkie extends thing {
     if(evt.data && evt.data instanceof Blob && evt.data.type == 'audio/webm;codecs=opus' && evt.data.size > 1){
       this.SendBinary(evt.data);
     }
-    else if(this.empty_message_count > 100){
+    else if(this.empty_message_count > 10){
       this.Stop();
     }
     else{
