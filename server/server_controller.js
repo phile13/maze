@@ -44,8 +44,10 @@ class ServerController{
     console.log("Connection");
     let id = this.NextId();
     const Thing = require("./thing.js");
+    const Player = require("./player.js");
     const WalkieTalkie = require("./walkie_talkie.js");
-    ServerController.clients[id] = new WalkieTalkie(id, client);
+    ServerController.clients[id] = new Player(id, client);
+    this.gs.RegisterThing(ServerController.clients[id]);
   }
 
   static SendTextTo(msg, who, hash){
