@@ -1,6 +1,7 @@
 const ServerCtrl = require("./index.js");
+const Thing = require("./thing.js");
 
-class walkie_talkie extends thing{
+class WalkieTalkie extends Thing{
   constructor(id, socket){
     super(id, socket);
   }
