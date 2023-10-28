@@ -24,11 +24,10 @@ class thing {
         let msg = JSON.parse(event.data);
         if("ID" in msg){
           this.id = msg['ID'];
-          this.ws.addEventListener("message", (evt) => {this.Receive(evt)});
-          this.ws.RemoveEventListener("message", (evt) => {this.FirstReceive(evt)});
         }
       }
       catch(e){
+        console.log(e);
       }
     }
   }
@@ -45,7 +44,10 @@ class thing {
 
   Receive(event){
     console.log("Receive");
-    if(event.data){
+    if(this.id == -1){
+      this.FirstReceive(event);
+    }
+    else if(event.data){
       if(event.data instanceof Blob){
         this.HandleBlobMessage(event.data);
       }
@@ -61,11 +63,11 @@ class thing {
   }
 
   HandleTextMessage(text){
-    
+    console.log(`text:${text}`);
   }
   
   HandleBlobMessage(blob){
-    
+    console.log("blob");
   }
 
   HandleKeyDown(code){
