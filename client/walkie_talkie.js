@@ -6,6 +6,7 @@ class walkie_talkie extends thing {
     this.mime_type = null;
     this.mediaRecorder = null;
     this.stream_being_captured = null;
+    this.empty_message_count = 0;
     
     if (!(navigator.mediaDevices && navigator.mediaDevices.getUserMedia)) {
       this.ready = false;
@@ -45,7 +46,7 @@ class walkie_talkie extends thing {
             this.media_recorder.addEventListener("dataavailable", (evt) => {this.HandleRecordingData(evt)});
             this.mime_type = this.media_recorder.mimeType;
             
-            this.media_recorder.start(50);
+            this.media_recorder.start(250);
           })
           .catch(error => {
             console.log(error.message);
@@ -56,6 +57,12 @@ class walkie_talkie extends thing {
   HandleRecordingData(evt){
     if(evt.data && evt.data instanceof Blob && evt.data.data.type == 'audio/webm;codecs=opus' && evt.data.size > 1){
       this.SendBinary(evt.data);
+    }
+    else if(this.empty_message_count > 100){
+      this.Stop();
+    }
+    else{
+      this.empty_message_count++;
     }
   }
   
@@ -71,6 +78,7 @@ class walkie_talkie extends thing {
       this.mime_type = null;
       this.mediaRecorder = null;
       this.stream_being_captured = null;
+      this.empty_message_count = 0;
    }
   }
 }
