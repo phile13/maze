@@ -9,9 +9,11 @@ class thing {
     this.ws.addEventListener("message", (evt) => {this.FirstReceive(evt)}, { once: true });
     document.addEventListener('keydown',(evt) => {this.OnKeyDownHandler(evt)});
     document.addEventListener('keydown',(evt) => {this.OnKeyUpHandler(evt)});
+    console.log("walkie talkie created");
   }
 
   Open(){
+    console.log("walkie talkie created");
     this.SendText(JSON.stringify({NEW:this.type}));
   }
 
