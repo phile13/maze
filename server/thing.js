@@ -20,7 +20,7 @@ class Thing {
   }
 
   HandleReceiveJSONObj(json){
-
+    console.log("HandleReceiveJSONObj.Thing");
   }
 
   HandleReceiveBinary(binary){
@@ -34,6 +34,7 @@ class Thing {
         if(msg[0] == 34 && msg[1] == 123 && msg[2] == 92 && msg[3] == "34"){
           let json = JSON.parse(msg);
           let obj = JSON.parse(json);
+          console.log(json);
           if("NEW" in obj){
             this.SendText(`{"ID":${this.id}}`);
           }
