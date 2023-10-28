@@ -19,6 +19,14 @@ class Thing {
     this.socket.send(msg);
   }
 
+  HandleReceiveJSONObj(json){
+
+  }
+
+  HandleReceiveBinary(binary){
+
+  }
+
   Receive(msg){
     console.log("Receive");
     try{
@@ -42,17 +50,6 @@ class Thing {
       console.log(ex);
     }   
   }
-
-  HandleReceiveJSONObj(json){
-
-  }
-
-  HandleReceiveBinary(binary){
-
-  }
 }
-
-
-
 
 module.exports = Thing;
