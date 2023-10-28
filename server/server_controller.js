@@ -6,6 +6,7 @@ const config = require('config');
 
 class ServerController{
   static clients = {};
+  static sc = null;
   
   constructor(){
     this.next_client_id = 0;
@@ -31,6 +32,8 @@ class ServerController{
 
     const GameSpace = require('./game_space');
     this.gs = new GameSpace(1024,1024);
+
+    ServerController.sc = this;
   }
 
   NextId(){
@@ -97,19 +100,19 @@ class ServerController{
 
   static MoveTo(id, dir){
     console.log(typeof this.gs);
-    return this.gs.MoveTo(id, dir);
+    return ServerController.sc.gs.MoveTo(id, dir);
   }
 
   static PickupNearbyTool(id){
-    return this.gs.PickupNearbyTool(id);
+    return ServerController.sc.gs.PickupNearbyTool(id);
   }
 
   static FindSpotToPutTool(id){
-    return this.gs.FindSpotToPutTool(id);
+    return ServerController.sc.gs.FindSpotToPutTool(id);
   }
 
   static UseTool(id, tool){
-    return this.gs.UseTool(id,tool);
+    return ServerController.sc.gs.UseTool(id,tool);
   }
 }
 
