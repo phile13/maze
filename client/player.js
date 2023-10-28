@@ -1,4 +1,4 @@
-class player {  
+class player extends thing {  
   constructor(){
       this.type = "player";    
       this.keycodes["Numpad7"] = "MOVE.NW";
