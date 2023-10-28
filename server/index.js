@@ -44,6 +44,21 @@ class server_controller{
     let id = this.NextId();
     this.clients[id] = new Thing(id, client);
   }
+
+  static SendTextTo(msg, who, hash){
+    if(who == "everyone"){
+      for (const [key, value] of Object.entries(server_controller.clients)) {
+        value.SendText(msg);
+      }
+    }
+    else if(who == "not_in_hash"){
+      server_controller.clients
+    }
+    else if(who == "in_hash"{
+      
+    }
+  }
+  
 }
 
 let ctrl = new server_controller();
