@@ -15,7 +15,7 @@ class server_controller{
     this.ws.on("connection", (evt) => {this.Connection(evt)});
     this.next_client_id = 0;
     this.clients = {};
-    this.server.listen(32123);
+    this.server.listen(32123, (evt)=>{this.Connection(evt)});
     console.log("Leaving Constructor");
   }
 
