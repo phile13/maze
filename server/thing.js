@@ -16,7 +16,7 @@ class Thing {
   Receive(msg){
     console.log("Receive");
     if(typeof msg == "object"){
-      if(type in msg){
+      if("type" in msg){
         console.log(msg.type);
       }
     }
