@@ -1,3 +1,5 @@
+const ServerCtrl = require("./index.js");
+
 class walkie_talkie extends thing{
   constructor(id, socket){
     super(id, socket);
