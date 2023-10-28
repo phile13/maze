@@ -19,7 +19,13 @@ class server_controller{
     this.ws.on("connection", (evt) => {console.log("connection");this.Connection(evt)});
 
     this.server.on('error', (err) => {console.error(err);});
-    this.server.listen(32123);
+    this.server.listen(32123, (err) =>{
+      if(err){
+        console.log(err);
+        process.exit();
+      }
+      console.log("Server is Listening");
+    });
     console.log("Leaving Constructor");
   }
 
