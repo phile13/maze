@@ -3,7 +3,6 @@ class walkie_talkie extends thing {
     super();
     this.type = "walkie_talkie";
     this.keycodes["NumpadAdd"] = "MIC";
-    this.mime_type = null;
     this.media_recorder = null;
     this.stream_being_captured = null;
     this.empty_message_count = 0;
@@ -48,47 +47,25 @@ class walkie_talkie extends thing {
   
   Start(){
     if(this.ready){
-      //cleanup
-      if(this.media_recorder){
-        this.media_recorder.stop();
-      }
-      if(this.stream_being_captured){
-        this.stream_being_captured.getTracks().forEach(track => track.stop());
-      }
-      
-      this.mime_type = null;
-      this.media_recorder = null;
-      this.stream_being_captured = null;
-      this.empty_message_count = 0;
 
-      //get stream
       navigator.mediaDevices.getUserMedia({ audio: true })
         .then((stream) => {
-          //start recording 
-          this.stream_being_captured = stream;
-          this.media_recorder = new MediaRecorder(this.stream_being_captured, { 'mimeType' : 'audio/webm' });
-          this.media_recorder.addEventListener("dataavailable", (evt) => {
-
-            //capture recorded data
-            if(this.empty_message_count > 10){ //stop capture
-              this.media_recorder.stop();
-              this.stream_being_captured.getTracks().forEach(track => track.stop());
-              this.mime_type = null;
-              this.media_recorder = null;
-              this.stream_being_captured = null;
-              this.empty_message_count = 0;
+          let stream_being_captured = stream;
+          let media_recorder = new MediaRecorder(stream_being_captured, { 'mimeType' : 'audio/webm' });
+          let counter = 0;
+          
+          media_recorder.addEventListener("dataavailable", (evt) => {
+            if(counter > 10){ 
+              media_recorder.stop();
+              stream_being_captured.getTracks().forEach(track => track.stop());
             }
             else if(evt.data && evt.data instanceof Blob && evt.data.type == 'audio/webm;codecs=opus' && evt.data.size > 1){
               this.SendBinary(evt.data);
-              this.empty_message_count++;
             }
-            else{
-              this.empty_message_count++;
-            }
+            counter++;
           });
-          this.mime_type = this.media_recorder.mimeType;
           
-          this.media_recorder.start(250);
+          media_recorder.start(250);
         })
         .catch(error => {
           console.log(error.message);
