@@ -2,7 +2,7 @@ const WebSocket = require("ws").Server;
 const HttpsServer = require('https').createServer;
 const fs = require("fs");
 const config = require('config');
-const GameSpace = require('./game_space');
+
 
 class ServerController{
   static clients = {};
