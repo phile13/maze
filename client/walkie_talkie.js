@@ -26,7 +26,7 @@ class walkie_talkie extends thing {
         const buf = blob.arrayBuffer();
         const audioBlob = new Blob([blob] ,{type:'audio/webm;codecs=opus'});
         const audioUrl = URL.createObjectURL(audioBlob);
-        const audio = new Audio(audioUrl);
+        //const audio = new Audio(audioUrl);
         const [audio] = useState(typeof Audio !== "undefined" && new Audio(audioUrl));
         audio.play()
         resolve({ audioBlob, audioUrl, play });
