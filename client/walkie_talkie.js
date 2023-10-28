@@ -21,16 +21,14 @@ class walkie_talkie extends thing {
   }
   
   HandleBlobMessage(blob){
-    return new Promise((resolve) => {
-      try{
-        this.talkie.src = URL.createObjectURL(new Blob([blob] ,{type:'audio/webm'}));
-        this.talkie.load();
-        resolve();
-      }
-      catch(ex){
-        console.log(ex);
-      }
-    });
+    try{
+      this.talkie.src = URL.createObjectURL(new Blob([blob] ,{type:'audio/webm'}));
+      this.talkie.load();
+      resolve();
+    }
+    catch(ex){
+      console.log(ex);
+    }
   }
 
   HandleKeyDown(code){
