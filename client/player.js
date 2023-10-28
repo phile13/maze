@@ -19,7 +19,7 @@ class player {
   }
 
   HandleTextMessage(text){
-    
+    console.log(text);
   }
   
   HandleBlobMessage(blob){
@@ -27,9 +27,8 @@ class player {
   }
 
   HandleKeyDown(code){
-    let obj = {};
-    obj[]
-    this.SendText(
+    let parts = code.split(".");
+    this.SendText({TYPE:parts[0], ACTION:parts[1]});
   }
   
   HandleKeyUp(code){
