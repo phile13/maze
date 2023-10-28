@@ -43,6 +43,7 @@ class Thing {
         }
         else if((msg[0] == 123 && msg[1] == 34)){
           let obj = JSON.parse(msg);
+          console.log(obj);
           if("NEW" in obj){
             this.SendText(`{"ID":${this.id}}`);
           }
