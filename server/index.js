@@ -13,7 +13,7 @@ class server_controller{
     this.router.all("/",(req,res) => {
       res.send("hi there");
     });
-    this.express.use("/", router);
+    express.use("/", this.router);
     
 
     
