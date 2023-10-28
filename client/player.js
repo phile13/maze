@@ -15,7 +15,15 @@ class player {
       this.keycodes["KeyW"] = "AIM.U";
       this.keycodes["KeyX"] = "AIM.D";
 
-      ui.keycodes["Space"] = "AIM.FIRE";
+      this.keycodes["Space"] = "AIM.FIRE";
+  }
+
+  HandleTextMessage(text){
+    
+  }
+  
+  HandleBlobMessage(blob){
+   
   }
 
   HandleKeyDown(code){
@@ -23,7 +31,9 @@ class player {
   }
   
   HandleKeyUp(code){
-
+    if(code == "MIC"){
+      this.Start();
+    }
   }
   
 }
