@@ -96,6 +96,7 @@ class ServerController{
   }
 
   static MoveTo(id, dir){
+    console.log(typeof this.gs);
     return this.gs.MoveTo(id, dir);
   }
 
