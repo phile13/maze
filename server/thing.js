@@ -1,6 +1,11 @@
 class Thing {  
   constructor(id, socket){
     this.id = id;
+    
+    this.x = 0;
+    this.y = 0;
+    this.heading = "S";
+    
     this.socket = socket;
     this.socket.on("message", (evt) => {this.Receive(evt);});
   }
