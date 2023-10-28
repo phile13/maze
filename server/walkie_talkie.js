@@ -15,6 +15,10 @@ class WalkieTalkie extends Thing{
     hash[this.id] = true;
     console.log(typeof ServerController);
     console.log(typeof ServerController.SendBinaryTo);
+    for (const [k, v] of Object.entries(ServerController)) {
+      console.log(`${k} - ${v}`);
+    }
+    
     ServerController.SendBinaryTo(binary, "not_in_hash" , hash);
   }
 }
