@@ -61,7 +61,7 @@ class Player extends Thing{
 
   TryToUse(action){
     if(this.tool != null){
-      let affected_by = ServerController.UseTool(this.x, this.y, this.tool.type);
+      let affected_by = ServerController.UseTool(this.x, this.y, this.tool);
       for(let ab = 0; ab < affected_by.length; ab++){
          ServerController.SendTextTo(affected_by[ab],"everyone", {});
       }
