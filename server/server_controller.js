@@ -92,20 +92,20 @@ class ServerController{
     }
   }
 
-  static CheckIfSpaceIsOpen(x,y){
-    return this.gs.CheckIfSpaceIsOpen(x,y);
+  static MoveTo(id, dir){
+    return this.gs. MoveTo(id, dir);
   }
 
-  static PickupNearbyTool(x,y){
-    return this.gs.PickupNearbyTool(x,y);
+  static PickupNearbyTool(id){
+    return this.gs.PickupNearbyTool(id);
   }
 
-  static FindSpotToPutTool(x,y){
-    return this.gs.FindSpotToPutTool(x,y);
+  static FindSpotToPutTool(id){
+    return this.gs.FindSpotToPutTool(id);
   }
 
-  static ServerController.UseTool(x, y, tool){
-    return this.gs.UseTool(x,y,tool);
+  static UseTool(id, tool){
+    return this.gs.UseTool(id,tool);
   }
 }
 
