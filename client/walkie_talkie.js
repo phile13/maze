@@ -24,10 +24,7 @@ class walkie_talkie extends thing {
     return new Promise(resolve => {
         const audioUrl = URL.createObjectURL(audioBlob);
         const audio = new Audio(audioUrl);
-        const play = () => {
-          audio.play();
-        };
-
+        audio.play();
         resolve({ audioBlob, audioUrl, play });
     });
   }
