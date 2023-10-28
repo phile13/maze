@@ -1,22 +1,27 @@
 const Thing = require("./thing.js");
+const WebSocket = require("ws").Server;
+const HttpsServer = require('https').createServer;
+const fs = require("fs");
 
 class server_controller{
   constructor(){
-    const WebSocket = require("ws").Server;
-    const HttpsServer = require('https').createServer;
-    const fs = require("fs");
+    this.next_client_id = 0;
+    this.clients = {};
+    
+    this.ws = null;
     this.server = HttpsServer({
       cert : fs.readFileSync("/etc/ssl/certs/fiorra.xyz_ssl_certificate.cer"),
       key: fs.readFileSync("/etc/ssl/private/_.fiorra.xyz_private_key.key")
+    },(req,res) => {
+      this.ws = new WebSocket({server : this.server});
+      this.ws.on("open", (evt) => {this.Open(evt)});
+      this.ws.on("connection", (evt) => {this.Connection(evt)});                   
     });
     
-    this.ws = new WebSocket({server : this.server});
-    this.ws.on("open", (evt) => {this.Open(evt)});
-    this.ws.on("connection", (evt) => {this.Connection(evt)});
-    this.next_client_id = 0;
-    this.clients = {};
-    this.server.listen(32123, (evt)=>{this.Connection(evt)});
-    console.log("Leaving Constructor");
+    
+    this.server.listen(32123, (evt)=>{
+      console.log("Leaving Constructor");
+    });
   }
 
   NextId(){
