@@ -25,7 +25,6 @@ class Player extends Thing{
           break;
       }
     }
-    ServerController.SendBinaryTo(json, "everyone");
   }
 
   TryToMove(action){
