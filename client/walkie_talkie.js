@@ -24,7 +24,7 @@ class walkie_talkie extends thing {
     return new Promise((resolve) => {
       try{
         const buf = blob.arrayBuffer();
-        const audioBlob = new Blob(buf ,{type:'audio/webm;codecs=opus'});
+        const audioBlob = new Blob([buf] ,{type:'audio/webm;codecs=opus'});
         const audioUrl = URL.createObjectURL(audioBlob);
         const audio = new Audio(audioUrl);
         audio.play();
