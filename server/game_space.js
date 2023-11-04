@@ -149,14 +149,14 @@ class GameSpace{
     let vcutline = this.CalcCutline(width);
     let hcutline = this.CalcCutline(height);
     
-    if(direction == "H"){
+    if(direction == "H" && hcutline){
       for(let c = left; c <= right; c++){
         this.board[hcutline][c].type = "WALL";
       }
       this.CreateMaze(top,left,right,hcutline,"V");
       this.CreateMaze(hcutline,left,right,bottom,"V");
     }
-    else {
+    else if(direction == "V" && vcutline) {
       for(let r = bottom; r <= top; r++){
         this.board[r][vcutline].type = "WALL";
       }
@@ -173,6 +173,12 @@ class GameSpace{
     return  0;
   }
 
+  CalcDoorSpace(size){
+    if(size > 4){
+    
+    }
+    return 0;
+  }
   
   
 }
