@@ -197,7 +197,7 @@ class GameSpace{
   CalcCutline(size){
     if(size > 4){
         let num_possible_cutlines = (size/4) - 1;
-        return 4 + 4 * Math.floor(Math.random() * (num_possible_cutlines-.0000001));
+        return 4 + 4 * Math.floor(Math.random() * (num_possible_cutlines-.0000000000001));
     }
     return  0;
   }
@@ -205,7 +205,7 @@ class GameSpace{
   CalcDoorSpace(size){
     if(size > 4){
       let num_possible_cutlines = (size/4);
-      return 4 + 4 * Math.floor(Math.random() * (num_possible_cutlines-.0000001));
+      return 4 + 4 * Math.floor(Math.random() * (num_possible_cutlines-.0000000000001));
     }
     return 0;
   }
