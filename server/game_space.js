@@ -142,7 +142,18 @@ class GameSpace{
     return false;
   }
 
-
+  BoardObject(){
+    let rows = [];
+    for(let r = 0; r < this.rows; r++){
+      cols = []
+      for(let c = 0; c < this.cols; c++){
+        cols.push((this.board[r][c].type == "FLOOR")?0,100);
+      }
+      rows.push(cols);
+    }
+    return rows;
+  }
+  
   CreateMaze(top,left,right,bottom,direction){
     let width = right - left;
     let height = top - bottom;
