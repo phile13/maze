@@ -17,7 +17,7 @@ class GameSpace{
         this.board[r][c] = {type:(r==0||c==0||r==max_r||c==max_c)?"WALL":"FLOOR",thing:null,tool:null};
       }
     }
-    this.CreateMaze();
+    this.CreateMaze(thie.rows,0,this.cols,0,"H");
     console.log(JSON.stringify(this.BoardObject()));
   }
 
