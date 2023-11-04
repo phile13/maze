@@ -167,6 +167,7 @@ class GameSpace{
     console.log(hcutline);
     if(direction == "H" && hcutline > 0){
       for(let c = left; c <= right; c++){
+        console.log(c);
         this.board[hcutline][c]["type"] = "WALL";
       }
       for(let c = hdoorcut+1; c < hdoorcut+4; c++){
