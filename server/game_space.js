@@ -169,6 +169,7 @@ class GameSpace{
         this.board[hcutline][c]["type"] = "WALL";
       }
       for(let c = hdoorcut+1; c < hdoorcut+4; c++){
+        console.log(c);
         this.board[hcutline][c]["type"] = "FLOOR";
       }
       
