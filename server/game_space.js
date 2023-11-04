@@ -157,6 +157,7 @@ class GameSpace{
   }
   
   CreateMaze(top,left,right,bottom,direction){
+    console.log(`${top},${left},${right},${bottom},${direction}`);
     let width = right - left;
     let height = top - bottom;
     let vcutline = this.CalcCutline(width);
