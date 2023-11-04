@@ -160,10 +160,10 @@ class GameSpace{
     console.log(`----------${top},${left},${right},${bottom},${direction}`);
     let width = right - left;
     let height = top - bottom;
-    let vcutline = this.CalcCutline(width);
-    let hcutline = this.CalcCutline(height);
-    let hdoorcut = this.CalcDoorSpace(width);
-    let vdoorcut = this.CalcDoorSpace(height);
+    let vcutline = this.CalcCutline(width-1);
+    let hcutline = this.CalcCutline(height-1);
+    let hdoorcut = this.CalcDoorSpace(width-1);
+    let vdoorcut = this.CalcDoorSpace(height-1);
     console.log(`---${width},${height},${vcutline},${hcutline},${hdoorcut},${vdoorcut}`);
     
 
