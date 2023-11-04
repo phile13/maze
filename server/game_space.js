@@ -190,8 +190,8 @@ class GameSpace{
       }
       this.CreateMaze(top,left,vcutline,bottom,"H");
       this.CreateMaze(top,vcutline,right,bottom,"H");
-      
     }
+    return;
   }
 
   CalcCutline(size){
