@@ -158,14 +158,14 @@ class GameSpace{
   }
   
   CreateMaze(top,left,right,bottom,direction){
-    console.log(`----------${top},${left},${right},${bottom},${direction}`);
+    //console.log(`----------${top},${left},${right},${bottom},${direction}`);
     let width = right - left;
     let height = top - bottom;
     let vcutline = this.CalcCutline(width);
     let hcutline = this.CalcCutline(height);
     let hdoorcut = this.CalcDoorSpace(width);
     let vdoorcut = this.CalcDoorSpace(height);
-    console.log(`---${width},${height},${vcutline},${hcutline},${hdoorcut},${vdoorcut}`);
+    //console.log(`---${width},${height},${vcutline},${hcutline},${hdoorcut},${vdoorcut}`);
     
 
     if(direction == "H" && hcutline > 0){
@@ -173,7 +173,7 @@ class GameSpace{
         this.board[hcutline][c]["type"] = "WALL";
       }
       for(let c = hdoorcut+1; c < hdoorcut+4; c++){
-        console.log(`r=${hcutline} c=${c} size=${width}`);
+        //console.log(`r=${hcutline} c=${c} size=${width}`);
         this.board[hcutline][c]["type"] = "FLOOR";
       }
       
