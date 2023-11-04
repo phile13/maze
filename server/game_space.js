@@ -153,6 +153,10 @@ class GameSpace{
       for(let c = left; c <= right; c++){
         this.board[hcutline][c].type = "WALL";
       }
+      for(let c = doorcut; c <= doorcut+4; c++){
+        this.board[hcutline][c].type = "FLOOR";
+      }
+      
       this.CreateMaze(top,left,right,hcutline,"V");
       this.CreateMaze(hcutline,left,right,bottom,"V");
     }
