@@ -2,8 +2,8 @@ const ServerController = require("./server_controller.js");
 const Thing = require("./thing.js");
 
 class WalkieTalkie extends Thing{
-  constructor(id, socket){
-    super(id, socket);
+  constructor(id, socket, board){
+    super(id, socket, board);
     this.type = "WALKIE_TALKIE";
   }
 
