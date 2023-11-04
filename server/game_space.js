@@ -166,10 +166,10 @@ class GameSpace{
     
     if(direction == "H" && hcutline > 0){
       for(let c = left; c <= right; c++){
-        this.board[hcutline][c].type = "WALL";
+        this.board[hcutline][c]["type"] = "WALL";
       }
       for(let c = hdoorcut+1; c < hdoorcut+4; c++){
-        this.board[hcutline][c].type = "FLOOR";
+        this.board[hcutline][c]["type"] = "FLOOR";
       }
       
       this.CreateMaze(top,left,right,hcutline,"V");
@@ -178,10 +178,10 @@ class GameSpace{
     }
     else if(direction == "V" && vcutline > 0) {
       for(let r = bottom; r <= top; r++){
-        this.board[r][vcutline].type = "WALL";
+        this.board[r][vcutline]["type"] = "WALL";
       }
       for(let r = vdoorcut+1; r < vdoorcut+4; r++){
-        this.board[r][vcutline].type = "FLOOR";
+        this.board[r][vcutline]["type"] = "FLOOR";
       }
       this.CreateMaze(top,left,vcutline,bottom,"H");
       this.CreateMaze(top,vcutline,right,bottom,"H");
