@@ -163,7 +163,8 @@ class GameSpace{
     let hcutline = this.CalcCutline(height);
     let hdoorcut = this.CalcDoorSpace(width);
     let vdoorcut = this.CalcDoorSpace(height);
-    
+
+    console.log(hcutline);
     if(direction == "H" && hcutline > 0){
       for(let c = left; c <= right; c++){
         this.board[hcutline][c]["type"] = "WALL";
