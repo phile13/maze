@@ -149,7 +149,7 @@ class GameSpace{
     for(let r = 0; r < this.rows; r++){
       let cols = [];
       for(let c = 0; c < this.cols; c++){
-        cols.push((this.board[r][c].type == "FLOOR")?0:100);
+        cols.push((this.board[r][c].type == "FLOOR")?0:1);
       }
       console.log(cols);
       rows.push(cols);
