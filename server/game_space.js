@@ -148,24 +148,31 @@ class GameSpace{
     let height = top - bottom;
     let vcutline = this.CalcCutline(width);
     let hcutline = this.CalcCutline(height);
+    let hdoorcut = this.CalcDoorSpace(width);
+    let vdoorcut = this.CalcDoorSpace(height);
     
     if(direction == "H" && hcutline > 0){
       for(let c = left; c <= right; c++){
         this.board[hcutline][c].type = "WALL";
       }
-      for(let c = doorcut; c <= doorcut+4; c++){
+      for(let c = hdoorcut+1; c < hdoorcut+4; c++){
         this.board[hcutline][c].type = "FLOOR";
       }
       
       this.CreateMaze(top,left,right,hcutline,"V");
       this.CreateMaze(hcutline,left,right,bottom,"V");
+      
     }
     else if(direction == "V" && vcutline > 0) {
       for(let r = bottom; r <= top; r++){
         this.board[r][vcutline].type = "WALL";
       }
+      for(let r = vdoorcut+1; r < vdoorcut+4; r++){
+        this.board[r][vcutline].type = "FLOOR";
+      }
       this.CreateMaze(top,left,vcutline,bottom,"H");
       this.CreateMaze(top,vcutline,right,bottom,"H");
+      
     }
   }
 
