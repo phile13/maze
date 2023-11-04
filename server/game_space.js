@@ -145,7 +145,7 @@ class GameSpace{
   BoardObject(){
     let rows = [];
     for(let r = 0; r < this.rows; r++){
-      cols = []
+      cols = [];
       for(let c = 0; c < this.cols; c++){
         cols.push((this.board[r][c].type == "FLOOR")?0:100);
       }
