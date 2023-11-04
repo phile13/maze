@@ -18,6 +18,7 @@ class GameSpace{
       }
     }
     this.CreateMaze();
+    console.log(JSON.stringify(this.BoardObject()));
   }
 
   RegisterThing(thing){
