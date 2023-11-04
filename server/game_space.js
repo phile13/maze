@@ -164,6 +164,8 @@ class GameSpace{
     let hcutline = this.CalcCutline(height);
     let hdoorcut = this.CalcDoorSpace(width);
     let vdoorcut = this.CalcDoorSpace(height);
+    console.log(`${width},${height},${vcutline},${hcutline},${hdoorcut},${vdoorcut}`);
+    
 
     if(direction == "H" && hcutline > 0){
       for(let c = left; c < right; c++){
