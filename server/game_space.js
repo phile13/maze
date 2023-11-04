@@ -17,6 +17,7 @@ class GameSpace{
         this.board[r][c] = {type:(r==0||c==0||r==max_r||c==max_c)?"WALL":"FLOOR",thing:null,tool:null};
       }
     }
+    this.CreateMaze();
   }
 
   RegisterThing(thing){
