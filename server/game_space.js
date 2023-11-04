@@ -169,7 +169,7 @@ class GameSpace{
         this.board[hcutline][c]["type"] = "WALL";
       }
       for(let c = hdoorcut+1; c < hdoorcut+4; c++){
-        console.log(c);
+        console.log(`r=${hcutline} c=${c} size=${width}`);
         this.board[hcutline][c]["type"] = "FLOOR";
       }
       
@@ -182,6 +182,7 @@ class GameSpace{
         this.board[r][vcutline]["type"] = "WALL";
       }
       for(let r = vdoorcut+1; r < vdoorcut+4; r++){
+        console.log(r);
         this.board[r][vcutline]["type"] = "FLOOR";
       }
       this.CreateMaze(top,left,vcutline,bottom,"H");
