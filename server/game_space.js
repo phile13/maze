@@ -151,6 +151,7 @@ class GameSpace{
       for(let c = 0; c < this.cols; c++){
         cols.push((this.board[r][c].type == "FLOOR")?0:100);
       }
+      console.log(cols);
       rows.push(cols);
     }
     return rows;
