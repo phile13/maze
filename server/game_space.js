@@ -14,7 +14,7 @@ class GameSpace{
     for(let r = 0; r < this.rows; r++){
       this.board[r] = {};
       for(let c = 0; c < this.cols; c++){
-        this.board[r][c] = {type:(r==0||c==0||r==max_r||c==max_c)?"WALL":"FLAT",thing:null,tool:null};
+        this.board[r][c] = {type:(r==0||c==0||r==max_r||c==max_c)?"WALL":"FLOOR",thing:null,tool:null};
       }
     }
   }
