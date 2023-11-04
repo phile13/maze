@@ -1,11 +1,12 @@
 class Thing {  
-  constructor(id, socket){
+  constructor(id, socket, board){
     this.id = id;
     this.type = "THING";
     this.x = 0;
     this.y = 0;
     this.heading = "S";
     this.health = 100;
+    this.borad_json = JSON.stringify(board);
     
     this.socket = socket;
     this.socket.on("message", (evt) => {this.Receive(evt);});
@@ -45,7 +46,7 @@ class Thing {
           let obj = JSON.parse(msg);
           console.log(obj);
           if("NEW" in obj){
-            this.SendText(`{"ID":${this.id}}`);
+            this.SendText(`{"ID":${this.id},"BOARD":${this.board_json}}`);
           }
           else{
             this.HandleReceiveJSONObj(obj);
