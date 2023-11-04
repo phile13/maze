@@ -31,7 +31,7 @@ class ServerController{
     console.log("Leaving Constructor");
 
     const GameSpace = require('./game_space');
-    this.gs = new GameSpace(17,17);
+    this.gs = new GameSpace(9,9);
 
     ServerController.sc = this;
   }
