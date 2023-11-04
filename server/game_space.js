@@ -141,6 +141,39 @@ class GameSpace{
   UseTool(id, tool){
     return false;
   }
+
+
+  CreateMaze(top,left,right,bottom,direction){
+    let width = right - left;
+    let height = top - bottom;
+    let vcutline = this.CalcCutline(width);
+    let hcutline = this.CalcCutline(height);
+    
+    if(direction == "H"){
+      for(let c = left; c <= right; c++){
+        this.board[hcutline][c].type = "WALL";
+      }
+      this.CreateMaze(top,left,right,hcutline,"V");
+      this.CreateMaze(hcutline,left,right,bottom,"V");
+    }
+    else {
+      for(let r = bottom; r <= top; r++){
+        this.board[r][vcutline].type = "WALL";
+      }
+      this.CreateMaze(top,left,vcutline,bottom,"H");
+      this.CreateMaze(top,vcutline,right,bottom,"H");
+    }
+  }
+
+  CalcCutline(size){
+    if(size > 4){
+        let num_possible_cutlines = (size/4) - 1;
+        return 4 + 4 * Math.floor(Math.random() * (num_possible_cutlines-.0000001));
+    }
+    return  0;
+  }
+
+  
   
 }
 module.exports = GameSpace;
