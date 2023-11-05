@@ -19,7 +19,7 @@ class GameSpace{
     this.WilsonsMazeAlgorithm();
     //this.CreateMaze(this.rows-1,0,this.cols-1,0,"H");
     this.json_board = JSON.stringify(this.BoardObject());
-    console.log(JSON.stringify(this.BoardObject()));
+    //console.log(JSON.stringify(this.BoardObject()));
   }
 
   RegisterThing(thing){
@@ -180,7 +180,7 @@ class GameSpace{
 
     //create maze
     let dirs = [[0,4],[4,0],[0,-4],[-4,0]];
-    console.log("create maze");
+    //console.log("create maze");
     do{
       ids_list_idx = Math.floor(Math.random() * (ids_list.length-.0000000000001));
       hash_id = ids_list[ids_list_idx];
@@ -190,7 +190,7 @@ class GameSpace{
 
       if(current.in_maze == false){
         //find path
-        console.log("find path");
+        //console.log("find path");
         do{
           let dir = 0, id = "";
           do{
@@ -204,14 +204,14 @@ class GameSpace{
   
   
         //set path
-        console.log("set path");
+        //console.log("set path");
         current = first;
         do{
           
           if(current.location[0] != current.next.location[0]){
             let Y = (current.location[0] + current.next.location[0])/2;
             let X = (current.location[1] + current.next.location[1])/2;
-            console.log(`V${current.id} | ${current.location} | ${current.next.location} | ${Y} | ${X}`);
+            //console.log(`V${current.id} | ${current.location} | ${current.next.location} | ${Y} | ${X}`);
             this.board[Y][X-1]["type"] = "FLOOR";
             this.board[Y][X]["type"] = "FLOOR";
             this.board[Y][X+1]["type"] = "FLOOR";
@@ -219,13 +219,13 @@ class GameSpace{
           else if(current.location[1] != current.next.location[1]){
             let Y = (current.location[0] + current.next.location[0])/2;
             let X = (current.location[1] + current.next.location[1])/2;
-            console.log(`H${current.id} | ${current.location} | ${current.next.location} | ${Y} | ${X}`);
+            //console.log(`H${current.id} | ${current.location} | ${current.next.location} | ${Y} | ${X}`);
             this.board[Y-1][X]["type"] = "FLOOR";
             this.board[Y][X]["type"] = "FLOOR";
             this.board[Y+1][X]["type"] = "FLOOR";
           }
           else{
-            console.log(`DIAG${current.id} | ${current.location} | ${current.next.location}`);
+            //console.log(`DIAG${current.id} | ${current.location} | ${current.next.location}`);
           }
           current.in_maze = true;
           
