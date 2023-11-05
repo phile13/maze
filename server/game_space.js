@@ -181,8 +181,8 @@ class GameSpace{
 
     //create maze
     let dirs = [[0,4],[4,0],[0,-4],[-4,0]];
+    console.log("create maze");
     do{
-      console.log("create maze");
       ids_list_idx = Math.floor(Math.random() * (ids_list.length-.0000000000001));
       hash_id = ids_list[ids_list_idx];
       let first = hash[hash_id];
@@ -210,12 +210,13 @@ class GameSpace{
           let Y = (current.location[0] + current.next.location[0])/2;
           let X = (current.location[1] + current.next.location[1])/2;
           if(Y != current.location[0]){
+            console.log(`V${Y}-${X}`);
             this.board[Y][X-1]["type"] = "FLOOR";
             this.board[Y][X]["type"] = "FLOOR";
             this.board[Y][X+1]["type"] = "FLOOR";
           }
           else{
-            console.log(`${Y}-${X}`);
+            console.log(`H${Y}-${X}`);
             this.board[Y-1][X]["type"] = "FLOOR";
             this.board[Y][X]["type"] = "FLOOR";
             this.board[Y+1][X]["type"] = "FLOOR";
