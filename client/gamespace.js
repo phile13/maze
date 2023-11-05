@@ -8,13 +8,14 @@ class gamespace{
     this.colors = ["grey","blue"];
     this.height = this.board.length;
     this.width = this.board[0].length;
-    this.centerY = this.height * 4/2;
-    this.centerX = this.width * 4/2;
+    this.myscale = 4;
+    this.centerY = this.height * this.myscale/2;
+    this.centerX = this.width * this.myscale/2;
     for (let r = 0; r < this.height; r++) {
         let row = this.board[r];
         for (let c = 0; c < this.width; c++) {
             this.background.beginFill(this.colors[row[c]]);
-            this.background.drawRect(c*4, r*4, 4, 4);
+            this.background.drawRect(c*this.myscale, r*this.myscale, this.myscale, this.myscale);
             this.background.endFill();
         }
     }
@@ -25,10 +26,10 @@ class gamespace{
     this.myid = id;
     this.mytype = type;
     this.me = this.CreateThings(id, type , true);
-    this.me.x = 4*x;
-    this.me.y = 4*y;
-    this.app.stage.x = -4*this.app.stage.scale.x*x+this.centerX;
-    this.app.stage.y = -4*this.app.stage.scale.x*y+this.centerY;
+    this.me.x = this.myscale*x;
+    this.me.y = this.myscale*y;
+    this.app.stage.x = -this.myscale*this.app.stage.scale.x*x+this.centerX;
+    this.app.stage.y = -this.myscale*this.app.stage.scale.x*y+this.centerY;
   }
 
   CreateThings(id, type, is_me = false){
@@ -39,7 +40,7 @@ class gamespace{
     else{
       g.beginFill("red");
     }
-    g.drawRect(0, 0, 4, 4);
+    g.drawRect(0, 0, this.myscale, this.myscale);
     g.endFill();
     this.app.stage.addChild(g);
     this.others[id] = g;
@@ -59,11 +60,11 @@ class gamespace{
       this.CreateThings(msg.ID, msg.THING);
       who = this.others[msg.ID];
     }
-    who.x = msg.X*4;
-    who.y = msg.Y*4;
+    who.x = msg.X*this.myscale;
+    who.y = msg.Y*this.myscale;
     if(msg.ID == this.myid){
-      this.app.stage.x = -msg.X*4*this.app.stage.scale.x+this.centerX;
-      this.app.stage.y = -msg.Y*4*this.app.stage.scale.x+this.centerY;
+      this.app.stage.x = -msg.X*this.myscale*this.app.stage.scale.x+this.centerX;
+      this.app.stage.y = -msg.Y*this.myscale*this.app.stage.scale.x+this.centerY;
     }
   }
   
