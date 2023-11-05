@@ -203,17 +203,17 @@ class GameSpace{
         //set path
         current = first;
         do{
-          let y = (current.location[0] + current.next.location[0])/2;
-          let x = (current.location[1] + current.next.location[1])/2;
+          let Y = (current.location[0] + current.next.location[0])/2;
+          let X = (current.location[1] + current.next.location[1])/2;
           if(y != current.location[0]){
-            this.board[y][x-1]["type"] = "FLOOR";
-            this.board[y][x]["type"] = "FLOOR";
-            this.board[y][x+1]["type"] = "FLOOR";
+            this.board[Y][X-1]["type"] = "FLOOR";
+            this.board[Y][X]["type"] = "FLOOR";
+            this.board[Y][X+1]["type"] = "FLOOR";
           }
           else{
-            this.board[y-1][x]["type"] = "FLOOR";
-            this.board[y][x]["type"] = "FLOOR";
-            this.board[y+1][x]["type"] = "FLOOR";
+            this.board[Y-1][X]["type"] = "FLOOR";
+            this.board[Y][X]["type"] = "FLOOR";
+            this.board[Y+1][X]["type"] = "FLOOR";
           }
           current.in_maze = true;
           
