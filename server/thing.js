@@ -7,7 +7,7 @@ class Thing {
     this.heading = "S";
     this.health = 100;
     this.json_board = board;
-    console.log(this.json_board);
+    //console.log(this.json_board);
     
     this.socket = socket;
     this.socket.on("message", (evt) => {this.Receive(evt);});
@@ -22,7 +22,7 @@ class Thing {
   }
 
   HandleReceiveJSONObj(json){
-    console.log("HandleReceiveJSONObj.Thing");
+    //console.log("HandleReceiveJSONObj.Thing");
   }
 
   HandleReceiveBinary(binary){
@@ -30,7 +30,7 @@ class Thing {
   }
 
   Receive(msg){
-    console.log("Receive");
+    //console.log("Receive");
     try{
       if(typeof msg == "object"){
         if(msg[0] == 34 && msg[1] == 123 && msg[2] == 92 && msg[3] == "34"){
@@ -45,7 +45,7 @@ class Thing {
         }
         else if((msg[0] == 123 && msg[1] == 34)){
           let obj = JSON.parse(msg);
-          console.log(obj);
+          //console.log(obj);
           if("NEW" in obj){
             this.SendText(`{"ID":${this.id},"TYPE":"NEW","X":${this.x},"Y":${this.y},"BOARD":${this.json_board}}`);
           }
@@ -54,13 +54,13 @@ class Thing {
           }
         }
         else{
-          console.log(msg);
+          //console.log(msg);
           this.HandleReceiveBinary(msg);
         }
       }
     }
     catch(ex){
-      console.log(ex);
+      //console.log(ex);
     }   
   }
 }
