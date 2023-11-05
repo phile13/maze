@@ -28,7 +28,7 @@ class ServerController{
       }
       console.log("Server is Listening");
     });
-    console.log("Leaving Constructor");
+    //console.log("Leaving Constructor");
 
     const GameSpace = require('./game_space');
     this.gs = new GameSpace(161,201);
