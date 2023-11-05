@@ -182,6 +182,7 @@ class GameSpace{
     //create maze
     let dirs = [[0,4],[4,0],[0,-4],[-4,0]];
     do{
+      console.log("create maze");
       ids_list_idx = Math.floor(Math.random() * (ids_list.length-.0000000000001));
       hash_id = ids_list[ids_list_idx];
       let first = hash[hash_id];
@@ -190,6 +191,7 @@ class GameSpace{
 
       if(current.in_maze == false){
         //find path
+        console.log("find path");
         do{
           let dir = 0, id = "";
           do{
@@ -202,6 +204,7 @@ class GameSpace{
   
   
         //set path
+        console.log("set path");
         current = first;
         do{
           let Y = (current.location[0] + current.next.location[0])/2;
