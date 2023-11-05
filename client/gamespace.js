@@ -15,8 +15,8 @@ class gamespace{
         }
     }
     this.app.stage.addChild(this.background);
-    this.app.stage.scale.x = .5;
-    this.app.stage.scale.y = .5;
+    //this.app.stage.scale.x = .5;
+    //this.app.stage.scale.y = .5;
 
     this.myid = id;
     this.mytype = type;
