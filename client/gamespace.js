@@ -6,11 +6,11 @@ class gamespace{
     
     this.background = new PIXI.Graphics();
     this.colors = ["grey","blue"];
-    for (let row = 0; row < this.board.length; row++) {
-        let row = this.board[row];
-        for (let col = 0; col < row.length; col++) {
-            this.background.beginFill(this.colors[row[col]]);
-            this.background.drawRect(col, row, 1, 1);
+    for (let r = 0; r < this.board.length; r++) {
+        let row = this.board[r];
+        for (let c = 0; c < row.length; c++) {
+            this.background.beginFill(this.colors[row[c]]);
+            this.background.drawRect(c, r, 1, 1);
             this.background.endFill();
         }
     }
