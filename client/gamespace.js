@@ -18,10 +18,10 @@ class gamespace{
 
     this.myid = id;
     this.mytype = type;
-    this.me = this.CreateThings(id, "ME");
+    this.me = this.CreateThings(id, type , true);
   }
 
-  CreateThings(id, type){
+  CreateThings(id, type, is_me = false){
     let g = new PIXI.Graphics();
     if(type == "ME"){
       g.beginFill("pink");
