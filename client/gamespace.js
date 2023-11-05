@@ -1,7 +1,7 @@
 class gamespace{
   constructor(board){
     this.board = board;
-    this.app = new PIXI.Application({ background: '#1099bb', view: document.getElementById("board") });
+    this.app = new PIXI.Application({ background: '#1099bb', view: document.getElementById("board") , resize: window });
     document.body.appendChild(this.app.view);
     
     this.background = new PIXI.Graphics();
