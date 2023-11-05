@@ -208,22 +208,25 @@ class GameSpace{
         console.log("set path");
         current = first;
         do{
-          let Y = (current.location[0] + current.next.location[0])/2;
-          let X = (current.location[1] + current.next.location[1])/2;
-          if(Y != current.location[0] || X != current.location[1]){
-            console.log(`DIAG${current.id} | ${current.location} | ${current.next.location}`);
-          }
-          else if(Y != current.location[0]){
+          
+          if(current.location[0] != current.next.location[0]){
+            let Y = (current.location[0] + current.next.location[0])/2;
+            let X = (current.location[1] + current.next.location[1])/2;
             console.log(`V${Y}-${X}`);
             this.board[Y][X-1]["type"] = "FLOOR";
             this.board[Y][X]["type"] = "FLOOR";
             this.board[Y][X+1]["type"] = "FLOOR";
           }
-          else{
+          else if(current.location[1] != current.next.location[1]){
+            let Y = (current.location[0] + current.next.location[0])/2;
+            let X = (current.location[1] + current.next.location[1])/2;
             console.log(`H${Y}-${X}`);
             this.board[Y-1][X]["type"] = "FLOOR";
             this.board[Y][X]["type"] = "FLOOR";
             this.board[Y+1][X]["type"] = "FLOOR";
+          }
+          else{
+            console.log(`DIAG${current.id} | ${current.location} | ${current.next.location}`);
           }
           current.in_maze = true;
           
