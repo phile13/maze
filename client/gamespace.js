@@ -26,9 +26,9 @@ class gamespace{
   }
 
   HandleMessage(msg){
-    console.log("GS: " + msg.type);
-    if(msg.type in this){
-      this[msg.type](msg);
+    console.log("GS: " + msg.TYPE);
+    if(msg.TYPE in this){
+      this[msg.TYPE](msg);
     }
   }
 
