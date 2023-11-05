@@ -158,6 +158,80 @@ class GameSpace{
     //console.log(JSON.stringify(rows))
     return rows;
   }
+
+  WilsonsMazeAlgorithm(width, height){
+    let grid = [];
+    let hash = {}
+    let count = 0;
+    //setup
+    for(let r = 2; r < this.rows; r+=4){
+      for(let c = 2; c < this.cols; c+=4){
+        let id = `${r}:${c}`;
+        hash[id] = {location :[r,c], in_maze : false, next : null, id : id};
+        grid.push(id);
+        count++;
+      }
+    }
+
+    
+    let dirs = [[0,4],[4,0],[0,-4],[-4,0]];
+    do{
+      let grid_idx = Math.floor(Math.random() * this.grid.length);
+      let hash_id = grid[grid_idx];
+      let first = hash[hash_id];
+      let current = first;
+      grid.splice(
+
+      //find path
+      do{
+        let dir = 0, id = "";
+        do{
+          dir = dirs[Math.floor(Math.random() * 3.999999999999)];
+          id = `${current.location[0]+dir[0]}:${current.location[1]+dir[1]}`;
+        }while((id in hash) == false);
+        current.next = hash[id];
+        current = hash[id];
+      }while(current.in_maze == false);
+
+
+      //set path
+      current = first;
+      do{
+        let y = (current.location[0] + current.next.location[0])/2;
+        let x = (current.location[1] + current.next.location[1])/2;
+        if(y != current.location[0]){
+          this.board[y][x-1]["type"] = "FLOOR";
+          this.board[y][x]["type"] = "FLOOR";
+          this.board[y][x+1]["type"] = "FLOOR";
+        }
+        else{
+          this.board[y-1][x]["type"] = "FLOOR";
+          this.board[y][x]["type"] = "FLOOR";
+          this.board[y+1][x]["type"] = "FLOOR";
+        }
+        current.in_maze = true;
+        
+        current = current.next;
+      }while(current.in_maze == false);
+
+      count--;
+    }
+    
+  }while(grid.length > 0);
+
+  
+  Walk(linked_list){
+    linked_list["CURRENT"];
+  }
+
+  Step(last_dir){
+    let dirs = [[0,4],[4,0],[0,-4],[-4,0]];
+    let dir = -1;
+    do{
+      dir = dirs[Math.floor(Math.random() * 3.99999999)];
+    }while(dir == last_dir);
+    return dir;
+  }
   
   CreateMaze(top,left,right,bottom,direction){
     //console.log(`----------${top},${left},${right},${bottom},${direction}`);
