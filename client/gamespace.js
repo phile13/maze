@@ -34,6 +34,10 @@ class gamespace{
 
   MOVE(msg){
     console.log("MOVE:" + msg);
+    if(msg.ID == this.myid){
+      this.me.x = msg.X;
+      this.me.y = msg.Y;
+    }
   }
   
 }
