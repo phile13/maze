@@ -68,7 +68,7 @@ class thing {
   }
 
   HandleTextMessage(text){
-    console.log(`text:${text}`);
+    console.log(`Thing:${text}`);
   }
   
   HandleBlobMessage(blob){
