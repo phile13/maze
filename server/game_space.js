@@ -14,7 +14,7 @@ class GameSpace{
     for(let r = 0; r < this.rows; r++){
       this.board[r] = {};
       for(let c = 0; c < this.cols; c++){
-        this.board[r][c] = {type:((r*c)%16=0)?"WALL":"FLOOR",thing:null,tool:null};
+        this.board[r][c] = {type:((r*c)%16==0)?"WALL":"FLOOR",thing:null,tool:null};
       }
     }
     //this.CreateMaze(this.rows-1,0,this.cols-1,0,"H");
