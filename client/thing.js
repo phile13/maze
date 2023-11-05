@@ -69,6 +69,7 @@ class thing {
 
   HandleTextMessage(text){
     console.log(`Thing:${text}`);
+    this.gs.HandleMessage(text);
   }
   
   HandleBlobMessage(blob){
