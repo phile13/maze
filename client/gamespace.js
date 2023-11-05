@@ -10,7 +10,7 @@ class gamespace{
         let row = this.board[r];
         for (let c = 0; c < row.length; c++) {
             this.background.beginFill(this.colors[row[c]]);
-            this.background.drawRect(c, r, 1, 1);
+            this.background.drawRect(c, r, 4, 4);
             this.background.endFill();
         }
     }
