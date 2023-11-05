@@ -5,7 +5,7 @@ class gamespace{
     document.body.appendChild(this.app.view);
     this.others = {};
     this.background = new PIXI.Graphics();
-    this.colors = ["grey","blue"];
+    this.colors = ["lightgrey","darkgrey"];
     this.height = this.board.length;
     this.width = this.board[0].length;
     this.myscale = 4;
