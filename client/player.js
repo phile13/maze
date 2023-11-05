@@ -74,14 +74,7 @@ class player extends thing {
     }
   }
 
-  HandleTextMessage(text){
-    console.log("Player:" + text);
-  }
-  
-  HandleBlobMessage(blob){
-   
-  }
-
+ 
   HandleKeyDown(code){
     let parts = code.split(".");
     this.SendText({TYPE:parts[0], ACTION:parts[1]});
