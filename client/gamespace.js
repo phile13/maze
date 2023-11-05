@@ -1,5 +1,5 @@
 class gamespace{
-  constructor(board, type){
+  constructor(board, id, type){
     this.board = board;
     this.app = new PIXI.Application({ background: '#1099bb', view: document.getElementById("board") , resize: window });
     document.body.appendChild(this.app.view);
@@ -15,9 +15,17 @@ class gamespace{
         }
     }
     this.app.stage.addChild(this.background);
+
+    this.myid = id;
+    this.mytype = type;
+    this.me = new PIXI.Graphics();
+    this.me.beginFill("pink");
+    this.me.drawRect(100, 100, 4, 4);
+    this.me.endFill();
+    this.app.stage.addChild(this.me);
   }
 
-  GetSprite(){
+  Move(request){
     
   }
 }
