@@ -3,7 +3,7 @@ class gamespace{
     this.board = board;
     this.app = new PIXI.Application({ background: '#1099bb', view: document.getElementById("board") , resize: window });
     document.body.appendChild(this.app.view);
-    
+    this.others = {};
     this.background = new PIXI.Graphics();
     this.colors = ["grey","blue"];
     for (let r = 0; r < this.board.length; r++) {
@@ -19,7 +19,6 @@ class gamespace{
     this.myid = id;
     this.mytype = type;
     this.me = this.CreateThings(this.id, "ME");
-    this.others = {};
   }
 
   CreateThings(id, type){
