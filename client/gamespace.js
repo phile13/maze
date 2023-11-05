@@ -26,6 +26,13 @@ class gamespace{
   }
 
   HandleMessage(msg){
-    console.log(msg);
+    if(msg.type in this){
+      this[msg.type](msg);
+    }
   }
+
+  Move(msg){
+    console.log("MOVE:" + msg);
+  }
+  
 }
