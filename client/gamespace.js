@@ -18,11 +18,23 @@ class gamespace{
 
     this.myid = id;
     this.mytype = type;
-    this.me = new PIXI.Graphics();
-    this.me.beginFill("pink");
-    this.me.drawRect(0, 0, 4, 4);
-    this.me.endFill();
-    this.app.stage.addChild(this.me);
+    this.me = this.CreateThings(this.id, "ME");
+    this.others = {};
+  }
+
+  CreateThings(id, type){
+    let g = new PIXI.Graphics();
+    if(type == "ME"){
+      g.beginFill("pink");
+    }
+    else{
+      g.beginFill("red");
+    }
+    g.drawRect(0, 0, 4, 4);
+    g.endFill();
+    this.app.stage.addChild(g);
+    this.others[id] = g;
+    return g;
   }
 
   HandleMessage(msg){
@@ -33,11 +45,13 @@ class gamespace{
   }
 
   MOVE(msg){
-    console.log("MOVE:" + msg);
-    if(msg.ID == this.myid){
-      this.me.x = msg.X*4;
-      this.me.y = msg.Y*4;
+    let who = this.others[msg.ID];
+    if(who == null){
+      this.Create(msg.ID, msg.TYPE);
+      who = this.others[msg.ID];
     }
+    who.x = msg.X*4;
+    who.y = msg.Y*4;
   }
   
 }
