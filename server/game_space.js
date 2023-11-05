@@ -18,7 +18,7 @@ class GameSpace{
       }
     }
     //this.CreateMaze(this.rows-1,0,this.cols-1,0,"H");
-    //this.BoardObject()
+    this.json_board = JSON.stringify(this.BoardObject());
     //console.log(JSON.stringify(this.BoardObject()));
   }
 
@@ -155,7 +155,7 @@ class GameSpace{
       //console.log(JSON.stringify(cols));
       rows.push(cols);
     }
-    console.log(JSON.stringify(rows))
+    //console.log(JSON.stringify(rows))
     return rows;
   }
   
