@@ -75,7 +75,7 @@ class player extends thing {
   }
 
   HandleTextMessage(text){
-    console.log(text);
+    console.log("Player:" + text);
   }
   
   HandleBlobMessage(blob){
