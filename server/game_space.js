@@ -205,7 +205,7 @@ class GameSpace{
         do{
           let Y = (current.location[0] + current.next.location[0])/2;
           let X = (current.location[1] + current.next.location[1])/2;
-          if(y != current.location[0]){
+          if(Y != current.location[0]){
             this.board[Y][X-1]["type"] = "FLOOR";
             this.board[Y][X]["type"] = "FLOOR";
             this.board[Y][X+1]["type"] = "FLOOR";
