@@ -27,8 +27,8 @@ class gamespace{
     this.me = this.CreateThings(id, type , true);
     this.me.x = 4*x;
     this.me.y = 4*y;
-    this.app.stage.x = -8*x+this.centerX;
-    this.app.stage.y = -8*y+this.centerY;
+    this.app.stage.x = -4*this.app.stage.scale.x*x+this.centerX;
+    this.app.stage.y = -4*this.app.stage.scale.x*y+this.centerY;
   }
 
   CreateThings(id, type, is_me = false){
@@ -62,8 +62,8 @@ class gamespace{
     who.x = msg.X*4;
     who.y = msg.Y*4;
     if(msg.ID == this.myid){
-      this.app.stage.x = -msg.X*4+this.centerX;
-      this.app.stage.y = -msg.Y*4+this.centerY;
+      this.app.stage.x = -msg.X*4*this.app.stage.scale.x+this.centerX;
+      this.app.stage.y = -msg.Y*4*this.app.stage.scale.x+this.centerY;
     }
   }
   
