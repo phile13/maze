@@ -20,7 +20,7 @@ class gamespace{
     this.mytype = type;
     this.me = new PIXI.Graphics();
     this.me.beginFill("pink");
-    this.me.drawRect(100, 100, 4, 4);
+    this.me.drawRect(0, 0, 4, 4);
     this.me.endFill();
     this.app.stage.addChild(this.me);
   }
