@@ -1,5 +1,5 @@
 class gamespace{
-  constructor(board, id, type){
+  constructor(board, id, type, x, y){
     this.board = board;
     this.app = new PIXI.Application({ background: '#1099bb', view: document.getElementById("board") , resize: window });
     document.body.appendChild(this.app.view);
@@ -19,6 +19,8 @@ class gamespace{
     this.myid = id;
     this.mytype = type;
     this.me = this.CreateThings(id, type , true);
+    this.me.x = x;
+    this.me.y = y;
   }
 
   CreateThings(id, type, is_me = false){
