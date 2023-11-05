@@ -155,6 +155,7 @@ class GameSpace{
       //console.log(JSON.stringify(cols));
       rows.push(cols);
     }
+    console.log(JSON.stringify(rows))
     return rows;
   }
   
