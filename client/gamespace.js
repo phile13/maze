@@ -8,8 +8,8 @@ class gamespace{
     this.colors = ["grey","blue"];
     this.height = this.board.length;
     this.width = this.board[0].length;
-    this.centerY = this.height * 2;
-    this.centerX = this.width * 2;
+    this.centerY = this.height * 4/2;
+    this.centerX = this.width * 4/2;
     for (let r = 0; r < this.height; r++) {
         let row = this.board[r];
         for (let c = 0; c < this.width; c++) {
