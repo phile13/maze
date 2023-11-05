@@ -152,7 +152,7 @@ class GameSpace{
       for(let c = 0; c < this.cols; c++){
         cols.push((this.board[r][c].type == "FLOOR")?0:1);
       }
-      console.log(JSON.stringify(cols));
+      //console.log(JSON.stringify(cols));
       rows.push(cols);
     }
     return rows;
