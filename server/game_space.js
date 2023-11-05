@@ -174,13 +174,15 @@ class GameSpace{
       }
     }
 
-    hash[`${2+(this.rows/4)}:${2+(this.cols/4)}`].in_maze = true;
+    let ids_list_idx = Math.floor(Math.random() * (this.ids_list.length-.0000000000001));
+    let hash_id = ids_list[ids_list_idx];
+    hash[hash_id].in_maze = true;
 
     //create maze
     let dirs = [[0,4],[4,0],[0,-4],[-4,0]];
     do{
-      let ids_list_idx = Math.floor(Math.random() * (this.ids_list.length-.0000000000001));
-      let hash_id = ids_list[ids_list_idx];
+      ids_list_idx = Math.floor(Math.random() * (this.ids_list.length-.0000000000001));
+      hash_id = ids_list[ids_list_idx];
       let first = hash[hash_id];
       let current = first;
       ids_list.splice(ids_list_idx,1);
