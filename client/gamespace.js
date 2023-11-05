@@ -6,9 +6,13 @@ class gamespace{
     this.others = {};
     this.background = new PIXI.Graphics();
     this.colors = ["grey","blue"];
-    for (let r = 0; r < this.board.length; r++) {
+    this.height = this.board.length;
+    this.width = this.board[0].length;
+    this.centerY = this.height/2;
+    this.centerX = this.width/2;
+    for (let r = 0; r < this.height; r++) {
         let row = this.board[r];
-        for (let c = 0; c < row.length; c++) {
+        for (let c = 0; c < this.width; c++) {
             this.background.beginFill(this.colors[row[c]]);
             this.background.drawRect(c*4, r*4, 4, 4);
             this.background.endFill();
@@ -23,8 +27,8 @@ class gamespace{
     this.me = this.CreateThings(id, type , true);
     this.me.x = 4*x;
     this.me.y = 4*y;
-    this.app.stage.x = -4*x;
-    this.app.stage.y = -4*y;
+    this.app.stage.x = -4*x+this.centerX;
+    this.app.stage.y = -4*y+this.centerY;
   }
 
   CreateThings(id, type, is_me = false){
@@ -58,8 +62,8 @@ class gamespace{
     who.x = msg.X*4;
     who.y = msg.Y*4;
     if(msg.ID == this.myid){
-      this.app.stage.x = -msg.X*4;
-      this.app.stage.y = -msg.Y*4;
+      this.app.stage.x = -msg.X*4+this.centerX;
+      this.app.stage.y = -msg.Y*4+this.centerY;
     }
   }
   
