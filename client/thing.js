@@ -10,6 +10,7 @@ class thing {
     document.addEventListener('keydown',(evt) => {this.OnKeyDownHandler(evt)});
     document.addEventListener('keyup',(evt) => {this.OnKeyUpHandler(evt)});
     console.log("walkie talkie created");
+    this.gs = null;
   }
 
   Open(){
@@ -26,7 +27,7 @@ class thing {
           this.id = msg['ID'];
         }
         if("BOARD" in msg){
-          this.board = new gamespace(msg['BOARD']);
+          this.gs = new gamespace(msg['BOARD']);
         }
       }
       catch(e){
