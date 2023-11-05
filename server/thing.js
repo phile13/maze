@@ -37,7 +37,7 @@ class Thing {
           let json = JSON.parse(msg);
           let obj = JSON.parse(json);
           if("NEW" in obj){
-            this.SendText(`{"ID":${this.id},"X":${this.x},"Y":${this.y},"BOARD":${this.json_board}}`);
+            this.SendText(`{"ID":${this.id},"TYPE":"NEW","X":${this.x},"Y":${this.y},"BOARD":${this.json_board}}`);
           }
           else{
             this.HandleReceiveJSONObj(obj);
@@ -47,7 +47,7 @@ class Thing {
           let obj = JSON.parse(msg);
           console.log(obj);
           if("NEW" in obj){
-            this.SendText(`{"ID":${this.id},"X":${this.x},"Y":${this.y},"BOARD":${this.json_board}}`);
+            this.SendText(`{"ID":${this.id},"TYPE":"NEW","X":${this.x},"Y":${this.y},"BOARD":${this.json_board}}`);
           }
           else{
             this.HandleReceiveJSONObj(obj);
