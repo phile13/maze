@@ -9,8 +9,7 @@ class GameSpace{
     this.inaccessible_types = {WALL:true};
     this.dirs_map = {N:[0,-1], NE:[1,-1], E:[1,0], SE:[1,1], S:[0,1], SW:[-1,1], W:[-1,0], NW:[-1,-1] };
 
-    let max_r = this.rows-1;
-    let max_c = this.cols-1;
+
     for(let r = 0; r < this.rows; r++){
       this.board[r] = {};
       for(let c = 0; c < this.cols; c++){
