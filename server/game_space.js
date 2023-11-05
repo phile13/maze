@@ -211,6 +211,7 @@ class GameSpace{
             this.board[Y][X+1]["type"] = "FLOOR";
           }
           else{
+            console.log(`${Y}-${X}`);
             this.board[Y-1][X]["type"] = "FLOOR";
             this.board[Y][X]["type"] = "FLOOR";
             this.board[Y+1][X]["type"] = "FLOOR";
