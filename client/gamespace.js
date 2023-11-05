@@ -27,8 +27,8 @@ class gamespace{
     this.me = this.CreateThings(id, type , true);
     this.me.x = 4*x;
     this.me.y = 4*y;
-    this.app.stage.x = -4*x+this.centerX;
-    this.app.stage.y = -4*y+this.centerY;
+    this.app.stage.x = -8*x+this.centerX;
+    this.app.stage.y = -8*y+this.centerY;
   }
 
   CreateThings(id, type, is_me = false){
