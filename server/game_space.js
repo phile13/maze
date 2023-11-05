@@ -200,6 +200,7 @@ class GameSpace{
           }while((id in hash) == false);
           current.next = hash[id];
           current = hash[id];
+          console.log(`${current.id}`);
         }while(current.in_maze == false);
   
   
