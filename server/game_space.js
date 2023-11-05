@@ -174,14 +174,14 @@ class GameSpace{
       }
     }
 
-    let ids_list_idx = Math.floor(Math.random() * (this.ids_list.length-.0000000000001));
+    let ids_list_idx = Math.floor(Math.random() * (ids_list.length-.0000000000001));
     let hash_id = ids_list[ids_list_idx];
     hash[hash_id].in_maze = true;
 
     //create maze
     let dirs = [[0,4],[4,0],[0,-4],[-4,0]];
     do{
-      ids_list_idx = Math.floor(Math.random() * (this.ids_list.length-.0000000000001));
+      ids_list_idx = Math.floor(Math.random() * (ids_list.length-.0000000000001));
       hash_id = ids_list[ids_list_idx];
       let first = hash[hash_id];
       let current = first;
