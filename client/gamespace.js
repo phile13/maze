@@ -32,7 +32,7 @@ class gamespace{
     }
   }
 
-  Move(msg){
+  MOVE(msg){
     console.log("MOVE:" + msg);
   }
   
