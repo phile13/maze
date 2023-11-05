@@ -17,6 +17,61 @@ class player extends thing {
     this.keycodes["KeyX"] = "AIM.D";
 
     this.keycodes["Space"] = "AIM.FIRE";
+
+    let srcSz = { w : 32 , h : 32 };
+    let spriteSrcSz = { x: 0, y: 0, w: 32, h: 32 }; 
+    this.spritesheet = {
+      frames: {
+        S : {
+            frame: { x: 32, y:0, w:32, h:32 },
+            sourceSize: srcSz,
+            spriteSourceSize: spriteSrcSz
+        },
+        N: {
+            frame: { x: 64, y:0, w:32, h:32 },
+            sourceSize: srcSz,
+            spriteSourceSize: spriteSrcSz
+        },
+        NE: {
+            frame: { x: 0, y:32, w:32, h:32 },
+            sourceSize: srcSz,
+            spriteSourceSize: spriteSrcSz
+        },
+        SW: {
+            frame: { x: 32, y:32, w:32, h:32 },
+            sourceSize: srcSz,
+            spriteSourceSize: spriteSrcSz
+        },
+        E: {
+            frame: { x: 64, y:32, w:32, h:32 },
+            sourceSize: srcSz,
+            spriteSourceSize: spriteSrcSz
+        },
+        W: {
+            frame: { x: 0, y:64, w:32, h:32 },
+            sourceSize: srcSz,
+            spriteSourceSize: spriteSrcSz
+        },
+        NW: {
+            frame: { x: 32, y:64, w:32, h:32 },
+            sourceSize: srcSz,
+            spriteSourceSize: spriteSrcSz
+        },
+        SE: {
+            frame: { x: 64, y:64, w:32, h:32 },
+            sourceSize: srcSz,
+            spriteSourceSize: spriteSrcSz
+        },
+      },
+      meta:{
+        image: 'imgs/player.png',
+        format: 'RGB',
+        size : { w: 96, h: 96},
+        scale : 1
+      },
+      animations:{
+      }
+    }
   }
 
   HandleTextMessage(text){
