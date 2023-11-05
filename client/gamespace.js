@@ -46,7 +46,7 @@ class gamespace{
   MOVE(msg){
     let who = this.others[msg.ID];
     if(who === undefined){
-      this.Create(msg.ID, msg.TYPE);
+      this.CreateThings(msg.ID, msg.THING);
       who = this.others[msg.ID];
     }
     who.x = msg.X*4;
