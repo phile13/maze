@@ -36,7 +36,7 @@ class Thing {
           let json = JSON.parse(msg);
           let obj = JSON.parse(json);
           if("NEW" in obj){
-            this.SendText(`{"ID":${this.id}}`);
+            this.SendText(`{"ID":${this.id},"BOARD":${this.board_json}}`);
           }
           else{
             this.HandleReceiveJSONObj(obj);
