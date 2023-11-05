@@ -170,7 +170,7 @@ class GameSpace{
         let id = `${r}:${c}`;
         hash[id] = {location :[r,c], in_maze : false, next : null, id : id};
         ids_list.push(id);
-        console.log(`${r}----${c}`);
+        //console.log(`${r}----${c}`);
         count++;
       }
     }
@@ -200,7 +200,7 @@ class GameSpace{
           }while((id in hash) == false);
           current.next = hash[id];
           current = hash[id];
-          console.log(`${current.id}`);
+          //console.log(`${current.id}`);
         }while(current.in_maze == false);
   
   
