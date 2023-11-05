@@ -11,6 +11,7 @@ class thing {
     document.addEventListener('keyup',(evt) => {this.OnKeyUpHandler(evt)});
     console.log("walkie talkie created");
     this.gs = null;
+    this.spritesheet = null;
   }
 
   Open(){
