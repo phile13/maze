@@ -6,7 +6,8 @@ class Thing {
     this.y = 0;
     this.heading = "S";
     this.health = 100;
-    this.borad_json = (board != null) ? JSON.stringify(board) : '""';
+    this.json_board = board;
+    console.log(this.json_board);
     
     this.socket = socket;
     this.socket.on("message", (evt) => {this.Receive(evt);});
@@ -36,7 +37,7 @@ class Thing {
           let json = JSON.parse(msg);
           let obj = JSON.parse(json);
           if("NEW" in obj){
-            this.SendText(`{"ID":${this.id},"BOARD":${this.board_json}}`);
+            this.SendText(`{"ID":${this.id},"BOARD":${this.json_board}}`);
           }
           else{
             this.HandleReceiveJSONObj(obj);
@@ -46,7 +47,7 @@ class Thing {
           let obj = JSON.parse(msg);
           console.log(obj);
           if("NEW" in obj){
-            this.SendText(`{"ID":${this.id},"BOARD":${this.board_json}}`);
+            this.SendText(`{"ID":${this.id},"BOARD":${this.json_board}}`);
           }
           else{
             this.HandleReceiveJSONObj(obj);
