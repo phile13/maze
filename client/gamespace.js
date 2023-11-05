@@ -15,12 +15,16 @@ class gamespace{
         }
     }
     this.app.stage.addChild(this.background);
+    this.app.stage.scale.x = .5;
+    this.app.stage.scale.y = .5;
 
     this.myid = id;
     this.mytype = type;
     this.me = this.CreateThings(id, type , true);
-    this.me.x = x;
-    this.me.y = y;
+    this.me.x = 4*x;
+    this.me.y = 4*y;
+    this.app.stage.x = -4*x;
+    this.app.stage.y = -4*y;
   }
 
   CreateThings(id, type, is_me = false){
@@ -53,6 +57,10 @@ class gamespace{
     }
     who.x = msg.X*4;
     who.y = msg.Y*4;
+    if(msg.ID == this.myid){
+      this.app.stage.x = -msg.X*4;
+      this.app.stage.y = -msg.Y*4;
+    }
   }
   
 }
