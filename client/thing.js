@@ -28,7 +28,7 @@ class thing {
           this.id = msg['ID'];
         }
         if("BOARD" in msg){
-          this.gs = new gamespace(msg['BOARD'], this.id);
+          this.gs = new gamespace(msg['BOARD'], this.id, this.type);
         }
       }
       catch(e){
