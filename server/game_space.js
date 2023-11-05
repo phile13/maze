@@ -5,7 +5,7 @@ class GameSpace{
     this.board = {};
     this.things = {};
     this.tools = {};
-    this.accessible_types = {FLAT:true};
+    this.accessible_types = {FLOOR:true};
     this.inaccessible_types = {WALL:true};
     this.dirs_map = {N:[0,-1], NE:[1,-1], E:[1,0], SE:[1,1], S:[0,1], SW:[-1,1], W:[-1,0], NW:[-1,-1] };
 
