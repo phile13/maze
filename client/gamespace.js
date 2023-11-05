@@ -25,7 +25,7 @@ class gamespace{
     this.app.stage.addChild(this.me);
   }
 
-  Move(request){
-    
+  HandleMessage(msg){
+    console.log(msg);
   }
 }
