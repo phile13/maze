@@ -212,7 +212,7 @@ class GameSpace{
           if(current.location[0] != current.next.location[0]){
             let Y = (current.location[0] + current.next.location[0])/2;
             let X = (current.location[1] + current.next.location[1])/2;
-            console.log(`V${current.id} | ${current.location} | ${current.next.location}`);
+            console.log(`V${current.id} | ${current.location} | ${current.next.location} | ${Y} | ${X}`);
             this.board[Y][X-1]["type"] = "FLOOR";
             this.board[Y][X]["type"] = "FLOOR";
             this.board[Y][X+1]["type"] = "FLOOR";
@@ -220,7 +220,7 @@ class GameSpace{
           else if(current.location[1] != current.next.location[1]){
             let Y = (current.location[0] + current.next.location[0])/2;
             let X = (current.location[1] + current.next.location[1])/2;
-            console.log(`H${current.id} | ${current.location} | ${current.next.location}`);
+            console.log(`H${current.id} | ${current.location} | ${current.next.location} | ${Y} | ${X}`);
             this.board[Y-1][X]["type"] = "FLOOR";
             this.board[Y][X]["type"] = "FLOOR";
             this.board[Y+1][X]["type"] = "FLOOR";
