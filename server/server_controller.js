@@ -50,7 +50,7 @@ class ServerController{
     const Thing = require("./thing.js");
     const Player = require("./player.js");
     const WalkieTalkie = require("./walkie_talkie.js");
-    ServerController.clients[id] = new Player(id, client, this.gs.BoardObject());
+    ServerController.clients[id] = new Player(id, client, this.gs.json_board);
     this.gs.RegisterThing(ServerController.clients[id]);
   }
 
