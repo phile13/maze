@@ -18,7 +18,7 @@ class gamespace{
 
     this.myid = id;
     this.mytype = type;
-    this.me = this.CreateThings(this.id, "ME");
+    this.me = this.CreateThings(id, "ME");
   }
 
   CreateThings(id, type){
