@@ -28,9 +28,9 @@ class gamespace{
     this.me = this.CreateThings(id, type , true);
     this.me.x = this.myscale*x;
     this.me.y = this.myscale*y;
-    this.app.stage.x = -this.myscale*this.app.stage.scale.x*x+this.centerX;
-    this.app.stage.y = -this.myscale*this.app.stage.scale.x*y+this.centerY;
-    //this.app.stage.rotation = 0.78539816339; // PI / 4
+    this.app.stage.x = -(this.myscale*this.app.stage.scale.x*x);
+    this.app.stage.y = -(this.myscale*this.app.stage.scale.x*y)+this.centerY*.7071067811;
+    this.app.stage.rotation = 0.78539816339; // PI / 4
   }
 
   CreateThings(id, type, is_me = false){
