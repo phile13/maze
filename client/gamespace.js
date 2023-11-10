@@ -31,6 +31,7 @@ class gamespace{
   
     this.app.stage.rotation = 0.78539816339; // PI / 4
     this.app.stage.x = this.width * 2;
+    this.app.stage.y = this.height * 2;
     //this.RotateStage(this.me.x, this.me.y);
   }
 
