@@ -6,10 +6,13 @@ class gamespace{
     this.others = {};
     this.background = new PIXI.Graphics();
     this.colors = ["lightgrey","darkgrey"];
+    
+
+    
     this.height = this.board.length;
     this.width = this.board[0].length;
     this.myscale = 2;
-    this.centerY = this.height * this.myscale/2;
+    this.centerY =  this.app.* this.myscale/2;
     this.centerX = this.width * this.myscale/2;
 
     this.offsetR = -this.height / 2;
@@ -33,8 +36,8 @@ class gamespace{
     this.me.y = (y+this.offsetR)*this.myscale*this.app.stage.scale.y;
   
     // // PI / 4
-    this.app.stage.x = -this.offsetC*this.myscale*this.myscale*this.app.stage.scale.x;
-    this.app.stage.y = -this.offsetR*this.myscale*this.myscale*this.app.stage.scale.x;
+    this.app.stage.x = (-this.app.width/2)*this.myscale*this.myscale*this.app.stage.scale.x;
+    this.app.stage.y = (-this.app.height/2)*this.myscale*this.myscale*this.app.stage.scale.x;
     this.app.stage.rotation = 0.78539816339;
     //this.RotateStage(this.me.x, this.me.y);
   }
