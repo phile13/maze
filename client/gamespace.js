@@ -28,9 +28,9 @@ class gamespace{
     this.me = this.CreateThings(id, type , true);
     this.me.x = this.myscale*x;
     this.me.y = this.myscale*y;
-    this.app.stage.x = -(this.myscale*this.app.stage.scale.x*x)+this.centerX*1.41;
-    this.app.stage.y = -(this.myscale*this.app.stage.scale.x*y)+this.centerY;
+  
     this.app.stage.rotation = 0.78539816339; // PI / 4
+    this.RotateStage(this.me.x, this.me.y);
   }
 
   CreateThings(id, type, is_me = false){
@@ -53,6 +53,11 @@ class gamespace{
     if(msg.TYPE in this){
       this[msg.TYPE](msg);
     }
+  }
+
+  RotateStage(x,y){
+    this.app.stage.x = .7071067811 * (x - y);
+    this.app.stage.y = .7071067811 * (x + y);
   }
 
   MOVE(msg){
