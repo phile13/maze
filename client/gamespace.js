@@ -4,6 +4,7 @@ class gamespace{
     this.app = new PIXI.Application({ background: '#1099bb', view: document.getElementById("board") , resize: window });
     document.body.appendChild(this.app.view);
 
+    this.myscale = 4;
     this.app.stage.scale.x = this.app.stage.scale.y = 1;
     
     this.others = {};
@@ -24,7 +25,7 @@ class gamespace{
         let row = this.board[r];
         for (let c = 0, C = this.offsetC; c < this.width; c++, C++) {
             this.background.beginFill((R == 0 || C == 0) ? 'red' : this.colors[row[c]]);
-            this.background.drawRect(C*this.app.stage.scale.x, R*this.app.stage.scale.y, this.app.stage.scale.x, this.app.stage.scale.y);
+            this.background.drawRect(C*this.myscale, R*this.myscale, this.myscale, this.myscale);
             this.background.endFill();
         }
     }
@@ -46,7 +47,7 @@ class gamespace{
     else{
       g.beginFill("red");
     }
-    g.drawRect(0, 0, this.app.stage.scale.x, this.app.stage.scale.y);
+    g.drawRect(0, 0, this.myscale, this.myscale);
     g.endFill();
     this.app.stage.addChild(g);
     this.others[id] = g;
@@ -61,8 +62,8 @@ class gamespace{
   }
 
   move(who,x,y){
-    who.x = x *this.app.stage.scale.x;
-    who.y = y *this.app.stage.scale.y;
+    who.x = x *this.myscale;
+    who.y = y *this.myscale;
     if(who.id == this.myid){
       this.app.stage.x = -who.x+this.centerX;
       this.app.stage.y = -who.y+this.centerY;
