@@ -26,8 +26,8 @@ class gamespace{
     this.myid = id;
     this.mytype = type;
     this.me = this.CreateThings(id, type , true);
-    this.me.x = this.myscale*x;
-    this.me.y = this.myscale*y;
+    this.me.x = this.myscale*x*this.app.stage.scale.x;
+    this.me.y = this.myscale*y*this.app.stage.scale.y;
   
     this.app.stage.rotation = 0.78539816339; // PI / 4
     this.RotateStage(this.me.x, this.me.y);
@@ -66,11 +66,11 @@ class gamespace{
       this.CreateThings(msg.ID, msg.THING);
       who = this.others[msg.ID];
     }
-    who.x = msg.X*this.myscale;
-    who.y = msg.Y*this.myscale;
+    who.x = msg.X*this.myscale*this.app.stage.scale.x;
+    who.y = msg.Y*this.myscale*this.app.stage.scale.y;
     if(msg.ID == this.myid){
-      this.app.stage.x = -msg.X*this.myscale*this.app.stage.scale.x+this.centerX;
-      this.app.stage.y = -msg.Y*this.myscale*this.app.stage.scale.x+this.centerY;
+      this.app.stage.x = -who.x*+this.centerX;
+      this.app.stage.y = -who.y*+this.centerY;
     }
   }
   
