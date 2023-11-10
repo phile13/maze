@@ -62,8 +62,8 @@ class gamespace{
   }
 
   move(who,x,y){
-    who.x = x *this.myscale;
-    who.y = y *this.myscale;
+    who.x = (x-this.offsetC) *this.myscale;
+    who.y = (y-this.offsetR) *this.myscale;
     if(who.id == this.myid){
       this.app.stage.x = who.x+this.centerX;
       this.app.stage.y = who.y+this.centerY;
