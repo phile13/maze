@@ -36,7 +36,7 @@ class gamespace{
     this.myid = id;
     this.mytype = type;
     this.me = this.CreateThings(id, type , true);
-    this.move(this.me,x,y);
+    this.move(this.myid,this.me,x,y);
   }
 
   CreateThings(id, type, is_me = false){
@@ -61,10 +61,10 @@ class gamespace{
     }
   }
 
-  move(who,x,y){
+  move(id,who,x,y){
     who.x = (x+this.offsetC) *this.myscale;
     who.y = (y+this.offsetR) *this.myscale;
-    if(who.id == this.myid){
+    if(id == this.myid){
       this.app.stage.x = who.x+this.centerX;
       this.app.stage.y = who.y+this.centerY;
     }
@@ -76,7 +76,7 @@ class gamespace{
       this.CreateThings(msg.ID, msg.THING);
       who = this.others[msg.ID];
     }
-    this.move(who,msg.X,msg.Y);
+    this.move(msg.ID,who,msg.X,msg.Y);
   }
   
 }
