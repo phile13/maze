@@ -21,7 +21,7 @@ class gamespace{
     }
     this.app.stage.addChild(this.background);
     this.app.stage.scale.x = this.app.stage.scale.y = 1;
-    this.app.stage.rotation = 0.78539816339; // PI / 4
+    
     
     this.myid = id;
     this.mytype = type;
@@ -30,6 +30,7 @@ class gamespace{
     this.me.y = this.myscale*y;
     this.app.stage.x = -this.myscale*this.app.stage.scale.x*x+this.centerX;
     this.app.stage.y = -this.myscale*this.app.stage.scale.x*y+this.centerY;
+    this.app.stage.rotation = 0.78539816339; // PI / 4
   }
 
   CreateThings(id, type, is_me = false){
