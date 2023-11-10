@@ -35,7 +35,7 @@ class gamespace{
   CreateThings(id, type, is_me = false){
     let g = new PIXI.Graphics();
     if(is_me){
-      g.beginFill("pink");
+      g.beginFill("black");
     }
     else{
       g.beginFill("red");
