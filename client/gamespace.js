@@ -67,8 +67,8 @@ class gamespace{
     let tempy = who.y;
     who.x = (x+this.offsetC) *this.myscale;
     who.y = (y+this.offsetR) *this.myscale;
-    tempx = (who.x - tempx) * this.canvasWRation;
-    tempy = (who.y - tempy) * this.canvasHRation;
+    tempx = (who.x - tempx) * this.canvasWRatio;
+    tempy = (who.y - tempy) * this.canvasHRatio;
     if(id == this.myid){
       this.app.stage.x += tempx;
       this.app.stage.y += tempy;
