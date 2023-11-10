@@ -65,8 +65,8 @@ class gamespace{
     who.x = (x+this.offsetC) *this.myscale;
     who.y = (y+this.offsetR) *this.myscale;
     if(id == this.myid){
-      this.app.stage.x = -who.x+this.centerX;
-      this.app.stage.y = -who.y+this.centerY;
+      this.app.stage.x = this.centerX;
+      this.app.stage.y =this.centerY;
     }
   }
 
