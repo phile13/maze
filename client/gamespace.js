@@ -21,6 +21,7 @@ class gamespace{
     }
     this.app.stage.addChild(this.background);
     this.app.stage.scale.x = this.app.stage.scale.y = 1;
+    this.app.stage.rotation = 0.78539816339; // PI / 4
     
     this.myid = id;
     this.mytype = type;
