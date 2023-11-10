@@ -29,8 +29,8 @@ class gamespace{
     this.myid = id;
     this.mytype = type;
     this.me = this.CreateThings(id, type , true);
-    this.me.x = (x+this.offsetR)*this.myscale*this.app.stage.scale.x;
-    this.me.y = (y+this.offsetC)*this.myscale*this.app.stage.scale.y;
+    this.me.x = (x+this.offsetC)*this.myscale*this.app.stage.scale.x;
+    this.me.y = (y+this.offsetR)*this.myscale*this.app.stage.scale.y;
   
     // // PI / 4
     this.app.stage.x = -this.offsetC*this.myscale*this.myscale*this.app.stage.scale.x;
