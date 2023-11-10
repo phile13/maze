@@ -36,7 +36,7 @@ class gamespace{
     this.myid = id;
     this.mytype = type;
     this.me = this.CreateThings(id, type , true);
-    this.move(this.me,msg.X,msg.Y);
+    this.move(this.me,x,y);
   }
 
   CreateThings(id, type, is_me = false){
