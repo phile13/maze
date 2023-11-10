@@ -11,11 +11,11 @@ class gamespace{
     this.myscale = 2;
     this.centerY = this.height * this.myscale/2;
     this.centerX = this.width * this.myscale/2;
-    for (let r = 0; r < this.height; r++) {
+    for (let r = 0, R = -this.height / 2; r < this.height; r++, R++) {
         let row = this.board[r];
-        for (let c = 0; c < this.width; c++) {
+        for (let c = 0, C = -this.width / 2; c < this.width; c++, C++) {
             this.background.beginFill(this.colors[row[c]]);
-            this.background.drawRect(c*this.myscale, r*this.myscale, this.myscale, this.myscale);
+            this.background.drawRect(C*this.myscale, R*this.myscale, this.myscale, this.myscale);
             this.background.endFill();
         }
     }
@@ -30,9 +30,9 @@ class gamespace{
     this.me.y = this.myscale*y*this.app.stage.scale.y;
   
     // // PI / 4
-    this.app.stage.x = this.width * 2;
-    this.app.stage.y = ((this.width + 2*this.height) / 2);
-    this.app.stage.rotation = 0.78539816339;
+    //this.app.stage.x = this.width * 2;
+    //this.app.stage.y = ((this.width + 2*this.height) / 2);
+    //this.app.stage.rotation = 0.78539816339;
     //this.RotateStage(this.me.x, this.me.y);
   }
 
