@@ -11,12 +11,12 @@ class gamespace{
     
     this.height = this.board.length;
     this.width = this.board[0].length;
-    this.myscale = 4;
+    this.myscale = 2;
     this.centerY =  this.app.stage.height * this.myscale/2;
     this.centerX = this.width * this.myscale/2;
 
-    this.offsetR = -this.height / 2;
-    this.offsetC = -this.width / 2;
+    this.offsetR = -Math.floor(this.height / 2);
+    this.offsetC = -Math.floor(this.width / 2);
     for (let r = 0, R = this.offsetR; r < this.height; r++, R++) {
         let row = this.board[r];
         for (let c = 0, C = this.offsetC; c < this.width; c++, C++) {
