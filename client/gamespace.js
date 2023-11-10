@@ -12,7 +12,7 @@ class gamespace{
     this.height = this.board.length;
     this.width = this.board[0].length;
     this.myscale = 2;
-    this.centerY =  this.app.* this.myscale/2;
+    this.centerY =  this.app.stage.height * this.myscale/2;
     this.centerX = this.width * this.myscale/2;
 
     this.offsetR = -this.height / 2;
