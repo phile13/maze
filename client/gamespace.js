@@ -63,8 +63,12 @@ class gamespace{
   }
 
   move(id,who,x,y){
+    let tempx = who.x;
+    let tempy = who.y;
     who.x = (x+this.offsetC) *this.myscale;
     who.y = (y+this.offsetR) *this.myscale;
+    tempx = who.x - tempx;
+    tempy = who.y - tempy;
     if(id == this.myid){
       this.app.stage.x = this.centerX + this.canvasWRatio * who.x - this.canvasHRatio * who.y;
       this.app.stage.y =this.centerY + this.canvasWRatio * who.x - this.canvasHRatio * who.y;
