@@ -4,7 +4,7 @@ class gamespace{
     this.app = new PIXI.Application({ background: '#1099bb', view: document.getElementById("board") , resize: window });
     document.body.appendChild(this.app.view);
 
-    this.app.stage.scale.x = this.app.stage.scale.y = 4;
+    this.app.stage.scale.x = this.app.stage.scale.y = 1;
     
     this.others = {};
     this.background = new PIXI.Graphics();
