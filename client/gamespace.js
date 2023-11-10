@@ -36,8 +36,8 @@ class gamespace{
     this.me.y = (y+this.offsetR)*this.myscale*this.app.stage.scale.y;
   
     // // PI / 4
-    this.app.stage.x = (-this.app.width/2)*this.myscale*this.myscale*this.app.stage.scale.x;
-    this.app.stage.y = (-this.app.height/2)*this.myscale*this.myscale*this.app.stage.scale.x;
+    this.app.stage.x = (-this.app.stage.width/2)*this.myscale*this.myscale*this.app.stage.scale.x;
+    this.app.stage.y = (-this.app.stage.height/2)*this.myscale*this.myscale*this.app.stage.scale.x;
     this.app.stage.rotation = 0.78539816339;
     //this.RotateStage(this.me.x, this.me.y);
   }
