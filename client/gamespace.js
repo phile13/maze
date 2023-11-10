@@ -6,8 +6,8 @@ class gamespace{
     this.others = {};
     this.background = new PIXI.Graphics();
     this.colors = ["lightgrey","darkgrey"];
-    
-
+    this.canvasW = document.getElementById('board').width;
+    this.canvasH = document.getElementById('board').height;
     
     this.height = this.board.length;
     this.width = this.board[0].length;
