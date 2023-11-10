@@ -14,8 +14,8 @@ class gamespace{
     this.canvasH = document.getElementById('board').height;
     this.height = this.board.length;
     this.width = this.board[0].length;
-    this.canvasWRatio = this.canvasW / this.width;
-    this.canvasHRatio = this.canvasH / this.height;
+    this.canvasWRatio = this.width / this.canvasW ;
+    this.canvasHRatio = this.height / this.canvasH;
     
     this.centerX = (this.canvasW/2);
     this.centerY = (this.canvasH/2);
