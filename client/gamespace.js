@@ -57,7 +57,7 @@ class gamespace{
 
   RotateStage(x,y){
     this.app.stage.x = -.7071067811 * (x - y);
-    this.app.stage.y = -.7071067811 * (x + y);
+    this.app.stage.y = .7071067811 * (x + y);
   }
 
   MOVE(msg){
