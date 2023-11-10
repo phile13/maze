@@ -20,7 +20,7 @@ class gamespace{
     for (let r = 0, R = this.offsetR; r < this.height; r++, R++) {
         let row = this.board[r];
         for (let c = 0, C = this.offsetC; c < this.width; c++, C++) {
-            this.background.beginFill(this.colors[row[c]]);
+            this.background.beginFill((R == 0 || C == 0) ? 'red' : this.colors[row[c]]);
             this.background.drawRect(C*this.myscale, R*this.myscale, this.myscale, this.myscale);
             this.background.endFill();
         }
