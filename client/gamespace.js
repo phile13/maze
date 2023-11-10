@@ -32,12 +32,12 @@ class gamespace{
     this.myid = id;
     this.mytype = type;
     this.me = this.CreateThings(id, type , true);
-    this.me.x = (x+this.offsetC)*this.myscale*this.app.stage.scale.x;
-    this.me.y = (y+this.offsetR)*this.myscale*this.app.stage.scale.y;
+    this.me.x = (x+this.canvasW/2)*this.myscale*this.app.stage.scale.x;
+    this.me.y = (y+this.canvasH/2)*this.myscale*this.app.stage.scale.y;
   
     // // PI / 4
-    this.app.stage.x = (-this.canvasW/2)*this.myscale*this.myscale*this.app.stage.scale.x;
-    this.app.stage.y = (-this.canvasH/2)*this.myscale*this.myscale*this.app.stage.scale.x;
+    this.app.stage.x = (this.canvasW/2)*this.myscale*this.myscale*this.app.stage.scale.x;
+    this.app.stage.y = (this.canvasH/2)*this.myscale*this.myscale*this.app.stage.scale.x;
     this.app.stage.rotation = 0.78539816339;
     //this.RotateStage(this.me.x, this.me.y);
   }
