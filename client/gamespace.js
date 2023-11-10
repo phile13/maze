@@ -8,7 +8,7 @@ class gamespace{
     this.colors = ["lightgrey","darkgrey"];
     this.height = this.board.length;
     this.width = this.board[0].length;
-    this.myscale = 1;
+    this.myscale = 4;
     this.centerY = this.height * this.myscale/2;
     this.centerX = this.width * this.myscale/2;
     for (let r = 0; r < this.height; r++) {
@@ -30,7 +30,7 @@ class gamespace{
     this.me.y = this.myscale*y*this.app.stage.scale.y;
   
     // // PI / 4
-    this.app.stage.x = this.width * 2;
+    this.app.stage.x = this.width * .5;
     this.app.stage.y = this.height;
     this.app.stage.rotation = 0.78539816339;
     //this.RotateStage(this.me.x, this.me.y);
