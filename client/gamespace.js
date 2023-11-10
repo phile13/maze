@@ -29,7 +29,7 @@ class gamespace{
     this.me.x = this.myscale*x;
     this.me.y = this.myscale*y;
     this.app.stage.x = -(this.myscale*this.app.stage.scale.x*x)+this.centerX*1.41;
-    this.app.stage.y = -(this.myscale*this.app.stage.scale.x*y)+this.centerY*.707;
+    this.app.stage.y = -(this.myscale*this.app.stage.scale.x*y)+this.centerY;
     this.app.stage.rotation = 0.78539816339; // PI / 4
   }
 
