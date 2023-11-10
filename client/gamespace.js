@@ -12,9 +12,10 @@ class gamespace{
     this.colors = ["lightgrey","darkgrey"];
     this.canvasW = document.getElementById('board').width;
     this.canvasH = document.getElementById('board').height;
-    
     this.height = this.board.length;
     this.width = this.board[0].length;
+    this.canvasWRatio = this.canvasW / this.width;
+    this.canvasHRatio = this.canvasH / this.height;
     
     this.centerX = (this.canvasW/2);
     this.centerY = (this.canvasH/2);
@@ -65,8 +66,8 @@ class gamespace{
     who.x = (x+this.offsetC) *this.myscale;
     who.y = (y+this.offsetR) *this.myscale;
     if(id == this.myid){
-      this.app.stage.x = this.centerX;
-      this.app.stage.y =this.centerY;
+      this.app.stage.x = this.centerX - this.canvasWRatio * who.x;
+      this.app.stage.y =this.centerY - this.canvasHRatio * who.y;
     }
   }
 
