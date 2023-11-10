@@ -70,8 +70,8 @@ class gamespace{
     tempx = (who.x - tempx) * this.canvasWRatio;
     tempy = (who.y - tempy) * this.canvasHRatio;
     if(id == this.myid){
-      this.app.stage.x += tempx;
-      this.app.stage.y += tempy;
+      this.app.stage.x -= tempx;
+      this.app.stage.y -= tempy;
     }
   }
 
