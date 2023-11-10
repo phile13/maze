@@ -12,8 +12,8 @@ class gamespace{
     this.height = this.board.length;
     this.width = this.board[0].length;
     this.myscale = 4;
-    this.centerY =  this.app.stage.height * this.myscale/2;
-    this.centerX = this.width * this.myscale/2;
+    this.centerX = (this.canvasW/2);
+    this.centerY = (this.canvasH/2);
 
     this.offsetR = -Math.floor(this.height / 2);
     this.offsetC = -Math.floor(this.width / 2);
@@ -36,8 +36,8 @@ class gamespace{
     this.me.y = (y+this.canvasH/2)*this.myscale*this.app.stage.scale.y;
   
     // // PI / 4
-    this.app.stage.x = (this.canvasW/2);
-    this.app.stage.y = (this.canvasH/2);
+    this.app.stage.x = this.centerX;
+    this.app.stage.y = this.centerY;
     this.app.stage.rotation = 0.78539816339;
     //this.RotateStage(this.me.x, this.me.y);
   }
@@ -64,9 +64,13 @@ class gamespace{
     }
   }
 
-  RotateStage(x,y){
-    this.app.stage.x = -.7071067811 * (x - y);
-    this.app.stage.y = .7071067811 * (x + y);
+  move(who,x,y){
+    who.x = x *this.myscale*this.app.stage.scale.x;
+    who.y = y *this.myscale*this.app.stage.scale.y;
+    if(msg.ID == this.myid){
+      this.app.stage.x = -who.x*+this.centerX;
+      this.app.stage.y = -who.y*+this.centerY;
+    }
   }
 
   MOVE(msg){
