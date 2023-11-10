@@ -2,6 +2,7 @@ class player extends thing {
   constructor(){
     super();
     this.type = "player";    
+    /*
     this.keycodes["Numpad7"] = "MOVE.NW";
     this.keycodes["Numpad8"] = this.keycodes["ArrowUp"] = "MOVE.N"; 
     this.keycodes["Numpad9"] = "MOVE.NE";
@@ -10,7 +11,17 @@ class player extends thing {
     this.keycodes["Numpad2"] = this.keycodes["ArrowDown"] = "MOVE.S";  
     this.keycodes["Numpad1"] = "MOVE.SW"; 
     this.keycodes["Numpad4"] = this.keycodes["ArrowLeft"] = "MOVE.W";
+    */
 
+    this.keycodes["Numpad7"] = "MOVE.W";
+    this.keycodes["Numpad8"] = this.keycodes["ArrowUp"] = "MOVE.NW"; 
+    this.keycodes["Numpad9"] = "MOVE.N";
+    this.keycodes["Numpad6"] = this.keycodes["ArrowRight"] = "MOVE.NE";
+    this.keycodes["Numpad3"] = "MOVE.E"; 
+    this.keycodes["Numpad2"] = this.keycodes["ArrowDown"] = "MOVE.SE";  
+    this.keycodes["Numpad1"] = "MOVE.S"; 
+    this.keycodes["Numpad4"] = this.keycodes["ArrowLeft"] = "MOVE.SW";
+    
     this.keycodes["KeyA"] = "AIM.L";
     this.keycodes["KeyD"] = "AIM.R";
     this.keycodes["KeyW"] = "AIM.U";
