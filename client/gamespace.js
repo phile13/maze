@@ -8,7 +8,7 @@ class gamespace{
     this.colors = ["lightgrey","darkgrey"];
     this.height = this.board.length;
     this.width = this.board[0].length;
-    this.myscale = 2;
+    this.myscale = 4;
     this.centerY = this.height * this.myscale/2;
     this.centerX = this.width * this.myscale/2;
     for (let r = 0; r < this.height; r++) {
