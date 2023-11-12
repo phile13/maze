@@ -15,9 +15,9 @@ class gamespace{
     //create game world  
     this.colors = ["lightgrey","darkgrey"];
     this.background = new PIXI.Graphics();
-    for (let r = 0, R = 0; r < this.height; r++, R += this.boardScale) {
+    for (let r = 0, R = 0; r < this.boardSize.height; r++, R += this.boardScale) {
         let row = this.board[r];
-        for (let c = 0, C = 0; c < this.width; c++, C += this.boardScale) {
+        for (let c = 0, C = 0; c < this.boardSize.width; c++, C += this.boardScale) {
             this.background.beginFill(this.colors[row[c]]);
             this.background.drawRect(C, R, this.boardScale, this.boardScale);
             this.background.endFill();
