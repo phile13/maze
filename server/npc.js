@@ -18,11 +18,21 @@ class NPC {
   send_message(){
     ServerController.SendTextTo(`{"ID":${this.id},"TYPE":"MOVE","THING":"${this.type}","X":${this.x},"Y":${this.y},"HEADING":"${json.ACTION}","TOOL":"${(this.tool)?this.tool.id:""}","HEALTH":${this.health}}`, "everyone", {});
   }
+
+  random_direction(){
+    return this.headings[Math.random * 7.99999999];
+  }
   
-  zombie(){
-    
+  Zombie(){
     setInterval(()=>{
-      
+      if(ServerController.MoveTo(this.id, this.heading)){
+          this.send_message();
+      else{
+        do{
+          this.heading = this.random_direction();
+        }(ServerController.MoveTo(this.id, this.heading));
+        this.send_message();
+      }
     }, this.speed);
   }
   
