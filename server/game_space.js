@@ -19,7 +19,9 @@ class GameSpace{
     this.WilsonsMazeAlgorithm();
     //this.CreateMaze(this.rows-1,0,this.cols-1,0,"H");
     this.json_board = JSON.stringify(this.BoardObject());
-    //console.log(JSON.stringify(this.BoardObject()));
+    
+    this.AddNPCs();
+    this.AddTool();
   }
 
   RegisterThing(thing){
@@ -236,62 +238,14 @@ class GameSpace{
   }
   
   
-  
-  CreateMaze(top,left,right,bottom,direction){
-    //console.log(`----------${top},${left},${right},${bottom},${direction}`);
-    let width = right - left;
-    let height = top - bottom;
-    let vcutline = this.CalcCutline(width);
-    let hcutline = this.CalcCutline(height);
-    let hdoorcut = this.CalcDoorSpace(width);
-    let vdoorcut = this.CalcDoorSpace(height);
-    //console.log(`---${width},${height},${vcutline},${hcutline},${hdoorcut},${vdoorcut}`);
-    
-
-    if(direction == "H" && hcutline > 0){
-      for(let c = left; c < right; c++){
-        this.board[hcutline][c]["type"] = "WALL";
-      }
-      for(let c = hdoorcut+1; c < hdoorcut+4; c++){
-        //console.log(`r=${hcutline} c=${c} size=${width}`);
-        this.board[hcutline][c]["type"] = "FLOOR";
-      }
-      
-      this.CreateMaze(top,left,right,hcutline,"V");
-      this.CreateMaze(hcutline,left,right,bottom,"V");
-      
+  AddNPCs(){
+    for(let z = 0; z < 50; z++){
+      this.RegisterThing(new npc("zombie"));
     }
-    else if(direction == "V" && vcutline > 0) {
-      for(let r = bottom; r < top; r++){
-        this.board[r][vcutline]["type"] = "WALL";
-      }
-      for(let r = vdoorcut+1; r < vdoorcut+4; r++){
-        console.log(r);
-        this.board[r][vcutline]["type"] = "FLOOR";
-      }
-      this.CreateMaze(top,left,vcutline,bottom,"H");
-      this.CreateMaze(top,vcutline,right,bottom,"H");
-    }
-    return;
   }
 
-  CalcCutline(size){
-    if(size > 4){
-        let num_possible_cutlines = (size/4) - 1;
-        return 4 + 4 * Math.floor(Math.random() * (num_possible_cutlines-.0000000000001));
-    }
-    return  0;
-  }
+  AddTools(){
 
-  CalcDoorSpace(size){
-    if(size > 4){
-      let num_possible_cutlines = (size/4);
-      //console.log(num_possible_cutlines);
-      return 4 * Math.floor(Math.random() * (num_possible_cutlines-.0000000000001));
-    }
-    return 0;
   }
-  
-  
 }
 module.exports = GameSpace;
