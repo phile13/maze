@@ -22,7 +22,7 @@ class NPC {
   }
 
   random_direction(){
-    return NPC.headings[Math.random * 8];
+    return NPC.headings[Math.random() * 8];
   }
   
   ZOMBIE(){
