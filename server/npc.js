@@ -10,17 +10,18 @@ class NPC {
     this.x = 0;
     this.y = 0;
     this.heading = 'S';
+    this.headings = ['N','NE','E','SE','S','SW','W','NW'];
     this.tool = null;
     this.health = 100;
     this.speed = 1000;
   }
 
   send_message(){
-    ServerController.SendTextTo(`{"ID":${this.id},"TYPE":"MOVE","THING":"${this.type}","X":${this.x},"Y":${this.y},"HEADING":"${json.ACTION}","TOOL":"${(this.tool)?this.tool.id:""}","HEALTH":${this.health}}`, "everyone", {});
+    ServerController.SendTextTo(`{"ID":${this.id},"TYPE":"MOVE","THING":"${this.type}","X":${this.x},"Y":${this.y},"HEADING":"${this.heading}","TOOL":"${(this.tool)?this.tool.id:""}","HEALTH":${this.health}}`, "everyone", {});
   }
 
   random_direction(){
-    return this.headings[Math.random * 7.99999999];
+    return this.headings[Math.random * 8];
   }
   
   ZOMBIE(){
