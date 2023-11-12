@@ -53,7 +53,7 @@ class gamespace{
     else{
       g.beginFill("red");
     }
-    g.drawRect(0, 0, this.myscale, this.myscale);
+    g.drawRect(0, 0, this.boardScale, this.boardScale);
     g.endFill();
     this.app.stage.addChild(g);
     this.things[id] = g;
