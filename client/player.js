@@ -3,14 +3,14 @@ class player extends thing {
     super();
     this.type = "player";    
     /*northup world*/
-    this.keycodes["Numpad7"] = "MOVE.NW";
-    this.keycodes["Numpad8"] = this.keycodes["ArrowUp"] = "MOVE.N"; 
-    this.keycodes["Numpad9"] = "MOVE.NE";
-    this.keycodes["Numpad6"] = this.keycodes["ArrowRight"] = "MOVE.E";
-    this.keycodes["Numpad3"] = "MOVE.SE"; 
-    this.keycodes["Numpad2"] = this.keycodes["ArrowDown"] = "MOVE.S";  
-    this.keycodes["Numpad1"] = "MOVE.SW"; 
-    this.keycodes["Numpad4"] = this.keycodes["ArrowLeft"] = "MOVE.W";
+    this.keycodes["Numpad7"] = this.keycodes["KeyQ"] = "MOVE.NW";
+    this.keycodes["Numpad8"] = this.keycodes["KeyW"] = "MOVE.N"; 
+    this.keycodes["Numpad9"] = this.keycodes["KeyE"] = "MOVE.NE";
+    this.keycodes["Numpad6"] = this.keycodes["KeyD"] = "MOVE.E";
+    this.keycodes["Numpad3"] = this.keycodes["KeyC"] = "MOVE.SE"; 
+    this.keycodes["Numpad2"] = this.keycodes["KeyX"] = "MOVE.S";  
+    this.keycodes["Numpad1"] = this.keycodes["KeyZ"] = "MOVE.SW"; 
+    this.keycodes["Numpad4"] = this.keycodes["KeyA"] = "MOVE.W";
     
     /*rotated 45 degrees world
     this.keycodes["Numpad7"] = "MOVE.W";
