@@ -1,3 +1,5 @@
+const NPC = require("./npc.js");
+
 class GameSpace{
   constructor(rows, cols){
     this.rows = rows;
@@ -239,7 +241,6 @@ class GameSpace{
   
   
   AddNPCs(){
-    const NPC = require("./npc.js");
     for(let z = 0; z < 50; z++){
       this.RegisterThing(new NPC("ZOMBIE"));
     }
