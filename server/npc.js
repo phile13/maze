@@ -21,7 +21,7 @@ class NPC {
   }
 
   random_direction(){
-    return this.headings[Math.random * 8];
+    return (['N','NE','E','SE','S','SW','W','NW'])[Math.random * 8];
   }
   
   ZOMBIE(){
