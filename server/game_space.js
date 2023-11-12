@@ -239,8 +239,9 @@ class GameSpace{
   
   
   AddNPCs(){
+    const NPC = require("./npc.js");
     for(let z = 0; z < 50; z++){
-      this.RegisterThing(new npc("zombie"));
+      this.RegisterThing(new NPC("zombie"));
     }
   }
 
