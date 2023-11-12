@@ -92,7 +92,7 @@ class gamespace{
     let g = new PIXI.Graphics();
     this.things[id] = { graphic : g , offset : { x : 8 , y : 8 } , size : { x : 32 , y : 32 }};
     if(type == "PLAYER"){
-      g.beginFill((is_me_ ? "red" : "black");
+      g.beginFill((is_me_ )? "red" : "black");
     }
     else if(type == "ZOMBIE"){
       g.beginFill("green");
