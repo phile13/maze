@@ -2,7 +2,7 @@ class player extends thing {
   constructor(){
     super();
     this.type = "player";    
-    /*northup world
+    /*northup world*/
     this.keycodes["Numpad7"] = "MOVE.NW";
     this.keycodes["Numpad8"] = this.keycodes["ArrowUp"] = "MOVE.N"; 
     this.keycodes["Numpad9"] = "MOVE.NE";
@@ -11,8 +11,8 @@ class player extends thing {
     this.keycodes["Numpad2"] = this.keycodes["ArrowDown"] = "MOVE.S";  
     this.keycodes["Numpad1"] = "MOVE.SW"; 
     this.keycodes["Numpad4"] = this.keycodes["ArrowLeft"] = "MOVE.W";
-    */
-    //rotated 45 degrees world
+    
+    /*rotated 45 degrees world
     this.keycodes["Numpad7"] = "MOVE.W";
     this.keycodes["Numpad8"] = this.keycodes["ArrowUp"] = "MOVE.NW"; 
     this.keycodes["Numpad9"] = "MOVE.N";
@@ -20,7 +20,7 @@ class player extends thing {
     this.keycodes["Numpad3"] = "MOVE.E"; 
     this.keycodes["Numpad2"] = this.keycodes["ArrowDown"] = "MOVE.SE";  
     this.keycodes["Numpad1"] = "MOVE.S"; 
-    this.keycodes["Numpad4"] = this.keycodes["ArrowLeft"] = "MOVE.SW";
+    this.keycodes["Numpad4"] = this.keycodes["ArrowLeft"] = "MOVE.SW";*/
     
     this.keycodes["KeyA"] = "AIM.L";
     this.keycodes["KeyD"] = "AIM.R";
