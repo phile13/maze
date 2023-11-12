@@ -49,27 +49,27 @@ class gamespace{
 
   CreateThings(id, type, is_me = false){
     let g = new PIXI.Graphics();
+    this.things[id] = { graphic : g , offset : { x : 8 , y : 8 } , size : { x : 16 , y : 16 }};
     if(is_me){
       g.beginFill("black");
     }
     else{
       g.beginFill("red");
     }
-    g.drawRect(0, 0, this.boardScale, this.boardScale);
+    g.drawRect(this.things[id].offset.x, this.things[id].offset.y, this.things[id].size.x, this.things[id].size.y);
     g.endFill();
     this.app.stage.addChild(g);
-    this.things[id] = g;
     return g;
   }
 
   MOVE(msg){
     if(msg.ID >= 0){
       let who = this.things[msg.ID];
-      who.x = msg.X * this.boardScale;
-      who.y = msg.Y * this.boardScale;
+      who.g.x = msg.X * this.boardScale + who.offset.x;
+      who.g.y = msg.Y * this.boardScale + who.offset.y;
       if(msg.ID == this.myid){
-        this.app.stage.x = this.canvasCenter.x - who.x;
-        this.app.stage.y = this.canvasCenter.y - who.y;
+        this.app.stage.x = this.canvasCenter.x - who.g.x;
+        this.app.stage.y = this.canvasCenter.y - who.g.y;
       }
     }
   }
