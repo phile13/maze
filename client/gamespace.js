@@ -49,7 +49,7 @@ class gamespace{
 
   CreateThings(id, type, is_me = false){
     let g = new PIXI.Graphics();
-    this.things[id] = { graphic : g , offset : { x : 8 , y : 8 } , size : { x : 16 , y : 16 }};
+    this.things[id] = { graphic : g , offset : { x : 8 , y : 8 } , size : { x : 32 , y : 32 }};
     if(is_me){
       g.beginFill("black");
     }
