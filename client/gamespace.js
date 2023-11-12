@@ -69,8 +69,8 @@ class gamespace{
       who.x = msg.X * this.boardScale;
       who.y = msg.Y * this.boardScale;
       if(msg.ID == this.myid){
-        //this.app.stage.x = who.x - this.canvasCenter.x;
-        //this.app.stage.y = who.y - this.canvasCenter.y;
+        //this.app.stage.x = this.canvasCenter.x + this.boardCenter.x - who.x;
+        //this.app.stage.y = this.canvasCenter.y + this.boardCenter.y - who.y;
       }
     }
   }
