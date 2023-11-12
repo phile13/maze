@@ -77,7 +77,7 @@ class gamespace{
   }
 
   HandleMessage(msg){
-    console.log("GS: " + msg.TYPE);
+    console.log("GS: " + msg.TYPE + " " + msg.ID);
     if('ID' in msg){
       if((msg.ID in this.things) == false){
         this.CreateThings(msg.ID, msg.THING);
