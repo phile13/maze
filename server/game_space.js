@@ -241,7 +241,7 @@ class GameSpace{
   
   
   AddNPCs(){
-    for(let z = 0; z < 1; z++){
+    for(let z = 0; z < 50; z++){
       this.RegisterThing(new NPC("ZOMBIE"));
     }
   }
