@@ -1,23 +1,26 @@
 class gamespace{
   constructor(board, id, type, x, y){
     this.board = board;
+    this.boardScale = 1;
+    this.boardSize = { height : this.board.length , width : this.board[0].length };
+    this.canvasSize = { height : document.getElementById('board').height , width : document.getElementById('board').width };
+    this.canvasCenter = { x : this.canvasSize.width / 2 , y : this.canvasSize.height / 2 };
+    
+
+
+
+    
     this.app = new PIXI.Application({ background: '#1099bb', view: document.getElementById("board") , resize: window });
     document.body.appendChild(this.app.view);
 
-    this.myscale = 1;
+    
     this.app.stage.scale.x = this.app.stage.scale.y = 1;
     
     this.others = {};
-    this.background = new PIXI.Graphics();
     this.colors = ["lightgrey","darkgrey"];
-    this.canvasW = document.getElementById('board').width;
-    this.canvasH = document.getElementById('board').height;
-    this.height = this.board.length;
-    this.width = this.board[0].length;
-
-    this.centerX = (this.canvasW/2);
-    this.centerY = (this.canvasH/2);
-
+    this.background = new PIXI.Graphics();
+    
+   
     for (let r = 0; r < this.height; r++) {
         let row = this.board[r];
         for (let c = 0; c < this.width; c++) {
