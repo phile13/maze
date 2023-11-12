@@ -56,13 +56,13 @@ class gamespace{
     g.drawRect(0, 0, this.myscale, this.myscale);
     g.endFill();
     this.app.stage.addChild(g);
-    this.others[id] = g;
+    this.things[id] = g;
     return g;
   }
 
   MOVE(msg){
     if(msg.ID >= 0){
-      let who = this.others[msg.ID];
+      let who = this.things[msg.ID];
       who.x = x * this.boardScale;
       who.y = y * this.boardScale;
       if(id == this.myid){
@@ -72,14 +72,4 @@ class gamespace{
     }
   }
 
-  place(id,who,x,y){
-    who.x = (x+this.offsetC) *this.myscale;
-    who.y = (y+this.offsetR) *this.myscale;
-    if(id == this.myid){
-      this.app.stage.x = this.centerX - who.x;
-      this.app.stage.y = this.centerY - who.y;
-    }
-  }
-  
-  
 }
