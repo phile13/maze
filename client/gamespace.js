@@ -27,8 +27,11 @@ class gamespace{
         let row = this.board[r];
         for (let c = 0, C = 0; c < this.boardSize.width; c++, C += this.boardScale) {
             if(row[c] == 1){
+              this.walls.beginFill("white");
+              this.walls.drawRect(C, R + 8, this.boardScale, 8);
+              this.walls.endFill();
               this.walls.beginFill("darkgrey");
-              this.walls.drawRect(C, R, this.boardScale, this.boardScale);
+              this.walls.drawRect(C, R, this.boardScale, this.boardScale + 8);
               this.walls.endFill();
             }
         }
