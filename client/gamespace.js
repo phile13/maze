@@ -23,10 +23,10 @@ class gamespace{
     this.app.stage.addChild(this.floor);
 
     this.walls = new PIXI.Graphics();
-    for (let r = 1, R = 0; r < this.boardSize.height-1; r++, R += this.boardScale) {
+    for (let r = 0, R = 0; r < this.boardSize.height-1; r++, R += this.boardScale) {
         let row = this.board[r];
         let next_row = this.board[r+1];
-        for (let c = 1, C = 0; c < this.boardSize.width-1; c++, C += this.boardScale) {
+        for (let c = 1, C = this.boardScale; c < this.boardSize.width-1; c++, C += this.boardScale) {
             if(row[c] == 1){
               if(row[c-1] == 1){
                 this.walls.beginFill("white");
