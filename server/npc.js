@@ -13,7 +13,7 @@ class NPC {
     this.headings = ['N','NE','E','SE','S','SW','W','NW'];
     this.tool = null;
     this.health = 100;
-    this.speed = 1000;
+    this.speed = 2000;
   }
 
   send_message(){
