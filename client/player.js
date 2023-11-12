@@ -12,6 +12,7 @@ class player extends thing {
     this.keycodes["Numpad1"] = this.keycodes["KeyZ"] = "MOVE.SW"; 
     this.keycodes["Numpad4"] = this.keycodes["KeyA"] = "MOVE.W";
     
+    
     /*rotated 45 degrees world
     this.keycodes["Numpad7"] = "MOVE.W";
     this.keycodes["Numpad8"] = this.keycodes["ArrowUp"] = "MOVE.NW"; 
