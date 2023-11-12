@@ -26,11 +26,23 @@ class gamespace{
     this.app.stage.addChild(this.background);
 
     //add player to game world
-    this.others = {};
+    this.things = {'BOARD':-1};
     this.myid = id;
     this.mytype = type;
     this.me = this.CreateThings(id, type , true);
-    this.move(this.myid,this.me,x,y);
+    this.place(this.myid,this.me,x,y);
+  }
+
+  HandleMessage(msg){
+    console.log("GS: " + msg.TYPE);
+    if('ID' in msg){
+      if((msg.ID in this.things) == false){
+        this.CreateThings(msg.ID, msg.THING);
+      }
+      if('TYPE' in msg && msg.TYPE in this){
+        this[msg.TYPE](msg);
+      }
+    }
   }
 
   CreateThings(id, type, is_me = false){
@@ -48,29 +60,25 @@ class gamespace{
     return g;
   }
 
-  HandleMessage(msg){
-    console.log("GS: " + msg.TYPE);
-    if(msg.TYPE in this){
-      this[msg.TYPE](msg);
+  MOVE(msg){
+    if(msg.ID >= 0){
+      let who = this.others[msg.ID];
+      who.x = x * this.boardScale;
+      who.y = y * this.boardScale;
+      if(id == this.myid){
+        this.app.stage.x = this.canvasCenter.x - who.x;
+        this.app.stage.y = this.canvasCenter.y - who.y;
+      }
     }
   }
 
-  move(id,who,x,y){
+  place(id,who,x,y){
     who.x = (x+this.offsetC) *this.myscale;
     who.y = (y+this.offsetR) *this.myscale;
     if(id == this.myid){
       this.app.stage.x = this.centerX - who.x;
       this.app.stage.y = this.centerY - who.y;
     }
-  }
-
-  MOVE(msg){
-    let who = this.others[msg.ID];
-    if(who === undefined){
-      this.CreateThings(msg.ID, msg.THING);
-      who = this.others[msg.ID];
-    }
-    this.move(msg.ID,who,msg.X,msg.Y);
   }
   
   
