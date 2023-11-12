@@ -38,3 +38,5 @@ class NPC {
   }
   
 }
+
+module.exports = NPC;
