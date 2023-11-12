@@ -17,7 +17,7 @@ class gamespace{
     //create game world  
     this.colors = ["lightgrey","darkgrey"];
     this.floor = new PIXI.Graphics();
-    this.floor.beginFill("red");
+    this.floor.beginFill("lightgrey");
     this.floor.drawRect(0, 0, this.boardSize.width * this.boardScale, this.boardSize.height * this.boardScale);
     this.floor.endFill();
     this.app.stage.addChild(this.floor);
@@ -33,7 +33,7 @@ class gamespace{
             }
         }
     }
-    //this.app.stage.addChild(this.walls);
+    this.app.stage.addChild(this.walls);
 
     //add player to game world
     this.things = {'BOARD':-1};
