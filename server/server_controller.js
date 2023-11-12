@@ -2,6 +2,7 @@ const WebSocket = require("ws").Server;
 const HttpsServer = require('https').createServer;
 const fs = require("fs");
 const config = require('config');
+const NPC = require("./npc.js");
 
 
 class ServerController{
