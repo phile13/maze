@@ -2,7 +2,7 @@ class gamespace{
   constructor(board, id, type, x, y){
     //init
     this.board = board;
-    this.boardScale = 8;
+    this.boardScale = 1;
     this.boardSize = { height : this.board.length , width : this.board[0].length };
     this.canvasSize = { height : document.getElementById('board').height , width : document.getElementById('board').width };
     this.canvasCenter = { x : this.canvasSize.width / 2 , y : this.canvasSize.height / 2 };
