@@ -30,7 +30,7 @@ class gamespace{
     this.myid = id;
     this.mytype = type;
     this.me = this.CreateThings(id, type , true);
-    this.place(this.myid,this.me,x,y);
+    this.MOVE(this.myid,this.me,x,y);
   }
 
   HandleMessage(msg){
