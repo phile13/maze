@@ -23,7 +23,7 @@ class NPC {
     return this.headings[Math.random * 7.99999999];
   }
   
-  Zombie(){
+  ZOMBIE(){
     setInterval(()=>{
       if(ServerController.MoveTo(this.id, this.heading)){
           this.send_message();
