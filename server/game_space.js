@@ -23,7 +23,7 @@ class GameSpace{
     this.json_board = JSON.stringify(this.BoardObject());
     
     this.AddNPCs();
-    this.AddTool();
+    this.AddTools();
   }
 
   RegisterThing(thing){
