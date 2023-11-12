@@ -30,26 +30,26 @@ class gamespace{
             if(row[c] == 1){
               if(row[c-1] == 1){
                 this.walls.beginFill("white");
-                this.walls.drawRect(C, R - 8, 23, 8);
+                this.walls.drawRect(C, R - 8, 28, 8);
                 this.walls.endFill();
                 this.walls.beginFill("darkgrey");
-                this.walls.drawRect(C, R, 23, 64);
+                this.walls.drawRect(C, R, 28, 64);
                 this.walls.endFill();
               }
               
               this.walls.beginFill("white");
-              this.walls.drawRect(C + 23, R - 8, 8, 8);
+              this.walls.drawRect(C + 28, R - 8, 8, 8);
               this.walls.endFill();
               this.walls.beginFill((next_row[c] == 1) ? "white" : "darkgrey");
-              this.walls.drawRect(C + 23, R, 8, 64);
+              this.walls.drawRect(C + 28, R, 8, 64);
               this.walls.endFill();
               
               if(row[c+1] == 1){
                 this.walls.beginFill("white");
-                this.walls.drawRect(C + 31, R - 8, 23, 8);
+                this.walls.drawRect(C + 36, R - 8, 28, 8);
                 this.walls.endFill();
                 this.walls.beginFill("darkgrey");
-                this.walls.drawRect(C + 31, R, 23, 64);
+                this.walls.drawRect(C + 36, R, 28, 64);
                 this.walls.endFill();
               }
             }
