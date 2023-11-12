@@ -5,7 +5,7 @@ class gamespace{
     this.boardScale = 4;
     this.boardSize = { height : this.board.length , width : this.board[0].length };
     this.canvasSize = { height : document.getElementById('board').height , width : document.getElementById('board').width };
-    this.canvasCenter = { x : this.boardScale * this.canvasSize.width / 2 , y : this.boardScale * this.canvasSize.height / 2 };
+    this.canvasCenter = { x : this.canvasSize.width / this.boardScale , y : this.canvasSize.height / this.boardScale };
     
     //create game stage
     this.app = new PIXI.Application({ background: '#1099bb', view: document.getElementById("board") , resize: window });
