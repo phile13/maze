@@ -241,9 +241,14 @@ class GameSpace{
   
   
   AddNPCs(){
-    for(let z = 0; z < 50; z++){
+    let count = 0;
+    let interval_id = setInterval(()=>{
       this.RegisterThing(new NPC("ZOMBIE"));
-    }
+      if(count++ > 50){
+        clearInterval(interval_id);
+      }
+    },10);
+    
   }
 
   AddTools(){
