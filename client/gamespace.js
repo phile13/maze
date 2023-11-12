@@ -91,11 +91,11 @@ class gamespace{
   CreateThings(id, type, is_me = false){
     let g = new PIXI.Graphics();
     this.things[id] = { graphic : g , offset : { x : 8 , y : 8 } , size : { x : 32 , y : 32 }};
-    if(is_me){
-      g.beginFill("black");
+    if(type == "PLAYER"){
+      g.beginFill((is_me_ ? "red" : "black");
     }
-    else{
-      g.beginFill("red");
+    else if(type == "ZOMBIE"){
+      g.beginFill("green");
     }
     g.drawRect(this.things[id].offset.x, this.things[id].offset.y, this.things[id].size.x, this.things[id].size.y);
     g.endFill();
