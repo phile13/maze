@@ -33,7 +33,7 @@ class gamespace{
             }
         }
     }
-    this.app.stage.addChild(this.walls);
+    //this.app.stage.addChild(this.walls);
 
     //add player to game world
     this.things = {'BOARD':-1};
