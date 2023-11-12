@@ -90,7 +90,7 @@ class gamespace{
 
   CreateThings(id, type, is_me = false){
     let g = new PIXI.Graphics();
-    this.things[id] = { graphic : g , offset : { x : 8 , y : 8 } , size : { x : 32 , y : 32 }};
+    this.things[id] = { graphic : g , offset : { x : 16 , y : 16 } , size : { x : 32 , y : 32 }};
     if(type == "player"){
       g.beginFill((is_me)? "red" : "black");
     }
@@ -113,7 +113,7 @@ class gamespace{
         this.app.stage.y = this.canvasCenter.y - who.graphic.y;
         
         this.walls.beginFill("white");
-        this.walls.drawRect(who.graphic.x, who.graphic.y , 64, 64);
+        this.walls.drawRect(who.graphic.x + 16, who.graphic.y + 16 , 32, 32);
         this.walls.endFill();
       }
     }
