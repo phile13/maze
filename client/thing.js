@@ -49,7 +49,7 @@ class thing {
 
   Receive(event){
     console.log("Receive");
-    if(this.id == -1){
+    if(this.gs == null){
       this.FirstReceive(event);
     }
     else if(event.data){
