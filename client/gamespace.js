@@ -111,6 +111,10 @@ class gamespace{
       if(msg.ID == this.myid){
         this.app.stage.x = this.canvasCenter.x - who.graphic.x;
         this.app.stage.y = this.canvasCenter.y - who.graphic.y;
+        
+        this.walls.beginFill("white");
+        this.walls.drawRect(who.graphic.x, who.graphic.y , 64, 64);
+        this.walls.endFill();
       }
     }
   }
