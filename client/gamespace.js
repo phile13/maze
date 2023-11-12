@@ -18,7 +18,7 @@ class gamespace{
     this.colors = ["lightgrey","darkgrey"];
     this.floor = new PIXI.Graphics();
     this.floor.beginFill("red");
-    this.floor.drawRect(0, 0, this.boardSize.width, this.boardSize.height);
+    this.floor.drawRect(0, 0, this.boardSize.width * this.boardScale, this.boardSize.height * this.boardScale);
     this.floor.endFill();
     this.app.stage.addChild(this.floor);
 
