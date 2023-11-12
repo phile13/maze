@@ -30,9 +30,11 @@ class NPC {
           this.send_message();
       }
       else{
+        
         do{
           this.heading = this.random_direction();
-        }(ServerController.MoveTo(this.id, this.heading));
+        }while(ServerController.MoveTo(this.id, this.heading));
+        
         this.send_message();
       }
     }, this.speed);
