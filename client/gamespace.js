@@ -16,22 +16,24 @@ class gamespace{
 
     //create game world  
     this.colors = ["lightgrey","darkgrey"];
-    this.background = new PIXI.Graphics();
-    this.background.beginFill("red");
-    this.background.drawRect(0, 0, this.boardSize.width, this.boardSize.height);
-    this.background.endFill();
-    
+    this.floor = new PIXI.Graphics();
+    this.floor.beginFill("red");
+    this.floor.drawRect(0, 0, this.boardSize.width, this.boardSize.height);
+    this.floor.endFill();
+    this.app.stage.addChild(this.floor);
+
+    this.walls = new PIXI.Graphics();
     for (let r = 0, R = 0; r < this.boardSize.height; r++, R += this.boardScale) {
         let row = this.board[r];
         for (let c = 0, C = 0; c < this.boardSize.width; c++, C += this.boardScale) {
             if(row[c] == 1){
-              this.background.beginFill("darkgrey");
-              this.background.drawRect(C, R, this.boardScale, this.boardScale);
-              this.background.endFill();
+              this.walls.beginFill("darkgrey");
+              this.walls.drawRect(C, R, this.boardScale, this.boardScale);
+              this.walls.endFill();
             }
         }
     }
-    this.app.stage.addChild(this.background);
+    this.app.stage.addChild(this.walls);
 
     //add player to game world
     this.things = {'BOARD':-1};
