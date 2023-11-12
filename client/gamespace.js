@@ -17,7 +17,7 @@ class gamespace{
     //create game world  
     this.colors = ["lightgrey","darkgrey"];
     this.background = new PIXI.Graphics();
-    this.background.beginFill("lightgrey");
+    this.background.beginFill("red");
     this.background.drawRect(0, 0, this.boardSize.width, this.boardSize.height);
     this.background.endFill();
     
