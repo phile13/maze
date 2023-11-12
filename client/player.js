@@ -31,10 +31,10 @@ class player extends thing {
     this.keycodes["Numpad1"] = "MOVE.S"; 
     this.keycodes["Numpad4"] = this.keycodes["ArrowLeft"] = "MOVE.SW";*/
     
-    this.keycodes["KeyA"] = "AIM.L";
-    this.keycodes["KeyD"] = "AIM.R";
-    this.keycodes["KeyW"] = "AIM.U";
-    this.keycodes["KeyX"] = "AIM.D";
+    //this.keycodes["KeyA"] = "AIM.L";
+    //this.keycodes["KeyD"] = "AIM.R";
+    //this.keycodes["KeyW"] = "AIM.U";
+    //this.keycodes["KeyX"] = "AIM.D";
 
     this.keycodes["Space"] = "AIM.FIRE";
 
