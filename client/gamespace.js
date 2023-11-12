@@ -112,7 +112,7 @@ class gamespace{
         this.app.stage.x = this.canvasCenter.x - who.graphic.x;
         this.app.stage.y = this.canvasCenter.y - who.graphic.y;
         
-        this.walls.beginFill("rgba(255,0,0,.1)");
+        this.walls.beginFill("rgba(255,128,0,.1)");
         this.walls.drawRect(who.graphic.x + 16, who.graphic.y + 16 , 32, 32);
         this.walls.endFill();
       }
