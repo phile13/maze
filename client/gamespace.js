@@ -17,12 +17,18 @@ class gamespace{
     //create game world  
     this.colors = ["lightgrey","darkgrey"];
     this.background = new PIXI.Graphics();
+    this.background.beginFill("lightgrey");
+    this.background.drawRect(0, 0, this.boardSize.width, this.boardSize.height);
+    this.background.endFill();
+    
     for (let r = 0, R = 0; r < this.boardSize.height; r++, R += this.boardScale) {
         let row = this.board[r];
         for (let c = 0, C = 0; c < this.boardSize.width; c++, C += this.boardScale) {
-            this.background.beginFill(this.colors[row[c]]);
-            this.background.drawRect(C, R, this.boardScale, this.boardScale);
-            this.background.endFill();
+            if(row[c] == 1){
+              this.background.beginFill("darkgrey");
+              this.background.drawRect(C, R, this.boardScale, this.boardScale);
+              this.background.endFill();
+            }
         }
     }
     this.app.stage.addChild(this.background);
