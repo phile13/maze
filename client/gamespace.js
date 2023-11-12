@@ -4,7 +4,7 @@ class gamespace{
     this.board = board;
     this.boardScale = 2;
     this.boardSize = { height : this.board.length , width : this.board[0].length };
-    this.boardCenter = { x : this.boardScale * this.boardSize.width , y : this.boardScale * this.boardSize.height };
+    this.boardCenter = { x : this.boardScale * this.boardSize.width / 4 , y : this.boardScale * this.boardSize.height / 4 };
     this.canvasSize = { height : document.getElementById('board').height , width : document.getElementById('board').width };
     this.canvasCenter = { x : this.canvasSize.width / 2 , y : this.canvasSize.height / 2 };
     
