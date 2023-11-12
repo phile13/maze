@@ -38,17 +38,17 @@ class thing {
   }
 
   SendText(obj){
-    console.log("SendText");
+    //console.log("SendText");
     this.ws.send(JSON.stringify(obj));
   }
 
   SendBinary(obj){
-    console.log("SendBinary");
+    //console.log("SendBinary");
     this.ws.send(obj);
   }
 
   Receive(event){
-    console.log("Receive");
+    //console.log("Receive");
     if(this.gs == null){
       this.FirstReceive(event);
     }
@@ -68,12 +68,12 @@ class thing {
   }
 
   HandleTextMessage(text){
-    console.log(`Thing:${text}`);
+    //console.log(`Thing:${text}`);
     this.gs.HandleMessage(text);
   }
   
   HandleBlobMessage(blob){
-    console.log("blob");
+    //console.log("blob");
   }
 
   HandleKeyDown(code){
