@@ -30,7 +30,7 @@ class gamespace{
     this.myid = id;
     this.mytype = type;
     this.me = this.CreateThings(id, type , true);
-    this.MOVE(this.myid,this.me,x,y);
+    this.MOVE({ID : this.myid, X : x, Y : y);
   }
 
   HandleMessage(msg){
@@ -63,9 +63,9 @@ class gamespace{
   MOVE(msg){
     if(msg.ID >= 0){
       let who = this.things[msg.ID];
-      who.x = x * this.boardScale;
-      who.y = y * this.boardScale;
-      if(id == this.myid){
+      who.x = msg.X * this.boardScale;
+      who.y = msg.Y * this.boardScale;
+      if(msg.ID == this.myid){
         this.app.stage.x = this.canvasCenter.x - who.x;
         this.app.stage.y = this.canvasCenter.y - who.y;
       }
