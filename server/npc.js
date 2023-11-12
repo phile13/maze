@@ -37,7 +37,7 @@ class NPC {
         
         this.send_message();
       }
-    }, this.speed);
+    }, 1000);
   }
   
 }
