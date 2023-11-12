@@ -35,6 +35,9 @@ class gamespace{
                 this.walls.beginFill("black");
                 this.walls.drawRect(C, R, 28, 64);
                 this.walls.endFill();
+                this.walls.beginFill("darkgrey");
+                this.walls.drawRect(C, R + 64, 28, 8);
+                this.walls.endFill();
               }
               
               this.walls.beginFill("white");
@@ -43,6 +46,11 @@ class gamespace{
               this.walls.beginFill((next_row[c] == 1) ? "white" : "black");
               this.walls.drawRect(C + 28, R, 8, 64);
               this.walls.endFill();
+              if(next_row[c] != 1){
+                this.walls.beginFill("darkgrey");
+                this.walls.drawRect(C + 28, R + 64, 8, 8);
+                this.walls.endFill();
+              }
               
               if(row[c+1] == 1){
                 this.walls.beginFill("white");
@@ -50,6 +58,9 @@ class gamespace{
                 this.walls.endFill();
                 this.walls.beginFill("black");
                 this.walls.drawRect(C + 36, R, 28, 64);
+                this.walls.endFill();
+                this.walls.beginFill("darkgrey");
+                this.walls.drawRect(C + 36, R + 64, 28, 8);
                 this.walls.endFill();
               }
             }
