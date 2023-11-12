@@ -11,8 +11,7 @@ class gamespace{
     //create game stage
     this.app = new PIXI.Application({ background: '#1099bb', view: document.getElementById("board") , resize: window });
     this.app.stage.scale.x = this.app.stage.scale.y = 1;
-    this.app.stage.x = 400 - 100;
-    this.app.stage.y = 
+
     document.body.appendChild(this.app.view);
 
     //create game world  
