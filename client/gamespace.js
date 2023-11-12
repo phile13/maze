@@ -18,9 +18,9 @@ class gamespace{
     this.centerX = (this.canvasW/2);
     this.centerY = (this.canvasH/2);
 
-    for (let r = 0; r < this.height; r++, R++) {
+    for (let r = 0; r < this.height; r++) {
         let row = this.board[r];
-        for (let c = 0; c < this.width; c++, C++) {
+        for (let c = 0; c < this.width; c++) {
             this.background.beginFill(this.colors[row[c]]);
             this.background.drawRect(c*this.myscale, r*this.myscale, this.myscale, this.myscale);
             this.background.endFill();
