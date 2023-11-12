@@ -4,6 +4,7 @@ class gamespace{
     this.board = board;
     this.boardScale = 1;
     this.boardSize = { height : this.board.length , width : this.board[0].length };
+    this.boardCenter = { x : this.boardSize.width / 2 , y : this.boardSize.height / 2 };
     this.canvasSize = { height : document.getElementById('board').height , width : document.getElementById('board').width };
     this.canvasCenter = { x : this.canvasSize.width / 2 , y : this.canvasSize.height / 2 };
     
@@ -11,6 +12,7 @@ class gamespace{
     this.app = new PIXI.Application({ background: '#1099bb', view: document.getElementById("board") , resize: window });
     this.app.stage.scale.x = this.app.stage.scale.y = 1;
     this.app.stage.x = 400 - 100;
+    this.app.stage.y = 
     document.body.appendChild(this.app.view);
 
     //create game world  
