@@ -32,6 +32,7 @@ class ServerController{
     });
     //console.log("Leaving Constructor");
 
+    const NPC = require("./npc.js");
     const GameSpace = require('./game_space');
     this.gs = new GameSpace(161,201);
 
