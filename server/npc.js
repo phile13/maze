@@ -1,6 +1,8 @@
 const ServerController = require("./server_controller.js");
 
 class NPC {  
+  static headings = ['N','NE','E','SE','S','SW','W','NW'];
+  
   constructor(type){
     this.id = ServerController.NextId();
     this.type = type;
@@ -10,7 +12,6 @@ class NPC {
     this.x = 0;
     this.y = 0;
     this.heading = 'S';
-    this.headings = ['N','NE','E','SE','S','SW','W','NW'];
     this.tool = null;
     this.health = 100;
     this.speed = 2000;
@@ -21,7 +22,7 @@ class NPC {
   }
 
   random_direction(){
-    return (['N','NE','E','SE','S','SW','W','NW'])[Math.random * 8];
+    return NPC.headings[Math.random * 8];
   }
   
   ZOMBIE(){
