@@ -7,9 +7,10 @@ const config = require('config');
 class ServerController{
   static clients = {};
   static sc = null;
+  static next_client_id = 0;
   
   constructor(){
-    this.next_client_id = 0;
+    
 
     this.ws = null;
     this.server = HttpsServer({
@@ -36,8 +37,8 @@ class ServerController{
     ServerController.sc = this;
   }
 
-  NextId(){
-    return this.next_client_id++;
+  static NextId(){
+    return ServerController.next_client_id++;
   }
   
   Open(){
@@ -46,7 +47,7 @@ class ServerController{
 
   Connection(client){
     console.log("Connection");
-    let id = this.NextId();
+    let id = ServerController.NextId();
     const Thing = require("./thing.js");
     const Player = require("./player.js");
     const WalkieTalkie = require("./walkie_talkie.js");
