@@ -28,6 +28,7 @@ class NPC {
     setInterval(()=>{
       if(ServerController.MoveTo(this.id, this.heading)){
           this.send_message();
+      }
       else{
         do{
           this.heading = this.random_direction();
