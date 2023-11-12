@@ -23,16 +23,35 @@ class gamespace{
     this.app.stage.addChild(this.floor);
 
     this.walls = new PIXI.Graphics();
-    for (let r = 0, R = 0; r < this.boardSize.height; r++, R += this.boardScale) {
+    for (let r = 1, R = 0; r < this.boardSize.height-1; r++, R += this.boardScale) {
         let row = this.board[r];
-        for (let c = 0, C = 0; c < this.boardSize.width; c++, C += this.boardScale) {
+        let next_row = this.board[r+1];
+        for (let c = 1, C = 0; c < this.boardSize.width-1; c++, C += this.boardScale) {
             if(row[c] == 1){
+              if(row[c-1] == 1){
+                this.walls.beginFill("white");
+                this.walls.drawRect(C, R - 8, 23, 8);
+                this.walls.endFill();
+                this.walls.beginFill("darkgrey");
+                this.walls.drawRect(C, R, 23, 64);
+                this.walls.endFill();
+              }
+              
               this.walls.beginFill("white");
-              this.walls.drawRect(C, R - 8, this.boardScale, 8);
+              this.walls.drawRect(C + 23, R - 8, 8, 8);
               this.walls.endFill();
-              this.walls.beginFill("darkgrey");
-              this.walls.drawRect(C, R, this.boardScale, this.boardScale + 8);
+              this.walls.beginFill((next_row[c] == 1) ? "white" : "darkgrey");
+              this.walls.drawRect(C + 23, R, 8, 64);
               this.walls.endFill();
+              
+              if(row[c+1] == 1){
+                this.walls.beginFill("white");
+                this.walls.drawRect(C + 31, R - 8, 23, 8);
+                this.walls.endFill();
+                this.walls.beginFill("darkgrey");
+                this.walls.drawRect(C + 31, R, 23, 64);
+                this.walls.endFill();
+              }
             }
         }
     }
