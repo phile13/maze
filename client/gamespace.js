@@ -16,7 +16,7 @@ export class gamespace{
     document.body.appendChild( this.renderer.domElement );
 
     //create game world  
-    let geometry = new THREE.BoxGeometry( this.boardSize.width, -1, this.boardSize.height );
+    let geometry = new THREE.BoxGeometry( this.boardSize.width, 1, this.boardSize.height );
     let material = new THREE.MeshBasicMaterial( { color: 0x444444 } );
     let floor = new THREE.Mesh( geometry, material );
     floor.position.x = 0;
