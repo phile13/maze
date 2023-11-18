@@ -1,6 +1,6 @@
-import * as thing from './thing.js'
+import * as THING from './thing.js'
 
-export class player extends thing {  
+export class player extends THING.thing {  
   constructor(){
     super();
     this.type = "player";    
