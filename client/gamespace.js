@@ -92,3 +92,4 @@ class gamespace{
   }
 
 }
+module.exports = gamespace;
