@@ -83,11 +83,11 @@ export class gamespace{
       who.graphic.position.z = msg.Y;
       if(msg.ID == this.myid){
         this.camera.position.x = msg.X;
-        this.camera.position.z = msg.Y;
-        if("HEADING" in msg){
-          let dir = this.heading_angles[msg.HEADING];
-          this.camera.lookAt(msg.X + dir[0], 0, msg.Y + dir[1]);
-        }
+        this.camera.position.z = msg.Y + 100;
+        //if("HEADING" in msg){
+          //let dir = this.heading_angles[msg.HEADING];
+          //this.camera.lookAt(msg.X + dir[0], 0, msg.Y + dir[1]);
+        //}
       }
       this.renderer.render( this.scene, this.camera );
     }
