@@ -1,3 +1,5 @@
+import * as GS from 'gamespace';
+
 class thing {  
   constructor(){
     this.type = "thing";
