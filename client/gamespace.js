@@ -87,7 +87,7 @@ export class gamespace{
       }
       let angle = this.heading_angles[msg.HEADING];
 
-      this.camera.rotation.lookAt(new THREE.Vector3( 0, 1, 0 ));
+      //this.camera.rotation.lookAt(new THREE.Vector3( 0, 1, 0 ));
       
       this.renderer.render( this.scene, this.camera );
     }
