@@ -23,12 +23,12 @@ class gamespace{
     document.body.appendChild(this.app.view);
 
     //create game world  
-    this.colors = ["lightgrey","darkgrey"];
-    this.floor = new PIXI.Graphics();
-    this.floor.beginFill("lightgrey");
-    this.floor.drawRect(0, 0, this.boardSize.width * this.boardScale, this.boardSize.height * this.boardScale);
-    this.floor.endFill();
-    this.app.stage.addChild(this.floor);
+    let geometry = new THREE.BoxGeometry( this.boardSize.width, 0, this.boardSize.height );
+    let material = new THREE.MeshBasicMaterial( { color: 0x444444 } );
+    let floor = new THREE.Mesh( geometry, material );
+    floor.position.x = 0;
+    floor.position.z = 0; 
+    this.scene.add( cube );
 
     
     for (let r = 0; r < this.boardSize.height; r++) {
@@ -36,11 +36,11 @@ class gamespace{
         for (let c = 0; c < this.boardSize.width; c++) {
             if(row[c] == 1){
               let geometry = new THREE.BoxGeometry( 1, 4, 1 );
-              let material = new THREE.MeshBasicMaterial( { color: colors[i%3] } );
-              let cube = new THREE.Mesh( geometry, material );
-            	cube.position.x = c;
-              cube.position.z = r; 
-              scene.add( cube );
+              let material = new THREE.MeshBasicMaterial( { color: 0x999999 } );
+              let wall = new THREE.Mesh( geometry, material );
+            	wall.position.x = c;
+              wall.position.z = r; 
+              this.scene.add( wall );
             }
         }
     }
