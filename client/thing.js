@@ -1,4 +1,4 @@
-class thing {  
+export class thing {  
   constructor(){
     this.type = "thing";
     this.keycodes = {};
