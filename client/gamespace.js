@@ -44,7 +44,7 @@ export class gamespace{
         for (let c = 0; c < this.boardSize.width; c++) {
             if(row[c] == 1){
               let geometry = new THREE.BoxGeometry( 1, 4, 1 );
-              let material = new THREE.MeshLambertMaterial( { color: 0x999999 } );
+              let material = new THREE.MeshMatcapMaterial( { color: 0x999999 } );
               let wall = new THREE.Mesh( geometry, material );
             	wall.position.x = c;
               wall.position.z = r; 
