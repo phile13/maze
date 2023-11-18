@@ -85,15 +85,11 @@ class gamespace{
   MOVE(msg){
     if(msg.ID >= 0){
       let who = this.things[msg.ID];
-      who.graphic.x = msg.X * this.boardScale + who.offset.x;
-      who.graphic.y = msg.Y * this.boardScale + who.offset.y;
+      who.graphic.position.x = msg.X;
+      who.graphic.position.z = msg.Y;
       if(msg.ID == this.myid){
-        this.app.stage.x = this.canvasCenter.x - who.graphic.x;
-        this.app.stage.y = this.canvasCenter.y - who.graphic.y;
-        
-        this.walls.beginFill("rgba(255,128,0,.1)");
-        this.walls.drawRect(who.graphic.x + 16, who.graphic.y + 16 , 32, 32);
-        this.walls.endFill();
+        camera.position.x = msg.X;
+        camera.position.z = msg.Y;
       }
     }
   }
