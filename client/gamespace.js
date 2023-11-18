@@ -66,18 +66,20 @@ class gamespace{
   }
 
   CreateThings(id, type, is_me = false){
-    let g = new PIXI.Graphics();
-    this.things[id] = { graphic : g , offset : { x : 16 , y : 16 } , size : { x : 32 , y : 32 }};
+    let geometry = new THREE.BoxGeometry( 1, 4, 1 );
+    let material;
     if(type == "player"){
-      g.beginFill((is_me)? "red" : "black");
+      material = new THREE.MeshBasicMaterial( { color: (is_me)? 0xff0000 : 0x000000 } );
     }
     else if(type == "ZOMBIE"){
-      g.beginFill("green");
+      material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
     }
-    g.drawRect(this.things[id].offset.x, this.things[id].offset.y, this.things[id].size.x, this.things[id].size.y);
-    g.endFill();
-    this.app.stage.addChild(g);
-    return g;
+    let thing = new THREE.Mesh( geometry, material );
+    thing.position.x = c;
+    thing.position.z = r; 
+    this.things[id] = { graphic : thing };
+    this.scene.add( thing );
+    return thing;
   }
 
   MOVE(msg){
