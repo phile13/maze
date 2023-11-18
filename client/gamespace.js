@@ -24,7 +24,7 @@ export class gamespace{
     this.scene.add( floor );
 
     let pi_over_4 = Math.PI / 4;
-    this.heading_angles = {N : 2 * pi_over_4 , NW : 3 * pi_over_4 , W : 4 * pi_over_4 , SW : 5 * pi_over_4, S: 6 * pi_over_4, SE : 7 * pi_over_4, E : 0, NE : pi_over_4};
+    this.heading_angles = {N : [0,-1] , NW : [-1,-1] , W : [-1,0], SW : [-1,1], S: [0,1], SE : [1,1], E : [1,0], NE : [1,-1]};
     
     for (let r = 0; r < this.boardSize.height; r++) {
         let row = this.board[r];
@@ -84,11 +84,9 @@ export class gamespace{
       if(msg.ID == this.myid){
         this.camera.position.x = msg.X;
         this.camera.position.z = msg.Y;
+        let dir = this.heading_angles[msg.HEADING];
+        this.camera.rotation.lookAt(new THREE.Vector3( msg.X + dir[0], 0, msg.Y + dir[1]));
       }
-      let angle = this.heading_angles[msg.HEADING];
-
-      //this.camera.rotation.lookAt(new THREE.Vector3( 0, 1, 0 ));
-      
       this.renderer.render( this.scene, this.camera );
     }
   }
