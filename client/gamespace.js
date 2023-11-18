@@ -30,7 +30,7 @@ export class gamespace{
 
     //create game world  
     let geometry = new THREE.BoxGeometry( this.boardSize.width, -1, this.boardSize.height );
-    let material = new THREE.MeshLambertMaterial( { color: 0x444444 } );
+    let material = new THREE.MeshStandardMaterial( { color: 0x444444 } );
     let floor = new THREE.Mesh( geometry, material );
     floor.position.x = 0;
     floor.position.z = 0; 
