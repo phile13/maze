@@ -23,7 +23,7 @@ export class gamespace{
     this.scene.add(light);
     this.scene.add(new THREE.AmbientLight(0xffffff, 0.5));
 
-    let grid = new THREE.GridHelper( this.boardSize.width, this.boardSize.height);
+    let grid = new THREE.GridHelper( this.boardSize.width * 4, this.boardSize.height * 4);
     grid.position.x = 0;
     grid.position.y = 0;
     this.scene.add(grid);
