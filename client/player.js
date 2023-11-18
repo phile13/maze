@@ -1,4 +1,6 @@
-class player extends thing {  
+import * as THING from 'thing';
+
+class player extends THING {  
   constructor(){
     super();
     this.type = "player";    
