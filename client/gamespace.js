@@ -20,10 +20,10 @@ export class gamespace{
     
     let light = new THREE.DirectionalLight(0xffffff, 1.0);
     light.position.setScalar(1);
-    scene.add(light);
-    scene.add(new THREE.AmbientLight(0xffffff, 0.5));
+    this.scene.add(light);
+    this.scene.add(new THREE.AmbientLight(0xffffff, 0.5));
     
-    scene.add(new THREE.GridHelper( this.boardSize.width, this.boardSize.height));
+    this.scene.add(new THREE.GridHelper( this.boardSize.width, this.boardSize.height));
 
     //create game world  
     let geometry = new THREE.BoxGeometry( this.boardSize.width, -1, this.boardSize.height );
