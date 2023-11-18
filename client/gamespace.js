@@ -18,10 +18,10 @@ export class gamespace{
     this.renderer.shadowMap.enabled = true;
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default THREE.PCFShadowMap
     
-    let light = new THREE.DirectionalLight(0xffff00, 5.0);
+    let light = new THREE.DirectionalLight(0xffffff, 1.0);
     light.position.setScalar(5);
     this.scene.add(light);
-    this.scene.add(new THREE.AmbientLight(0xffffff, 0.5));
+    this.scene.add(new THREE.AmbientLight(0xffff00, 1.0));
 
     let grid = new THREE.GridHelper( this.boardSize.width * 4, this.boardSize.height * 4);
     grid.position.x = 0;
