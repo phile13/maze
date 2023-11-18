@@ -21,7 +21,7 @@ export class gamespace{
     let light = new THREE.DirectionalLight(0xffffff, 2.0);
     light.position.set(0,10,0);
     this.scene.add(light);
-    this.scene.add(new THREE.AmbientLight(0xffff00, 1.0));
+    this.scene.add(new THREE.AmbientLight(0xffff00, .40));
 
     let grid = new THREE.GridHelper( this.boardSize.width * 4, this.boardSize.height * 4);
     grid.position.x = 0;
