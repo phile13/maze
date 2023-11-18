@@ -86,7 +86,7 @@ export class gamespace{
         this.camera.position.z = msg.Y;
         if("HEADING" in msg){
           let dir = this.heading_angles[msg.HEADING];
-          this.camera.rotation.lookAt(new THREE.Vector3( msg.X + dir[0], 0, msg.Y + dir[1]));
+          this.camera.rotation.lookAt(msg.X + dir[0], 0, msg.Y + dir[1]);
         }
       }
       this.renderer.render( this.scene, this.camera );
