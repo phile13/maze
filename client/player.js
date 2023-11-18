@@ -1,4 +1,4 @@
-import * as thing from 'thing.js'
+import * as thing from './thing.js'
 
 export class player extends thing {  
   constructor(){
