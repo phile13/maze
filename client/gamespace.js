@@ -83,8 +83,8 @@ export class gamespace{
       who.graphic.position.z = msg.Y;
       if(msg.ID == this.myid){
         this.camera.position.x = msg.X;
-        this.camera.position.z = msg.Y + 10;
-        this.camera.position.y = 10;
+        this.camera.position.z = msg.Y + 5;
+        this.camera.position.y = 20;
         this.camera.lookAt(msg.X , 0, msg.Y);
         //if("HEADING" in msg){
           //let dir = this.heading_angles[msg.HEADING];
