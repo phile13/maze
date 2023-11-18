@@ -42,7 +42,7 @@ export class gamespace{
     
     //Create a helper for the shadow camera (optional)
     const helper = new THREE.CameraHelper( this.light.shadow.camera );
-    scene.add( helper );
+    this.scene.add( helper );
 
     //create game world  
     let geometry = new THREE.BoxGeometry( this.boardSize.width, 1, this.boardSize.height );
