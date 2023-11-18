@@ -1,3 +1,5 @@
+import * as GS from './gamespace.js'
+
 export class thing {  
   constructor(){
     this.type = "thing";
@@ -28,7 +30,7 @@ export class thing {
           this.id = msg['ID'];
         }
         if("BOARD" in msg){
-          this.gs = new gamespace(msg['BOARD'], this.id, this.type, msg['X'], msg['Y']);
+          this.gs = new GS.gamespace(msg['BOARD'], this.id, this.type, msg['X'], msg['Y']);
         }
       }
       catch(e){
