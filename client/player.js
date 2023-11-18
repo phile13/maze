@@ -1,3 +1,5 @@
+import * as thing from 'thing.js'
+
 export class player extends thing {  
   constructor(){
     super();
