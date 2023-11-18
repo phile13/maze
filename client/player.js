@@ -1,4 +1,4 @@
-class player extends thing {  
+export class player extends thing {  
   constructor(){
     super();
     this.type = "player";    
