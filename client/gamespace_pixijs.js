@@ -1,4 +1,4 @@
-class gamespace{
+class gamespace_pixijs{
   constructor(board, id, type, x, y){
     //init
     this.board = board;
