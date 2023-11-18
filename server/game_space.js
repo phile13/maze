@@ -244,7 +244,7 @@ class GameSpace{
     let count = 0;
     let interval_id = setInterval(()=>{
       this.RegisterThing(new NPC("ZOMBIE"));
-      if(count++ > 50){
+      if(count++ > 20){
         clearInterval(interval_id);
       }
     },10);
