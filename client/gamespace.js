@@ -45,7 +45,7 @@ export class gamespace{
     this.myid = id;
     this.mytype = type;
     this.me = this.CreateThings(id, type , true);
-    this.MOVE({ID : this.myid, X : x, Y : y , HEADING : "S"});
+    this.MOVE({ID : this.myid, X : x, Y : y});
   }
 
   HandleMessage(msg){
@@ -84,8 +84,10 @@ export class gamespace{
       if(msg.ID == this.myid){
         this.camera.position.x = msg.X;
         this.camera.position.z = msg.Y;
-        let dir = this.heading_angles[msg.HEADING];
-        this.camera.rotation.lookAt(new THREE.Vector3( msg.X + dir[0], 0, msg.Y + dir[1]));
+        if("HEADING" in msg){
+          let dir = this.heading_angles[msg.HEADING];
+          this.camera.rotation.lookAt(new THREE.Vector3( msg.X + dir[0], 0, msg.Y + dir[1]));
+        }
       }
       this.renderer.render( this.scene, this.camera );
     }
