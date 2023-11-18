@@ -18,8 +18,8 @@ export class gamespace{
     this.renderer.shadowMap.enabled = true;
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap; // default THREE.PCFShadowMap
     
-    let light = new THREE.DirectionalLight(0xffffff, 2.0);
-    light.position.set(0,10,0);
+    let light = new THREE.DirectionalLight(0xffffff, 4.0);
+    light.position.set(50,10,0);
     this.scene.add(light);
     this.scene.add(new THREE.AmbientLight(0xffff00, .40));
 
