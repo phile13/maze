@@ -14,10 +14,6 @@ export class gamespace{
     this.renderer = new THREE.WebGLRenderer();
     this.renderer.setSize( window.innerWidth, window.innerHeight );
     document.body.appendChild( this.renderer.domElement );
-    
-
-
-    document.body.appendChild(this.app.view);
 
     //create game world  
     let geometry = new THREE.BoxGeometry( this.boardSize.width, 0, this.boardSize.height );
@@ -76,6 +72,7 @@ export class gamespace{
     thing.position.z = r; 
     this.things[id] = { graphic : thing };
     this.scene.add( thing );
+    this.renderer.render( this.scene, this.camera );
     return thing;
   }
 
@@ -85,9 +82,10 @@ export class gamespace{
       who.graphic.position.x = msg.X;
       who.graphic.position.z = msg.Y;
       if(msg.ID == this.myid){
-        camera.position.x = msg.X;
-        camera.position.z = msg.Y;
+        this.camera.position.x = msg.X;
+        this.camera.position.z = msg.Y;
       }
+      this.renderer.render( this.scene, this.camera );
     }
   }
 
