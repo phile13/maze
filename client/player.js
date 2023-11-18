@@ -1,5 +1,3 @@
-import * as THING from 'thing';
-
 class player extends thing {  
   constructor(){
     super();
@@ -107,4 +105,3 @@ class player extends thing {
   }
   
 }
-module.exports = player;
