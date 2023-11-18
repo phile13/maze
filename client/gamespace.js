@@ -11,8 +11,14 @@ class gamespace{
     this.canvasCenter = { x : this.canvasSize.width / 2 , y : this.canvasSize.height / 2 };
     
     //create game stage
-    this.app = new PIXI.Application({ background: '#1099bb', view: document.getElementById("board") , resize: window });
-    this.app.stage.scale.x = this.app.stage.scale.y = 1;
+    this.scene = new THREE.Scene();
+    this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+    
+    this.renderer = new THREE.WebGLRenderer();
+    this.renderer.setSize( window.innerWidth, window.innerHeight );
+    document.body.appendChild( this.renderer.domElement );
+    
+
 
     document.body.appendChild(this.app.view);
 
@@ -24,52 +30,21 @@ class gamespace{
     this.floor.endFill();
     this.app.stage.addChild(this.floor);
 
-    this.walls = new PIXI.Graphics();
-    for (let r = 0, R = 0; r < this.boardSize.height-1; r++, R += this.boardScale) {
+    
+    for (let r = 0; r < this.boardSize.height; r++) {
         let row = this.board[r];
-        let next_row = this.board[r+1];
-        for (let c = 1, C = this.boardScale; c < this.boardSize.width-1; c++, C += this.boardScale) {
+        for (let c = 0; c < this.boardSize.width; c++) {
             if(row[c] == 1){
-              if(row[c-1] == 1){
-                this.walls.beginFill("white");
-                this.walls.drawRect(C, R - 8, 28, 8);
-                this.walls.endFill();
-                this.walls.beginFill("black");
-                this.walls.drawRect(C, R, 28, 64);
-                this.walls.endFill();
-                this.walls.beginFill("darkgrey");
-                this.walls.drawRect(C, R + 64, 28, 8);
-                this.walls.endFill();
-              }
-              
-              this.walls.beginFill("white");
-              this.walls.drawRect(C + 28, R - 8, 8, 8);
-              this.walls.endFill();
-              this.walls.beginFill((next_row[c] == 1) ? "white" : "black");
-              this.walls.drawRect(C + 28, R, 8, 64);
-              this.walls.endFill();
-              if(next_row[c] != 1){
-                this.walls.beginFill("darkgrey");
-                this.walls.drawRect(C + 28, R + 64, 8, 8);
-                this.walls.endFill();
-              }
-              
-              if(row[c+1] == 1){
-                this.walls.beginFill("white");
-                this.walls.drawRect(C + 36, R - 8, 28, 8);
-                this.walls.endFill();
-                this.walls.beginFill("black");
-                this.walls.drawRect(C + 36, R, 28, 64);
-                this.walls.endFill();
-                this.walls.beginFill("darkgrey");
-                this.walls.drawRect(C + 36, R + 64, 28, 8);
-                this.walls.endFill();
-              }
+              let geometry = new THREE.BoxGeometry( 1, 4, 1 );
+              let material = new THREE.MeshBasicMaterial( { color: colors[i%3] } );
+              let cube = new THREE.Mesh( geometry, material );
+            	cube.position.x = c;
+              cube.position.z = r; 
+              scene.add( cube );
             }
         }
     }
-    this.app.stage.addChild(this.walls);
-
+    
     //add player to game world
     this.things = {'BOARD':-1};
     this.myid = id;
