@@ -102,3 +102,5 @@ class thing {
     }
   }
 }
+
+module.exports = thing;
