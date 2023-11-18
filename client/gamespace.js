@@ -76,13 +76,13 @@ export class gamespace{
   }
 
   CreateThings(id, type, is_me = false){
-    let geometry = new THREE.BoxGeometry( 1, 4, 1 );
+    let geometry = new THREE.CylinderGeometry( 1, 4, 1 , 32 );
     let material;
     if(type == "player"){
-      material = new THREE.MeshBasicMaterial( { color: (is_me)? 0xff0000 : 0x000000 } );
+      material = new THREE.MeshLambertMaterial( { color: (is_me)? 0xff0000 : 0x000000 } );
     }
     else if(type == "ZOMBIE"){
-      material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+      material = new THREE.MeshLambertMaterial( { color: 0x00ff00 } );
     }
     let thing = new THREE.Mesh( geometry, material );
     this.things[id] = { graphic : thing };
