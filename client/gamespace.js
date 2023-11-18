@@ -21,7 +21,7 @@ export class gamespace{
     let floor = new THREE.Mesh( geometry, material );
     floor.position.x = 0;
     floor.position.z = 0; 
-    this.scene.add( cube );
+    this.scene.add( floor );
 
     
     for (let r = 0; r < this.boardSize.height; r++) {
