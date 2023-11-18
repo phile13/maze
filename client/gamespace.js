@@ -17,6 +17,7 @@ export class gamespace{
 
     this.light = new THREE.PointLight( 0xff0000, 1, 100 );
     this.light.position.set( 0, 0, 0 );
+    this.light.castShadow = true;
     this.scene.add( this.light );
 
     //create game world  
