@@ -15,6 +15,10 @@ export class gamespace{
     this.renderer.setSize( window.innerWidth, window.innerHeight );
     document.body.appendChild( this.renderer.domElement );
 
+    this.light = new THREE.PointLight( 0xff0000, 1, 100 );
+    this.light.position.set( 0, 0, 0 );
+    this.scene.add( this.light );
+
     //create game world  
     let geometry = new THREE.BoxGeometry( this.boardSize.width, 1, this.boardSize.height );
     let material = new THREE.MeshBasicMaterial( { color: 0x444444 } );
@@ -46,6 +50,8 @@ export class gamespace{
     this.mytype = type;
     this.me = this.CreateThings(id, type , true);
     this.MOVE({ID : this.myid, X : x, Y : y});
+
+    
   }
 
   HandleMessage(msg){
