@@ -29,12 +29,12 @@ export class gamespace{
     this.scene.add(grid);
 
     //create game world  
-    /*let geometry = new THREE.BoxGeometry( this.boardSize.width, -1, this.boardSize.height );
-    let material = new THREE.MeshStandardMaterial( { color: 0x999999 } );
+    let geometry = new THREE.BoxGeometry( this.boardSize.width * 4, -1, this.boardSize.height * 4 );
+    let material = new THREE.MeshLambertMaterial( { color: 0x999999 } );
     let floor = new THREE.Mesh( geometry, material );
     floor.position.x = 0;
     floor.position.z = 0; 
-    //this.scene.add( floor );*/
+    //this.scene.add( floor );
 
     let pi_over_4 = Math.PI / 4;
     this.heading_angles = {N : [0,-100] , NW : [-100,-100] , W : [-100,0], SW : [-100,100], S: [0,100], SE : [100,100], E : [100,0], NE : [100,-100]};
