@@ -86,8 +86,8 @@ export class gamespace{
         this.camera.position.z = msg.Y;
       }
       let angle = this.heading_angles[msg.HEADING];
-      this.camera.position.x = radius * Math.cos( angle );  
-      this.camera.position.z = radius * Math.sin( angle );
+      this.camera.position.x =  Math.cos( angle );  
+      this.camera.position.z =  Math.sin( angle );
       
       this.renderer.render( this.scene, this.camera );
     }
