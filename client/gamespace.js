@@ -1,5 +1,3 @@
-import * as THREE from 'three';
-
 class gamespace{
   constructor(board, id, type, x, y){
     //init
