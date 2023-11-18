@@ -22,8 +22,11 @@ export class gamespace{
     light.position.setScalar(1);
     this.scene.add(light);
     this.scene.add(new THREE.AmbientLight(0xffffff, 0.5));
-    
-    this.scene.add(new THREE.GridHelper( this.boardSize.width, this.boardSize.height));
+
+    let grid = new THREE.GridHelper( this.boardSize.width, this.boardSize.height);
+    grid.position.x = 0;
+    grid.position.y = 0;
+    this.scene.add(grid);
 
     //create game world  
     let geometry = new THREE.BoxGeometry( this.boardSize.width, -1, this.boardSize.height );
