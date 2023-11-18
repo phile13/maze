@@ -107,3 +107,4 @@ class player extends thing {
   }
   
 }
+module.exports = player;
