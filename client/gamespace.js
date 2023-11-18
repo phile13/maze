@@ -45,7 +45,7 @@ export class gamespace{
     this.myid = id;
     this.mytype = type;
     this.me = this.CreateThings(id, type , true);
-    this.MOVE({ID : this.myid, X : x, Y : y });
+    this.MOVE({ID : this.myid, X : x, Y : y , HEADING : "S"});
   }
 
   HandleMessage(msg){
