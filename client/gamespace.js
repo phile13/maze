@@ -68,8 +68,6 @@ export class gamespace{
       material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
     }
     let thing = new THREE.Mesh( geometry, material );
-    thing.position.x = c;
-    thing.position.z = r; 
     this.things[id] = { graphic : thing };
     this.scene.add( thing );
     this.renderer.render( this.scene, this.camera );
