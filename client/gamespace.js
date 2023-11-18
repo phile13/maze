@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 
-class gamespace{
+export class gamespace{
   constructor(board, id, type, x, y){
     //init
     this.board = board;
