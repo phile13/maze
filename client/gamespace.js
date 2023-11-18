@@ -4,10 +4,7 @@ class gamespace{
     this.board = board;
     this.boardScale = 64;
     this.boardSize = { height : this.board.length , width : this.board[0].length };
-    this.boardCenter = { x : this.boardScale * this.boardSize.width / 4 , y : this.boardScale * this.boardSize.height / 4 };
-    this.canvasSize = { height : document.getElementById('board').height , width : document.getElementById('board').width };
-    this.canvasCenter = { x : this.canvasSize.width / 2 , y : this.canvasSize.height / 2 };
-    
+ 
     //create game stage
     this.scene = new THREE.Scene();
     this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
