@@ -115,7 +115,7 @@ export class gamespace{
       if(msg.ID == this.myid){
         this.camera.position.x = msg.X;
         this.camera.position.z = msg.Y + 3;
-        this.camera.position.y = 3;
+        this.camera.position.y = 10;
         this.camera.lookAt(msg.X , 0, msg.Y);
         this.light.position.set( msg.X, 3,  msg.Y + 3 );
         //if("HEADING" in msg){
