@@ -24,7 +24,7 @@ export class gamespace{
     this.scene.add( floor );
 
     let pi_over_4 = Math.PI / 4;
-    this.heading_angles = {N : [0,-1] , NW : [-1,-1] , W : [-1,0], SW : [-1,1], S: [0,1], SE : [1,1], E : [1,0], NE : [1,-1]};
+    this.heading_angles = {N : [0,-100] , NW : [-100,-100] , W : [-100,0], SW : [-100,100], S: [0,100], SE : [100,100], E : [100,0], NE : [100,-100]};
     
     for (let r = 0; r < this.boardSize.height; r++) {
         let row = this.board[r];
