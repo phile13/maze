@@ -15,34 +15,20 @@ export class gamespace{
     this.renderer.setSize( window.innerWidth, window.innerHeight );
     document.body.appendChild( this.renderer.domElement );
 
-    this.light = new THREE.PointLight( 0xff0000, 1, 100 );
-    this.light.position.set( 0, 0, 0 );
-    this.light.castShadow = true;
-    this.scene.add( this.light );
-    //Set up shadow properties for the light
-    this.light.shadow.mapSize.width = 512; // default
-    this.light.shadow.mapSize.height = 512; // default
-    this.light.shadow.camera.near = 0.5; // default
-    this.light.shadow.camera.far = 500; // default
+    const spotLight = new THREE.SpotLight( 0xffffff );
+    spotLight.position.set( 100, 1000, 100 );
+    //spotLight.map = new THREE.TextureLoader().load( url );
     
-    //Create a sphere that cast shadows (but does not receive them)
-    const sphereGeometry = new THREE.SphereGeometry( 5, 32, 32 );
-    const sphereMaterial = new THREE.MeshStandardMaterial( { color: 0xff0000 } );
-    const sphere = new THREE.Mesh( sphereGeometry, sphereMaterial );
-    sphere.castShadow = true; //default is false
-    sphere.receiveShadow = false; //default
-    this.scene.add( sphere );
+    spotLight.castShadow = true;
     
-    //Create a plane that receives shadows (but does not cast them)
-    const planeGeometry = new THREE.PlaneGeometry( 20, 20, 32, 32 );
-    const planeMaterial = new THREE.MeshStandardMaterial( { color: 0x00ff00 } )
-    const plane = new THREE.Mesh( planeGeometry, planeMaterial );
-    plane.receiveShadow = true;
-    this.scene.add( plane );
+    spotLight.shadow.mapSize.width =  this.boardSize.width;
+    spotLight.shadow.mapSize.height =  this.boardSize.height;
     
-    //Create a helper for the shadow camera (optional)
-    const helper = new THREE.CameraHelper( this.light.shadow.camera );
-    this.scene.add( helper );
+    spotLight.shadow.camera.near = 500;
+    spotLight.shadow.camera.far = 4000;
+    spotLight.shadow.camera.fov = 30;
+    
+    this.scene.add( spotLight );
 
     //create game world  
     let geometry = new THREE.BoxGeometry( this.boardSize.width, -1, this.boardSize.height );
