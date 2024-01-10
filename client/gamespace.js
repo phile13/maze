@@ -76,7 +76,7 @@ export class gamespace{
   }
 
   CreateThings(id, type, is_me = false){
-    let geometry = new THREE.BoxGeometry( 1, 4, 4  );
+    let geometry = new THREE.BoxGeometry( 4, 1, 4  );
     let material;
     if(type == "player"){
       material = new THREE.MeshLambertMaterial( { color: (is_me)? 0xff5000 : 0x000000 } );
