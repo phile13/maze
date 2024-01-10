@@ -72,6 +72,7 @@ class GameSpace{
   CheckIfSpaceIsOpen(x,y){
     console.log(`CheckIfSpaceIsOpen:${x},${y}`);
     if(y in this.board && x in this.board[y]){
+      console.log("ON BOARD");
       let space = this.board[y][x];
       console.log(this.accessible_types[space.type]);
       if(this.accessible_types[space.type] !== undefined && space.thing == null && space.tool == null){
