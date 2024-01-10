@@ -79,7 +79,7 @@ export class gamespace{
     let geometry = new THREE.BoxGeometry( 1, 1, 1  );
     let material;
     if(type == "player"){
-      material = new THREE.MeshLambertMaterial( { color: (is_me)? 0xff5000 : 0x000000 } );
+      material = new THREE.MeshLambertMaterial( { color: (is_me)? 0xff0000 : 0x000000 } );
     }
     else if(type == "ZOMBIE"){
       material = new THREE.MeshLambertMaterial( { color: 0x00ff00 } );
