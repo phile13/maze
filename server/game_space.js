@@ -18,7 +18,8 @@ class GameSpace{
         this.board[r][c] = {type:(r%4==0||c%4==0)?"WALL":"FLOOR",thing:null,tool:null};
       }
     }
-    this.WilsonsMazeAlgorithm();
+    //this.WilsonsMazeAlgorithm();
+    
     //this.CreateMaze(this.rows-1,0,this.cols-1,0,"H");
     this.json_board = JSON.stringify(this.BoardObject());
     
